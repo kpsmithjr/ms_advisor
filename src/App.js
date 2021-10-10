@@ -1,24 +1,53 @@
-import logo from './logo.svg';
+import React, { Fragment , useState} from 'react';
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/NavBar';
+import Home from './components/Home';
+import Options from './components/Options';
+import Waivers from './components/Waivers';
+import Plan from './components/Plan';
 
-function App() {
+const optionsDefault = {
+  firstSem: 'FS 21',
+  msOption: 'Traditional',
+  maxCredHrs: 6,
+  enrollSS: false
+}
+const App = () => {
+  const history = useHistory();
+  const [optionsVal, setOptionsVal] = useState(optionsDefault);
+  const [validOptions, setValidOptions]= useState(false);
+
+  const updateOptions = (newOptions) => {
+    setOptionsVal(newOptions);
+    setValidOptions(true);
+  }
+  const myWaivers = [];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route
+              exact
+              path='/options/'
+              render={(props)=>
+                <Options options={optionsVal} handler={updateOptions}/>
+              }
+            />
+            <Route exact path='/waivers/' component={Waivers} />
+            <Route
+              exact
+              path='/plan/'
+              render={()=>
+                <Plan msOption={optionsVal.msOption} waivers={myWaivers}/>
+              }
+            />
+          </Switch>
+        </div>
+      </Router>
   );
 }
 
