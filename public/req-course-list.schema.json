@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/req-course-list",
+  "title": "Requirement Course List",
+  "description": "The object contains a list of courses, in which all or some of the courses need to be completed to satistfy the requirement. The number of required courese is also indicated.",
+  "type": "object",
+  "properties": {
+    "courses" : {
+      "desription": "Array of courses in the list",
+      "type": "array",
+      "items" : {
+        "$ref": "/schemas/course"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "numReq": {
+      "desription": "Indicates the numbe of courses in the list that are required to be completed",
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": ["courses", "numReq"]
+}

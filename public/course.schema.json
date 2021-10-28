@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "file///home/ken/Research/ms_advisor_model/public/public/course.schema.json",
+  "title": "Course",
+  "description": "A course offered at UMSL",
+  "type": "object",
+  "properties": {
+    "dept": {
+      "description": "The department that offers the course",
+      "type": "string"
+    },
+    "num": {
+      "description": "The unique indentifier within the department for the course",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "credHrs": {
+      "description": "Number of credit hours earned by completing the course",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "name": {
+      "description": "Discriptive name of the course",
+      "type": "string"
+    }
+  },
+  "required": ["dept", "num"]
+}
