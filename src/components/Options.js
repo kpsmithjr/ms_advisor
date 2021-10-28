@@ -1,15 +1,19 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
-const semesters = ["FS 21", "SP 22", "FS22", "SP 23"];
-const msOptions = ["Traditional",
-                   "Professional",
-                   "Graduate Certificate in Artificial Intelligence",
-                   "Graduate Certificate in Cybersecurity",
-                   "Graduate Certificate in Data Science",
-                   "Graduate Certificate in Internet and Web",
-                   "Graduate Certificate in Mobile Apps and Computing"
-                  ];
+const semesters = [
+  "FS 21",
+  "SP 22",
+  "FS22",
+  "SP 23"
+];
+const msTracks = [
+  "Traditional",
+  "Professional",
+  "Graduate Certificate"
+];
+
+
 const credHrs = [3, 6, 9]
 
 const Options =({options, handler})=> {
@@ -17,7 +21,19 @@ const Options =({options, handler})=> {
   const [formData, setFormData] = useState(options);
 
   function handleChange(e) {
-    return setFormData({ ...formData, [e.target.name]: e.target.value });
+    return setFormData({ ...formData, [e.target.name]: [e.target.value] });
+  }
+
+  function handelCheckChange(e) {
+    return setFormData({ ...formData, [e.target.name]: e.target.checked });
+  }
+
+  function handleCertChange(e) {
+    const newCerts = formData.certs.map(cert => {
+      if (cert.name !== e.target.name ) return cert;      
+      return { ...cert, selected: e.target.checked};
+    });
+    setFormData({ ...formData, certs: newCerts});
   }
 
   function handleSubmit() {
@@ -49,15 +65,37 @@ const Options =({options, handler})=> {
             <br />
             <br />
             <label>
-              Select Your MS Option
+              Select Your MS Track
             <select
-              name="msOption"
-              value={formData.msOption}
+              name="msTrack"
+              value={formData.msTrack}
               onChange={handleChange}
             >
-              {msOptions.map((item, i) => { return (<option key={i} value={item}>{item}</option>) })}
-            </select>  
+              {msTracks.map((item, i) => { return (<option key={i} value={item}>{item}</option>) })}
+            </select>
             </label>
+            <br />
+            <br />
+            
+            Graduate Certificate: 
+            {formData.certs.map(( cert, index) => {
+              return (
+                <li key={index}>
+                  <div >
+                    <div >
+                      <input
+                        type="checkbox"
+                        id={`custom-checkbox-${index}`}
+                        name={cert.name}
+                        checked={cert.selected}
+                        onChange={handleCertChange}
+                      />
+                      <label>{cert.name}</label>                 
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
             <br />
             <br />
             <label>
@@ -77,8 +115,8 @@ const Options =({options, handler})=> {
             <input
               name="enrollSS"
               type="checkbox"
-              value={formData.enrollSS}
-              onChange={handleChange}
+              checked={formData.enrollSS}
+              onChange={handelCheckChange}
             />
             </label>
             <br />

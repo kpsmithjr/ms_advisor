@@ -3,7 +3,7 @@ import Requirements from "./Requirements";
 import Planner from "./Planner";
 import CourseSelctor from "./CourseSelector";
 
-const Plan =({msOption, waivers})=> {
+const Plan =({msOptions, waivers})=> {
     const [plan, setPlan] = useState([]);
     
     function updatePlan() {
@@ -22,7 +22,7 @@ const Plan =({msOption, waivers})=> {
                 <Planner />
             </div>
             <div className="plan-requirements">
-                <Requirements msOption={msOption} plan={plan} waivers={waivers}/>
+                <Requirements msOptions={msOptions} plan={plan} waivers={waivers}/>
             </div>
             <div className="plan-footer">
                 <button onClick={updatePlan}>Save Plan</button>

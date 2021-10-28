@@ -357,11 +357,12 @@ setReqs({ ...req, optReqClasses: aiReqs.required,
     numOptElect: aiReqs.num_elective});
 */
 
-const Requirements =({msOption, plan, waivers})=> {
-    console.log({msOption})
+const Requirements =({msOptions, plan, waivers})=> {
     var optReqClassesVal;
     var optElectClassesVal;
-    switch (msOption) {
+    console.log(msOptions.msTrack)
+    console.log(msOptions.certs)
+    switch (msOptions.msTrack) {
         case "Traditional":
             optReqClassesVal =  tradReqs.required;
             optElectClassesVal =  tradReqs.electives;
@@ -370,26 +371,25 @@ const Requirements =({msOption, plan, waivers})=> {
             optReqClassesVal =  profReqs.required;
             optElectClassesVal =  profReqs.electives;
             break;
-        case "Graduate Certificate in Artificial Intelligence":
-            optReqClassesVal =  aiReqs.required;
-            optElectClassesVal =  aiReqs.electives;
-            break;
-        case "Graduate Certificate in Cybersecurity":
-            optReqClassesVal =  cyberReqs.required;
-            optElectClassesVal =  cyberReqs.electives;
-            break;
-        case "Graduate Certificate in Data Science":
-            optReqClassesVal =  dsReqs.required;
-            optElectClassesVal =  dsReqs.electives;
-            break;
-        case "Graduate Certificate in Internet and Web":
-            optReqClassesVal =  webReqs.required;
-            optElectClassesVal =  webReqs.electives;
-            break;
-        case "Graduate Certificate in Mobile Apps and Computing":
-            optReqClassesVal =  mobileReqs.required;
-            optElectClassesVal =  mobileReqs.electives;
-            break;
+        case "Graduate Certificate":
+
+            if (msOptions.certs[0].selected) {
+                optReqClassesVal = aiReqs.required;
+                optElectClassesVal = aiReqs.electives;
+            } else if (msOptions.certs[1].selected) {
+                optReqClassesVal = cyberReqs.required;
+                optElectClassesVal = cyberReqs.electives;
+            } else if (msOptions.certs[2].selected) {
+                optReqClassesVal = dsReqs.required;
+                optElectClassesVal = dsReqs.electives;
+            } else if (msOptions.certs[3].selected) {
+                optReqClassesVal = webReqs.required;
+                optElectClassesVal = webReqs.electives;
+            } else if (msOptions.certs[4].selected) {
+                optReqClassesVal = mobileReqs.required;
+                optElectClassesVal = mobileReqs.electives;
+            } 
+            break;            
         default:
             optReqClassesVal =  [[]];
             optElectClassesVal =  [[]];
@@ -400,20 +400,20 @@ const Requirements =({msOption, plan, waivers})=> {
     const [req, setReqs] = useState({reqHrs: coreReqs.credHrs,
                                      req6000: true,
                                      reqClasses: coreReqs.required,
-                                     optReqClasses:aiReqs.required,
-                                     optElectClasses: aiReqs.electives,
+                                     optReqClasses: optReqClassesVal,
+                                     optElectClasses: optElectClassesVal,
                                      numOptReq: 0,
                                      numOptElect: 0}
     );
 
-    function genReqs(reqClasses) {
+    function genReqs(classes) {
         let test = [];
-        for (let i = 0; i < req.reqClasses.length; i++) {
+        for (let i = 0; i < classes.length; i++) {
             let test_row = "";
-            test_row = req.reqClasses[i][0].dept + " " + req.reqClasses[i][0].num;
+            test_row = classes[i][0].dept + " " + classes[i][0].num;
 
-            for (let j = 1; j < req.reqClasses[i].length; j++) {
-                test_row += " or " + req.reqClasses[i][j].dept + " " + req.reqClasses[i][j].num;
+            for (let j = 1; j < classes[i].length; j++) {
+                test_row += " or " + classes[i][j].dept + " " + classes[i][j].num;
             }
             test.push(test_row);
         }
@@ -421,7 +421,8 @@ const Requirements =({msOption, plan, waivers})=> {
     }
 
     const test = genReqs(req.reqClasses);
-    const test2 = genReqs(req.optReqClasses) ;
+    console.log(req.optReqClasses)
+    const test1 = genReqs(req.optReqClasses);
 
     return (
         
@@ -434,7 +435,7 @@ const Requirements =({msOption, plan, waivers})=> {
             </ul>
             <h3>Option Requirements</h3>
             <ul>
-                {test2.map((value, index) => <li key={index}>{value}</li>)}
+                {test1.map((value, index) => <li key={index}>{value}</li>)}
             </ul>
                 <h3>Option Electives ({req.numOptElect})</h3>
             <ul>
