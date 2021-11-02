@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "plannedCourse",
+  "title": "Planned Course",
+  "description": "A course section taken, planned, or deficient",
+  "allOf": [ { "$ref": "file///home/ken/Research/ms_advisor_model/public/public/course.schema.json" } ],
+  "properties": {
+    "section": {
+      "description": "The number of a particular section offering of a course",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "year": {
+      "description": "The year of the course section",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "semester": {
+      "description": "The semester of the course section",
+      "type": "string",
+      "enum": [ "spring", "summer", "fall" ]
+    }
+    //TODO: add a property for an array of key, value pairs of day/time ranges
+  },
+  "required": [ "dept", "num" ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "file///home/ken/Research/ms_advisor_model/public/plannedCourseList.schema.json",
+  "title": "Planned Course List",
+  "description": "A list of courses taken, planned, or deficient",
+  "type": "array",
+  "minItems": 1,
+  "uniqueItems": false, //may have multiple thesis research, special topics in cs, etc
+  "items": { "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourse.schema.json" }
+  //TODO: don't think this schema is necessary
+}
