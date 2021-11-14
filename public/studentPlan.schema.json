@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "file///home/ken/Research/ms_advisor_model/public/studentPlan.schema.json",
+  "title": "Student Plan",
+  "description": "Contains a user's degree options, progress, and plan",
+  "type": "object",
+  "uniqueItems": true,
+  "items": {
+    "options": {
+      "$ref": "file///home/ken/Research/ms_advisor_model/public/public/options.schema.json",
+      "description": "the user's options for pursuing their degree"
+    }
+  },
+  "properties": {
+    "plannedCourses": {
+      "description": "list of plannedCourses that the user is planning to take",
+      "type": "array",
+      "items": {
+        "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json"
+      }
+    },
+    "takenCourses": {
+      //waivers & transfer credits go here too
+      "description": "list of plannedCourses that the user has already taken",
+      "type": "array",
+      "items": {
+        "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json"
+      }
+    },
+    "deficientCourses": {
+      "description": "list additional plannedCourse deficiencies the user must also take",
+      "type": "array",
+      "items": {
+        "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json"
+      }
+    }
+  }
+
+  //"items": {
+  //  "options": {
+  //    "$ref": "file///home/ken/Research/ms_advisor_model/public/public/options.schema.json",
+  //    "description": "the user's options for pursuing their degree"
+  //  }
+
+  //  "plannedCourses": {
+  //    "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json",
+  //    "description": "list of plannedCourses that the user is planning to take"
+  //  },
+
+  //  "takenCourses": {
+  //    "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json",
+  //    "description": "list of plannedCourses that the user has already taken"
+  //  },
+
+  //  "deficientCourses": {
+  //    "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourseList.schema.json",
+  //    "description": "list additional plannedCourse deficiencies the user must also take"
+  //  }
+
+  //}
+}
