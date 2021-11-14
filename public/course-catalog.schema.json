@@ -32,7 +32,10 @@
     "name": {
       "description": "Discriptive name of the course",
       "type": "string"
-    }
+    },
+	"gradStanding": {
+		"type": "bool"
+	}
   },
   "required": ["dept", "num"]
 }
