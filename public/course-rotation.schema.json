@@ -1,10 +1,10 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "course-rotation",
-  "title": "Course Rotation",
-  "description": "The planned course rotation for graduate course in the Computer Science Department of UMSL",
-  "type": "array",
-  "items": { "$ref": "#/$defs/rotationItem"	},
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "course-rotation",
+	"title": "Course Rotation",
+	"description": "The planned course rotation for graduate course in the Computer Science Department of UMSL",
+	"type": "array",
+	"items": { "$ref": "#/$defs/rotationItem" },
 	"minItems": 1,
 	"uniqueItems": true,
 
@@ -12,18 +12,18 @@
 		"rotationItem": {
 			"type": "object",
 			"properties": {
-				"course": { "$ref": "course" },
-				"day": { "type": "bool" },
-				"evening": { "type": "bool" },
-				"online": { "type": "bool" },
-				"arranged": { "type": "bool" },
-				"springSem": { "type": "bool" },
-				"summerSem": { "type": "bool" },
-				"fallSem": { "type": "bool" },
-				"evenYr": { "type": "bool" },
-				"oddYr": { "type": "bool" }
+				"course": { "$ref": "./course" },
+				"day": { "type": "boolean" },
+				"evening": { "type": "boolean" },
+				"online": { "type": "boolean" },
+				"arranged": { "type": "boolean" },
+				"springSem": { "type": "boolean" },
+				"summerSem": { "type": "boolean" },
+				"fallSem": { "type": "boolean" },
+				"evenYr": { "type": "boolean" },
+				"oddYr": { "type": "boolean" }
 			},
-			"required": ["course", "day", "evening", "online", "arranged", "springSem", "summerSem", "fallSem", "evenYr", "oddYr" ]
+			"required": [ "course", "day", "evening", "online", "arranged", "springSem", "summerSem", "fallSem", "evenYr", "oddYr" ]
 		}
 	}
 }
