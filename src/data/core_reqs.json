@@ -1,0 +1,38 @@
+{
+	"name": "Master of Science in Computer Science",
+  "required": [
+    {
+      "courses": [
+        {
+          "id": "CS-4250",
+          "dept": "CS",
+          "num": 4250
+        }
+      ],
+      "numReq": 1
+    },
+    {
+      "courses": [
+    	  {
+          "id": "CS-5130",
+          "dept": "CS",
+          "num": 5130
+        }
+      ],
+      "numReq": 1
+    },
+    {
+      "courses": [
+    	  {
+          "id": "CS-5500",
+          "dept": "CS",
+          "num": 5500
+        }
+      ],
+      "numReq": 1
+    }
+  ],
+  "num_core": 3,
+  "credHrs": 30,
+  "credHrs5000": 18
+}

@@ -1,0 +1,588 @@
+[
+	{
+		"name": "Traditional",
+  	"required": [
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-4760",
+          	"dept": "CS",
+          	"num": 4760
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-5700",
+          	"dept": "CS",
+          	"num": 5700
+        	}
+      	],
+      	"numReq": 1
+    	}
+  	],
+  	"electives": [
+    	{
+      	"courses": [],
+      	"numReq": 0
+    	}
+  	],
+  	"num_core": 2,
+  	"num_elective": 0
+	},
+	{
+		"name": "Professional",
+    "required": [
+      {
+        "courses": [
+          {
+			"id": "CS-5994",
+            "dept": "CS",
+            "num": 5994
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "electives": [
+      {
+        "courses": [],
+        "numReq": 0
+      }
+    ],
+    "num_core": 1,
+    "num_elective": 2
+	},
+	{
+		"name": "Graduate Certificate in Artificial Intelligence",
+  	"required": [
+    	{
+      	"courses": [
+        	{
+	          	"id": "CS-5130",
+    	      	"dept": "CS",
+    	      	"num": 5130
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-5300",
+          	"dept": "CS",
+          	"num": 5300
+        	}
+      	],
+      	"numReq": 1
+    	}
+  	],
+  	"electives": [
+    	{
+	      "courses": [
+  	      {
+    	      "id": "CS-5320",
+      	    "dept": "CS",
+        	  "num": 5320
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-5340",
+          	"dept": "CS",
+          	"num": 5340
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-5342",
+          	"dept": "CS",
+          	"num": 5342
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-5370",
+          	"dept": "CS",
+          	"num": 5370
+        	}
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+	        {
+  	        "id": "CS-5390",
+    	      "dept": "CS",
+      	    "num": 5390
+	        }
+  	    ],
+    	  "numReq": 1
+    	},
+	    {
+  	    "courses": [
+    	    {
+      	    "id": "CS-5420",
+        	  "dept": "CS",
+          	"num": 5420
+	        }
+  	    ],
+    	  "numReq": 1
+    	},
+    	{
+      	"courses": [
+	        {
+  	        "id": "CS-6320",
+    	      "dept": "CS",
+      	    "num": 6320
+	        }
+      	],
+      	"numReq": 1
+    	},
+    	{
+      	"courses": [
+        	{
+          	"id": "CS-6340",
+	          "dept": "CS",
+  	        "num": 6340
+    	    }
+      	],
+	      "numReq": 1
+  	  }
+  	],
+  	"num_core": 2,
+  	"num_elective": 2
+	},
+	{
+		"name": "Graduate Certificate in Mobile Apps and Computing",
+		"required": [
+			{
+				"courses": [
+					{
+						"id": "CS-5020",
+						"dept": "CS",
+						"num": 5020
+					}            
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+					{
+						"id": "CS-4200",
+						"dept": "CS",
+						"num": 4200
+					}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+					{
+						"id": "CS-5792",
+						"dept": "CS",
+						"num": 5792
+					}
+				],
+				"numReq": 1
+			}
+		],
+		"electives": [
+			{
+				"courses": [
+					{
+						"id": "CS-4610",
+						"dept": "CS",
+						"num": 4610
+					}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+					{
+						"id": "CS-5222",
+						"dept": "CS",
+						"num": 5222
+					}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+					{
+						"id": "CS-5750",
+						"dept": "CS",
+						"num": 5750
+					}
+				],
+				"numReq": 1
+			}
+		],
+		"num_core": 3,
+		"num_elective": 1
+	},
+	{
+		"name": "Graduate Certificate in Internet and Web",
+    "required": [
+			{
+				"courses": [
+          {
+						"id": "CS-4010",
+						"dept": "CS",
+						"num": 4010
+          }            
+        ],
+				"numReq": 1
+			},
+			{
+				"courses": [
+          {
+						"id": "CS-4011",
+						"dept": "CS",
+						"num": 4011
+          }
+        ],
+				"numReq": 1
+			},
+			{
+				"courses": [
+					{
+						"id": "CS-5012",
+						"dept": "CS",
+						"num": 5012
+          }
+        ],
+				"numReq": 1
+			}
+    ],
+    "electives": [
+			{
+				"courses": [
+        	{
+						"id": "CS-5020",
+						"dept": "CS",
+						"num": 5020
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5030",
+						"dept": "CS",
+						"num": 5030
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5792",
+						"dept": "CS",
+						"num": 5792
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5750",
+						"dept": "CS",
+						"num": 5750
+        	}
+				],
+				"numReq": 1
+			}
+    ],
+    "num_core": 3,
+    "num_elective": 1
+	},
+	{
+		"name": "Graduate Certificate in Data Science",
+    "required": [
+			{
+        "courses": [
+          {
+						"id": "CS-4200",
+						"dept": "CS",
+						"num": 4200
+          }
+        ],
+				"numReq": 1
+			},
+			{
+				"courses": [
+          {
+						"id": "CS-5340",
+						"dept": "CS",
+						"num": 5340
+           }
+        ],
+				"numReq": 1
+			},
+			{
+				"courses": [
+          {
+						"id": "CS-5342",
+						"dept": "CS",
+						"num": 5342
+           }
+        ],
+				"numReq": 1
+			}
+    ],
+    "electives": [
+			{
+				"courses": [
+        	{
+						"id": "CS-5320",
+						"dept": "CS",
+						"num": 5320
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5370",
+						"dept": "CS",
+						"num": 5370
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5390",
+						"dept": "CS",
+						"num": 5390
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "MATH-4005",
+						"dept": "MATH",
+						"num": 4005
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "MATH-4200",
+						"dept": "MATH",
+						"num": 4200
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "MATH-4210",
+						"dept": "MATH",
+						"num": 4210
+        	}
+				],
+				"numReq": 1
+			}
+    ],
+    "num_core": 3,
+    "num_elective": 1
+	},
+	{
+		"name": "Graduate Certificate in Cybersecurity",
+    "required": [
+			{
+				"courses": [
+          {
+						"id": "CS-5702",
+						"dept": "CS",
+						"num": 5702
+          },
+          {
+						"id": "INFSYS-6828",
+						"dept": "INFSYS",
+						"num": 6828
+          }            
+        ],
+				"numReq": 1
+			},
+			{
+				"courses": [
+          {
+						"id": "CS-4730",
+						"dept": "CS",
+						"num": 4730
+          },
+          {
+						"id": "INFSYS-6836",
+						"dept": "INFSYS",
+						"num": 6836
+          }
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+          {
+						"id": "CS-5782",
+						"dept": "CS",
+						"num": 5782
+          },
+          {
+						"id": "INFSYS-6858",
+						"dept": "INFSYS",
+						"num": 6858
+          }
+        ],
+				"numReq": 1
+			}
+    ],
+    "electives": [
+			{
+				"courses": [
+        	{
+						"id": "CS-4700",
+						"dept": "CS",
+						"num": 4700
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5020",
+						"dept": "CS",
+						"num": 5020
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5222",
+						"dept": "CS",
+						"num": 5222
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5732",
+						"dept": "CS",
+						"num": 5732
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5750",
+						"dept": "CS",
+						"num": 5750
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5792",
+						"dept": "CS",
+						"num": 5792
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "CS-5794",
+						"dept": "CS",
+						"num": 5794
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "INFSYS-6830",
+						"dept": "INFSYS",
+						"num": 6830
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "INFSYS-6862",
+						"dept": "INFSYS",
+						"num": 6862
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "INFSYS-6864",
+						"dept": "INFSYS",
+						"num": 6864
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "INFSYS-6868",
+						"dept": "INFSYS",
+						"num": 6868
+        	}
+				],
+				"numReq": 1
+			},
+			{
+				"courses": [
+        	{
+						"id": "INFSYS-6878",
+						"dept": "INFSYS",
+						"num": 6878
+        	}
+				],
+				"numReq": 1
+			}
+    ],
+    "num_core": 3,
+    "num_elective": 1
+	}
+]
