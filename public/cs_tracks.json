@@ -1,0 +1,431 @@
+[
+  {
+    "name": "Traditional",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 4760,
+        "name": "Operating Systems"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5700,
+        "name": "Computer Systems"
+      }
+    ],
+    "Elective Courses": [
+
+    ],
+    "Number of Electives": 0
+  },
+  {
+    "name": "Professional",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5991,
+        "name": "Professional Experience"
+      }
+    ],
+    "Elective Courses": [
+
+    ],
+    "Number of Electives": 0
+  },
+  {
+    "name": "Graduate Certificate - Artificial Intelligence",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5300,
+        "name": "Artificial Intelligence"
+      }
+    ],
+    "Elective Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 5320,
+        "name": "Evolutionary Computation"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5340,
+        "name": "Machine Learning"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5342,
+        "name": "Data Mining"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5370,
+        "name": "Biological Data Science"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5390,
+        "name": "Deep Learning"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5420,
+        "name": "Digital Image Processing and Computer Vision"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 6320,
+        "name": "Advances in Evolutionary Computation"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 6340,
+        "name": "Genetic Programming"
+      }
+    ],
+    "Number of Electives": 2
+  },
+  {
+    "name": "Graduate Certificate - Cybersecurity",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      [
+        {
+          "dept": "CMP SCI",
+          "num": 5702,
+          "name": "Cyber Threats and Defense"
+        },
+        {
+          "dept": "INFSYS",
+          "num": 6828,
+          "name": "Principles of Information Security"
+        }
+      ],
+      [
+        {
+          "dept": "CMP SCI",
+          "num": 4730,
+          "name": "Computer Networks and Communications"
+        },
+        {
+          "dept": "INFSYS",
+          "num": 6836,
+          "name": "Telecommunications Design and Management"
+        }
+      ],
+      [
+        {
+          "dept": "CMP SCI",
+          "num": 5782,
+          "name": "Advanced Information Security"
+        },
+        {
+          "dept": "INFSYS",
+          "num": 6858,
+          "name": "Advanced Cybersecurity Concepts"
+        }
+      ]
+    ],
+    "Elective Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4700,
+        "name": "Computer Forensics"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5020,
+        "name": "Android Apps: Android Fundamentals"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5222,
+        "name": "Advanced iOS Apps"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5732,
+        "name": " Cryptography for Computer Security"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5750,
+        "name": "Cloud Computing"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5792,
+        "name": "Mobile Computing, Networking, and Security"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5794,
+        "name": "Security of IoT Systems"
+      },
+      {
+        "dept": "INFSYS",
+        "num": 6830,
+        "name": "Data Programming for Business Intelligence"
+      },
+      {
+        "dept": "INFSYS",
+        "num": 6862,
+        "name": "Artificial Intelligence App for Business and Cybersecurity"
+      },
+      {
+        "dept": "INFSYS",
+        "num": 6864,
+        "name": "Applied Cryptography for Business Applications"
+      },
+      {
+        "dept": "INFSYS",
+        "num": 6868,
+        "name": "Software Assurance"
+      },
+      {
+        "dept": "INFSYS",
+        "num": 6878,
+        "name": "Management of Information Security"
+      }
+    ],
+    "Number of Electives": 1
+  },
+  {
+    "name": "Graduate Certificate - Data Science",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 4200,
+        "name": "Python for Scientific Computing and Data Science"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5340,
+        "name": "Machine Learning"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5342,
+        "name": "Data Mining"
+      }
+    ],
+    "Elective Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 5320,
+        "name": "Evolutionary Computation"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5370,
+        "name": "Biological Data Science"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5390,
+        "name": "Deep Learning"
+      },
+      {
+        "dept": "MATH",
+        "num": 4005,
+        "name": "Exploratory Data Analysis with R"
+      },
+      {
+        "dept": "MATH",
+        "num": 4200,
+        "name": "Mathematical Statistics I"
+      },
+      {
+        "dept": "MATH",
+        "num": 4210,
+        "name": "Mathematical Statistics II"
+      }
+    ],
+    "Number of Electives": 1
+  },
+  {
+    "name": "Graduate Certificate - Internet and Web",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 4010,
+        "name": "Web Development with Java"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 4011,
+        "name": "Web Development with Advanced JavaScript"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5012,
+        "name": "Enterprise Web Development"
+      }
+    ],
+    "Elective Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 5020,
+        "name": "Android Apps: Android Fundamentals"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5030,
+        "name": "Intelligent Web"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5792,
+        "name": "Mobile Computing, Networking, and Security"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5750,
+        "name": "Cloud Computing"
+      }
+    ],
+    "Number of Electives": 1
+  },
+  {
+    "name": "Graduate Certificate - Mobile Apps and Computing",
+    "Required Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4250,
+        "name": "Programming Languages"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5130,
+        "name": "Advanced Data Structures and Algorithms"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5500,
+        "name": "Software Engineering"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5020,
+        "name": "Android Apps: Android Fundamentals"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 4220,
+        "name": "Introduction to iOS Programming and Apps"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5792,
+        "name": "Mobile Computing, Networking, and Security"
+      }
+    ],
+    "Elective Courses": [
+      {
+        "dept": "CMP SCI",
+        "num": 4610,
+        "name": "Database Management Systems"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5222,
+        "name": "Advanced iOS Apps"
+      },
+      {
+        "dept": "CMP SCI",
+        "num": 5750,
+        "name": "Cloud Computing"
+      }
+    ],
+    "Number of Electives": 1
+  }
+]

@@ -5,19 +5,10 @@
   "description": "Preferred options for pursuing a degree at UMSL",
   "type": "object",
   "properties": {
-    //TODO: not sure these are necessary, we could pull the name from certificate json or MS json (if we make MS schema)
-    //"department": {
-    //  "description": "The department that offers the degree",
-    //  "type": "string"
-    //},
-    //"type": {
-    //  "description": "The type of degree being pursued (MS, cert, etc)",
-    //  "type": "string"
-    //},
     "track": {
       "description": "Which degree track, if applicable",
       "type": "string",
-      "enum": [ //TODO: don't hardcode these here, pull from a central enum file?
+      "enum": [
         "Traditional",
         "Professional",
         "Graduate Certificate"
@@ -25,19 +16,17 @@
     },
     "certificates": {
       "description": "The unique indentifier within the department for the course",
-      "type": "array", //could be more than one
+      "type": "array",
       "items": {
-        "type": "string" //TODO: certificate schema--degree schema too? hm
+        "type": "string"
       }
     },
     "advancedCourses": {
       "description": "Preferred 6000+ level course(s), if applicable",
-      "type": "array", //could be more than one
+      "type": "array",
       "items": {
-        "$ref": "file///home/ken/Research/ms_advisor_model/public/public/plannedCourse.schema.json"
+        "$ref": "./plannedCourse.schema.json"
       }
     }
-    //TODO: do we need max credit hours or summer semester options, or just handle in the planner window?
   }
-  //"required": [ "" ]
 }

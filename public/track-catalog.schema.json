@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "track-catalog",
+  "title": "Track Catalog",
+  "description": "A catalog of all MS tracks offered by the Computer Science department at UMSL",
+  "type": "array",
+  "minItems": 1,
+  "uniqueItems": true,
+  "items": { "$ref": "./track.schema.json" }
+}

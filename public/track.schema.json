@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "track",
+  "title": "Track",
+  "description": "Chosen Degree Track for CS MS",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the track",
+      "type": "string",
+      "enum": [
+        "Traditional",
+        "Professional",
+        "Graduate Certificate - Artificial Intelligence",
+        "Graduate Certificate - Cybersecurity",
+        "Graduate Certificate - Data Science",
+        "Graduate Certificate - Internet and Web",
+        "Graduate Certificate - Mobile Apps and Computing"
+      ]
+    },
+    "Required Courses": {
+      "description": "Required courses for the track",
+      "type": "array",
+      "items": {
+        "$ref": "./course.schema.json"
+      }
+    },
+    "Elective Courses": {
+      "description": "Elective courses for the track",
+      "type": "array",
+      "items": {
+        "$ref": "./course.schema.json"
+      }
+    },
+    "Number of Electives": {
+      "description": "The minimum number of Elective Courses that must be taken",
+      "type": "number"
+    }
+  }
+}
