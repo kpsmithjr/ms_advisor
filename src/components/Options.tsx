@@ -5,6 +5,8 @@ import Alert from 'react-popup-alert';
 import MsOptionsType from "../types/msOptions";
 import AlertType from "../types/alertType";
 
+import track_reqs from "../data/track_req.json";
+
 const Options = ({options, handler})=> {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState<MsOptionsType>(options);
@@ -96,11 +98,11 @@ const Options = ({options, handler})=> {
 
   // Placeholder for function that reads JSON files and generates track list
   const getTrackList = () => {
-    const msTracks = [
-      "Traditional",
-      "Professional",
-      "Graduate Certificate"
-    ];
+    let msTracks = [] as string[];
+    for (let i = 0; i < track_reqs.length; ++i) {
+      msTracks.push(track_reqs[i].name)
+    }
+    
     return msTracks;
  }
   
@@ -113,20 +115,6 @@ const Options = ({options, handler})=> {
       </div>
       <div>
         <form>
-          {/*     
-          <label>
-            Select Your First Semester
-            <select
-              name="firstSem"
-              value={formData.firstSem}
-              onChange={updateFirstSem}
-            >
-              {semesters.map((item, i) => { return (<option key={i} value={item}>{item}</option>) })}
-            </select>
-          </label>
-          <br />
-          <br />
-          */}
           <label>
             Select Your MS Track
             <select
@@ -137,6 +125,7 @@ const Options = ({options, handler})=> {
               {msTracks.map((item, i) => { return (<option key={i} value={item}>{item}</option>) })}
             </select>
             </label>
+            {/*
             <br />
             <br />
             
@@ -161,6 +150,7 @@ const Options = ({options, handler})=> {
             })}
             <br />
             <br />
+          */}
           </form>
         </div>
         <div className="options-footer">

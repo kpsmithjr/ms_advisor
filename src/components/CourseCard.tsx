@@ -29,9 +29,9 @@ const CourseCard = ({course, index}: ICourseCard) => {
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}
 					isDragging={snapshot.isDragging}
-					isAvailable={course.num%10 !== 0}
+					isAvailable={false}
 				>
-					{course.id}
+					{course.id  + " - " + course.name}
 				</Container>
 			)}			
 		</Draggable>		

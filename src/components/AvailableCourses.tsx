@@ -9,7 +9,7 @@ const Container = styled.div`
 	margin: 8px;
 	border: 1px solid lighgrey;
 	border-radius: 2px;
-	width: 220px;
+	width: 360px;
 	min-height: 50px;
 	overflow-y: scroll;
 	height: 600px;
@@ -41,7 +41,7 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 					<CourseList
 						ref={provided.innerRef}
 						{...provided.droppableProps}
-						isDraggingOver={snapshot.isDraggingOver}
+						isDraggingOver={snapshot.isDraggingOver}						
 					>
 						{courses.map((course, index) => (
 							<CourseCard key={course.id} course={course} index={index}/>

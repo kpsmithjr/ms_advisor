@@ -8,6 +8,12 @@ import ReqLine from "../types/reqLine"
 import Course from "../types/course"
 import MsOptionsType from "../types/msOptions";
 
+import coreReqs from "../data/core_reqs.json";
+import track_reqs from "../data/track_req.json";
+
+import cs_rotation from "../data/cs_rotation.json";
+
+/*
 const tradReqs = {
   name: "Traditional",
   required: [
@@ -41,7 +47,9 @@ const tradReqs = {
   num_core: 2,
   num_elective: 0
 };
+*/
 
+/*
 const profReqs = {
     name: "Professional",
     required: [
@@ -64,7 +72,9 @@ const profReqs = {
     num_core: 1,
     num_elective: 2
 };
+*/
 
+/*
 const aiReqs = {
   name: "Graduate Certificate in Artificial Intelligence",
   required: [
@@ -174,47 +184,75 @@ const aiReqs = {
   num_core: 2,
   num_elective: 2
 };
+*/
 
+/*
 const mobileReqs = {
-    name: "Graduate Certificate in Mobile Apps and Computing",
-    required: [
-        [
-            {
-                dept: "CS",
-                num: 5020
-            }            
-        ],
-        [
-            {
-                dept: "CS",
-                num: 420
-            }            
-        ],
-        [
-            {
-                dept: "CS",
-                num: 5792
-            }
-        ]
-    ],
-    electives: [
+  name: "Graduate Certificate in Mobile Apps and Computing",
+  required: [
+    {
+      courses: [
+        {
+          dept: "CS",
+          num: 5020
+        }            
+      ],
+      numReq: 1
+    },
+    {
+      courses: [
+        {
+          dept: "CS",
+          num: 420
+        }
+      ],
+      numReq: 1
+    },
+    {
+      courses: [
+        {
+          dept: "CS",
+          num: 5792
+        }
+      ],
+      numReq: 1
+    }
+  ],
+  electives: [
+    {
+      course: [
         {
             dept: "CS",
             num: 4610
-        },
-        {
-            dept: "CS",
-            num: 5222
-        },
-        {
-            dept: "CS",
-            num: 5750
         }
-    ],
-    num_core: 3,
-    num_elective: 1
+      ],
+      numReq: 1
+    },
+    {
+      courses: [
+        {
+          dept: "CS",
+          num: 5222
+        }
+      ],
+      numReq: 1
+    },
+    {
+      courses: [
+        {
+          dept: "CS",
+          num: 5750
+        }
+      ],
+      numReq: 1
+    }
+  ],
+  num_core: 3,
+  num_elective: 1
 };
+*/
 
+/*
 const webReqs = {
     name: "Graduate Certificate in Internet and Web",
     required: [
@@ -258,7 +296,8 @@ const webReqs = {
     num_core: 3,
     num_elective: 1
 };
-
+*/
+/*
 const cyberReqs = {
     name: "Graduate Certificate in Cybersecurity",
     required: [
@@ -346,7 +385,8 @@ const cyberReqs = {
     num_core: 3,
     num_elective: 1
 };
-
+*/
+/*
 const dsReqs = {
     name: "Graduate Certificate in Data Science",
     required: [
@@ -398,49 +438,13 @@ const dsReqs = {
     num_core: 3,
     num_elective: 1
 };
+*/
 
+/*
 const coreReqs = {
-    name: "Master of Science in Computer Science",
-    required: [
-      {
-        courses: [
-          {
-            id: 'CS-4250',
-            dept: "CS",
-            num: 4250
-          },
-          {
-            id: 'CS-5250',
-            dept: "CS",
-            num: 5250
-          }
-        ],
-        numReq: 1
-      },
-      {
-        courses: [
-          {
-            id: 'CS-5130',
-            dept: "CS",
-            num: 5130
-          }
-        ],
-        numReq: 1
-      },
-      {
-        courses: [
-          {
-            id: 'CS-5500',
-            dept: "CS",
-            num: 5500
-          }
-        ],
-        numReq: 1
-      }
-    ],
-    num_core: 3,
-    credHrs: 30
+    
 }
+*/
 
 const RequirementContainer = styled.div`
 color: ${props => (props.met ? 'green' : 'red')};
@@ -455,98 +459,19 @@ interface IRequirements {
 
 const Requirements =({msOptions, plan, waivers} : IRequirements) => {
   let optReq;
-
-  if (msOptions.msTrack === "Traditional") {
-    optReq = tradReqs;
-  } else if (msOptions.msTrack === "Professional") {
-    optReq = profReqs;
-  } else if (msOptions.msTrack === "Graduate Certificate") {
-    for (let i:number = 0; i < msOptions.certs.length; ++i) {
-      if (msOptions.certs[i].selected) {
-        optReq = aiReqs;
-      }
+  let track_found = false;
+  for (let i = 0; i < track_reqs.length; ++i) {
+    if (msOptions.msTrack === track_reqs[i].name) {
+      optReq = track_reqs[i];
+      track_found = true;
+      break;
     }
-  } else {
+  }
+
+  if (!track_found) {
     console.log(msOptions.msTrack);
     console.error("Unknown Track");
   }
-
-  /*
-  switch (msOptions.msTrack) {
-    case "Traditional":
-      optReq = tradReqs;
-      break;
-    case "Professional":
-      optReq =  profReqs;
-      break;
-    case "Graduate Certificate":
-      if (msOptions.certs[0].selected) {
-        optReq = aiReqs;
-      } else if (msOptions.certs[1].selected) {
-        optReq = cyberReqs;
-      } else if (msOptions.certs[2].selected) {
-        optReq = dsReqs;
-      } else if (msOptions.certs[3].selected) {
-        optReq = webReqs;
-      } else if (msOptions.certs[4].selected) {
-        optReq = mobileReqs;
-      } 
-      break;            
-    default:
-      console.error("Unknown MS Options");
-      break;
-    }
-    
-
-    const [req, setReqs] = useState({reqHrs: coreReqs.credHrs,
-                                     req6000: true,
-                                     reqClasses: coreReqs.required,
-                                     optReqClasses: optReqClassesVal,
-                                     optElectClasses: optElectClassesVal,
-                                     numOptReq: 0,
-                                     numOptElect: 0}
-    );
-
-    function genReqs(classes) {
-        let test = [""];
-        for (let i = 0; i < classes.length; i++) {
-            let test_row = "";
-            test_row = classes[i][0].dept + " " + classes[i][0].num;
-
-            for (let j = 1; j < classes[i].length; j++) {
-                test_row += " or " + classes[i][j].dept + " " + classes[i][j].num;
-            }
-            test.push(test_row);
-        }
-        return test;
-    }
-
-    const test = genReqs(req.reqClasses);
-    const test1 = genReqs(req.optReqClasses);
-
-    const rendereReqs = (plan, reqs) => {
-      reqs.reqClasses.map((req) => {
-        let met = false;
-        for (let i:number = 0; i < plan.length; ++i) {
-          if (met) {
-            break;
-          }
-          for (let j:number = 0; j < plan[i].courses.length; ++j) {
-            if ((req.dept === plan[i].courses[j].dept)
-              && (req.num === plan[i].courses[j].num)){
-              met = true;
-              break;
-            }
-          }
-        }
-        <RequirementContainer
-          met={met}
-        >
-          {req.dept} {req.num}
-        </RequirementContainer>
-      })
-    };
-    */
 
   const calcCreditHours = (plan: SemItem[]) => {
     let credHrs: number = 0;
@@ -559,10 +484,23 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return credHrs;
   }
 
+  const calcCreditHours5000 = (plan: SemItem[]) => {
+    let credHrs: number = 0;
+            
+    for (let i:number = 0; i < plan.length; ++i) {
+      for (let j:number = 0; j < plan[i].courses.length; ++j) {
+        if (plan[i].courses[j].num >= 5000) {
+          credHrs += 3;
+        }
+      }
+    }      
+    return credHrs;
+  }
+
   const check6000Course = (plan: SemItem[]) => {
     for (let i:number = 0; i < plan.length; ++i) {        
       for (let j:number = 0; j < plan[i].courses.length; ++j) {
-        if (((plan[i].courses[j].dept === 'CS') || (plan[i].courses[j].dept === 'CMP SCI')) 
+        if (((plan[i].courses[j].dept === 'CS') || (plan[i].courses[j].dept === 'CS')) 
           && (plan[i].courses[j].num >= 6000)){
           return true;          
         }
@@ -570,8 +508,17 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     }
     return false;
   };
-    
-  const genReqArr = (reqs) => {
+  
+  const isCourseWaived = (dept: string, num: number, waivers: Course[]) => {
+    for (let i = 0; i < waivers.length; ++i) {
+      if ((waivers[i].dept === dept) && (waivers[i].num === num)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const genReqArr = (reqs, waivers) => {
     let reqArr = [] as string[][];
 
     // Loop over all requirement vectors
@@ -581,12 +528,18 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
       }
 
       let courseTxt = reqs[i].courses[0].dept + " " + reqs[i].courses[0].num.toString();
+      if (isCourseWaived(reqs[i].courses[0].dept, reqs[i].courses[0].num, waivers)) {
+        courseTxt += " (W)";
+      }
       let courseArr = [courseTxt];
 
       // For each requirement vector, loop over all courses
       for (let j:number = 1; j < reqs[i].courses.length; ++j) {
         courseArr.push(" or ");
         let courseTxt = reqs[i].courses[j].dept + " " + reqs[i].courses[j].num.toString();
+        if (isCourseWaived(reqs[i].courses[0].dept, reqs[i].courses[0].num, waivers)) {
+          courseTxt += "(W)";
+        }
         courseArr.push(courseTxt);
       }
       reqArr.push(courseArr);
@@ -613,7 +566,8 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     let count = 0;
     // Set course color to 1 if in plan
     for (let i = 0; i < reqline.courses.length; ++i) {
-      if (isCourseInPlan(reqline.courses[i], plan)) {        
+      if ((isCourseInPlan(reqline.courses[i], plan))
+      || isCourseWaived(reqline.courses[i].dept, reqline.courses[i].num, waivers)){        
         clrArr[2*i] = 1;
         ++count;
       }
@@ -631,23 +585,28 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return clrArr;
   }
 
-  const reqCredHrs:number = 30;
+  const reqCredHrs:number = coreReqs.credHrs;
   const [credHrs, setCredHrs] = React.useState<number>(calcCreditHours(plan));
+  const [credHrs5000, setCredHrs5000] = React.useState<number>(calcCreditHours5000(plan));
   const [coreReq, setCoreReqs] = React.useState(coreReqs);
-  const coreTxt = genReqArr(coreReq.required);
+  const coreTxt = genReqArr(coreReq.required, waivers);
 
-  const optReqTxt = genReqArr(optReq.required);
-  const optElectTxt = optReq.electives ? genReqArr(optReq.electives) : [] as string[][];
+  const optReqTxt = genReqArr(optReq.required, waivers);
+  const optElectTxt = optReq.electives ? genReqArr(optReq.electives, waivers) : [] as string[][];
   
   React.useEffect(() => {
     setCredHrs(calcCreditHours(plan));
+    setCredHrs5000(calcCreditHours5000(plan));
   }, [plan]);
 
   return (        
     <div>
       <h3 className="reqheader">Requirements</h3>
-      <RequirementContainer met={credHrs >= reqCredHrs} >
-       {reqCredHrs} Credit Hours ({credHrs})
+      <RequirementContainer met={credHrs >= coreReqs.credHrs} >
+       {coreReqs.credHrs} Credit Hours ({credHrs})
+      </RequirementContainer>
+      <RequirementContainer met={credHrs5000 >= coreReqs.credHrs5000} >
+        {coreReqs.credHrs5000} 5000+ Credit Hours ({credHrs5000})
       </RequirementContainer>
       <RequirementContainer met={check6000Course(plan)} >
         6000+ CS Course

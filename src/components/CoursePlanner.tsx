@@ -7,7 +7,8 @@ import styled from "styled-components";
 import Course from "../types/course";
 import SemItem from "../types/semItem";
 
-import csRotation from "../data/cs_courses.json"
+import cs_courses from "../data/cs_courses.json"
+import { stringify } from "querystring";
 
 const Container = styled.div`
  display: flex;
@@ -15,181 +16,134 @@ const Container = styled.div`
 
 const defaultAvail = [
 	{
-		id: 'CS 4010',
 		dept: 'CS',
-		num: 4010,
-		credHrs: 3
+		num: 4010
 	},
 	{
-		id: 'CS 4011',
 		dept: 'CS',
-		num: 4011,
-		credHrs: 3
+		num: 4011
 	},
 	{
-		id: 'CS 4200',
 		dept: 'CS',
-		num: 4200,
-		credHrs: 3
+		num: 4200
 	},
 	{
-		id: 'CS 4250',
 		dept: 'CS',
-		num: 4250,
-		credHrs: 3
+		num: 4250
 	},
 	{
-		id: 'CS 4760',
 		dept: 'CS',
-		num: 4760,
-		credHrs: 3
+		num: 4610
 	},
 	{
-		id: 'CS 5012',
 		dept: 'CS',
-		num: 5012,
-		credHrs: 3
+		num: 4700
+	},
+	{
+		dept: 'CS',
+		num: 4730
+	},
+	{
+		dept: 'CS',
+		num: 4760
+	},
+	{
+		dept: 'CS',
+		num: 5012
 	},	
 	{
-		id: 'CS 5020',
 		dept: 'CS',
-		num: 5020,
-		credHrs: 3
+		num: 5020
 	},
 	{
-		id: 'CS 5030',
 		dept: 'CS',
-		num: 5030,
-		credHrs: 3
+		num: 5030
 	},
 	{
-		id: 'CS 5130',
 		dept: 'CS',
-		num: 5130,
-		credHrs: 3
+		num: 5130
 	},
 	{
-		id: 'CS 5250',
 		dept: 'CS',
-		num: 5250,
-		credHrs: 3
+		num: 5222
 	},
 	{
-		id: 'CS 5300',
 		dept: 'CS',
-		num: 5300,
-		credHrs: 3
+		num: 5300
 	},
 	{
-		id: 'CS 5320',
 		dept: 'CS',
-		num: 5320,
-		credHrs: 3
+		num: 5320
 	},
 	{
-		id: 'CS 5340',
 		dept: 'CS',
-		num: 5340,
-		credHrs: 3
+		num: 5340
 	},
 	{
-		id: 'CS 5342',
 		dept: 'CS',
-		num: 5342,
-		credHrs: 3
+		num: 5342
 	},
 	{
-		id: 'CS 5370',
 		dept: 'CS',
-		num: 5370,
-		credHrs: 3
+		num: 5370
 	},
 	{
-		id: 'CS 5390',
 		dept: 'CS',
-		num: 5390,
-		credHrs: 3
+		num: 5390
 	},
 	{
-		id: 'CS 5420',
 		dept: 'CS',
-		num: 5420,
-		credHrs: 3
+		num: 5420
 	},
 	{
-		id: 'CS 5500',
 		dept: 'CS',
-		num: 5500,
-		credHrs: 3
+		num: 5500
 	},	
 	{
-		id: 'CS 5700',
 		dept: 'CS',
-		num: 5700,
-		credHrs: 3
+		num: 5700
 	},
 	{
-		id: 'CS 5750',
 		dept: 'CS',
-		num: 5750,
-		credHrs: 3
+		num: 5702
 	},
 	{
-		id: 'CS 5792',
 		dept: 'CS',
-		num: 5792,
-		credHrs: 3
-	},	
-	{
-		id: 'CS 6320',
-		dept: 'CS',
-		num: 6320,
-		credHrs: 3
+		num: 5732
 	},
 	{
-		id: 'CS 6340',
 		dept: 'CS',
-		num: 6340,
-		credHrs: 3
+		num: 5750
 	},
 	{
-		id: 'CS 6999',
 		dept: 'CS',
-		num: 6999,
-		credHrs: 3
+		num: 5782
+	},
+	{
+		dept: 'CS',
+		num: 5792
+	},
+	{
+		dept: 'CS',
+		num: 5794
+	},
+	{
+		dept: 'CS',
+		num: 5994
+	},
+	{
+		dept: 'CS',
+		num: 6320
+	},
+	{
+		dept: 'CS',
+		num: 6340
+	},
+	{
+		dept: 'CS',
+		num: 6900
 	}
 ]
-
-const defaultSemList = [
-	{
-		id: 'FS-2021',
-		year: 2021,
-		term: "FS",		
-		position: 1,
-		courses: [{id: "CS 1000", dept: "CS", num: 1000}]
-	},
-	{
-		id: 'SP-2022',
-		year: 2022,
-		term: "SP",
-		position: 2,
-		courses: [{id: "CS 1001", dept: "CS", num: 1001}]
-	},
-	{
-		id: 'SS-2022',
-		year: 2022,
-		term: "SS",
-		position: 3,
-		courses: [{id: "CS 1002", dept: "CS", num: 1002}]
-	},
-	{
-		id: 'FS-2022',
-		year: 2022,
-		term: "FS",
-		position: 4,
-		courses: [{id: "CS 1003", dept: "CS", num: 1003}]
-	}
-];
 
 interface ICoursePlanner {
 	plan: SemItem[];
@@ -201,9 +155,33 @@ interface IGetSemIdx {
 	semId: string;
 }
 
-
 const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
-	const [availCourses, setAvailCourses] = useState<Course[]>(defaultAvail);
+
+	const getCourseName = (dept: string, num: number) => {
+		for (let i = 0; i < cs_courses.length; ++i) {
+			if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {
+				return cs_courses[i].name;
+			}
+		}
+		return "";
+	};
+
+	const getAvailCourses = () => {
+		let arr = [] as Course[];
+		for (let i = 0; i < defaultAvail.length; ++i) {
+			const tmp = {
+				id: defaultAvail[i].dept + " " + defaultAvail[i].num,
+				dept: defaultAvail[i].dept,
+				num: defaultAvail[i].num,
+				name: getCourseName(defaultAvail[i].dept, defaultAvail[i].num),
+				credHrs: 3
+			};
+			arr.push(tmp);
+		}
+		return arr;
+	}
+
+	const [availCourses, setAvailCourses] = useState<Course[]>(getAvailCourses());
 		
 	const getSemIdx = (plan: SemItem[], semId: string) => {
 		for (let i:number = 0; i < plan.length; ++i) {
@@ -213,6 +191,7 @@ const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
 	}
 	
 	const onDragEnd = (result: any) => {
+		setSelectedCourseID("");
 		const { destination, source } = result;
 				
 		// Item is dropped over non-droppable space
@@ -286,11 +265,16 @@ const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
 		return;
 	}
 
+	const [selectedCourseID, setSelectedCourseID] = React.useState("");
+	const onDragStart = (start: any) => {
+		setSelectedCourseID(start.draggableId);
+	}
+
 	return (
-		<DragDropContext onDragEnd={onDragEnd}>
+		<DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
 			<Container>
 				<AvailableCourses courses={availCourses}/>
-				<Semesters semData={plan} newSemesterHandler={planHandler}/>
+				<Semesters semData={plan} newSemesterHandler={planHandler} courseId={selectedCourseID}/>
 			</Container>			
 		</DragDropContext>		
 	)

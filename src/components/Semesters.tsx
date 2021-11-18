@@ -22,7 +22,7 @@ interface ISemtersProps {
 	newSemesterHandler: any
 }
 
-const Semesters = ({semData, newSemesterHandler}) => {
+const Semesters = ({semData, newSemesterHandler, courseId}) => {
 	
 	const addSemester = () => {
 		const lastSem = semData.slice(-1)[0];
@@ -51,17 +51,18 @@ const Semesters = ({semData, newSemesterHandler}) => {
 			term: newTerm,
 			position: newPosition,
 			maxCredHrs: newMaxCredHrs,
-			courses: newCourses
+			courses: newCourses,
+			courseOffered: false,
 		}
 		var newData = JSON.parse(JSON.stringify(semData));
 		newData.push(newSem);
 		
 		newSemesterHandler(newData);
 	}
-
+	
 	const semRenderer = orderBy(semData, "position").map((sem: SemItem) => 
 		<div key={sem.id} >
-			<Semester sem={sem}/>
+			<Semester sem={sem} courseId={courseId}/>
 		</div>		
 	);
 

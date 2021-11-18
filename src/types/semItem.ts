@@ -7,6 +7,7 @@ type SemItem = {
 	position: number;
 	maxCredHrs: number;
 	courses: Course[];
+	courseOffered: boolean;
 }
 
 export default SemItem;

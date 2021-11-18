@@ -1,411 +1,411 @@
 [
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 1000,
     "name": "Computer Science Experiences"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 1012,
     "name": "Learning to Program Using Virtual Worlds"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 1250,
     "name": "Introduction to Computing"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 2250,
     "name": "Programming and Data Structures"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 2261,
     "name": "Object-Oriented Programming"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 2700,
     "name": "Computer Organization and Architecture"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 2750,
     "name": "Linux Environment and Programming"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3010,
     "name": "Web Programming"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3130,
     "name": "Design and Analysis of Algorithms"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3200,
     "name": ".NET Framework"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3410,
     "name": "Video Game Design and Development"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3702,
     "name": "Introduction to Cyber Threats and Defense"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3780,
     "name": "Software Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 3990,
     "name": "Undergraduate Internship"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4010,
     "name": "Web Development with Java"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4011,
     "name": "Web Development with Advanced JavaScript"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4012,
     "name": "Introduction to Enterprise Web Development"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4020,
     "name": "Introduction to Android Apps: Android Fundamentals"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4030,
     "name": "Introduction to Intelligent Web"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4200,
     "name": "Python for Scientific Computing and Data Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4220,
     "name": "Introduction to iOS Programming and Apps"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4222,
     "name": "iOS Apps"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4250,
     "name": "Programming Languages"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4280,
     "name": "Program Translation Project"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4300,
     "name": "Introduction to Artificial Intelligence"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4320,
     "name": "Introduction to Evolutionary Computation"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4340,
     "name": "Introduction to Machine Learning"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4342,
     "name": "Introduction to Data Mining"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4370,
     "name": "Introduction to Biological Data Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4390,
     "name": "Introduction to Deep Learning"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4410,
     "name": "Introduction to Computer Graphics"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4420,
     "name": "Introduction to Digital Image Processing and Computer Vision"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4500,
     "name": "Introduction to the Software Profession"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4520,
     "name": "Introduction to Object-Oriented Analysis and Design"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4610,
     "name": "Database Management Systems"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4700,
     "name": "Computer Forensics"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4730,
     "name": "Computer Networks and Communications"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4732,
     "name": "Introduction to Cryptography for Computer Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4740,
     "name": "Introduction to High Performance Computing"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4750,
     "name": "Introduction to Cloud Computing"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4760,
     "name": "Operating Systems"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4780,
     "name": "Computer and Network Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4782,
     "name": "Information Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4792,
     "name": "Introduction to Mobile Computing, Networking, and Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4794,
     "name": "Introduction to Security of IoT Systems"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4880,
     "name": "Individual Studies in Computer Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 4890,
     "name": "Topics in Computer Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5012,
     "name": "Enterprise Web Development"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5020,
     "name": "Android Apps: Android Fundamentals"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5030,
     "name": "Intelligent Web"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5130,
     "name": "Advanced Data Structures and Algorithms"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5222,
     "name": "Advanced iOS Apps"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5300,
     "name": "Artificial Intelligence"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5320,
     "name": "Evolutionary Computation"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5340,
     "name": "Machine Learning"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5342,
     "name": "Data Mining"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5370,
     "name": "Biological Data Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5390,
     "name": "Deep Learning"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5410,
     "name": "Computer Graphics"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5420,
     "name": "Digital Image Processing and Computer Vision"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5500,
     "name": "Software Engineering"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5520,
     "name": "Object Oriented Analysis and Design"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5620,
     "name": "Intelligent Information Retrieval"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5700,
     "name": "Computer Systems"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5702,
     "name": "Cyber Threats and Defense"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5732,
     "name": " Cryptography for Computer Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5740,
     "name": "High Performance Computing"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5750,
     "name": "Cloud Computing"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5782,
     "name": "Advanced Information Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5792,
     "name": "Mobile Computing, Networking, and Security"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5794,
     "name": "Security of IoT Systems"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5870,
     "name": " Computer Science Seminar"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5880,
     "name": "Computer Science Independent Project"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5888,
     "name": "Cybersecurity Capstone"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5890,
     "name": "Topics in Computer Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 5900,
     "name": "Graduate Internship in Computer Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 6320,
     "name": "Advances in Evolutionary Computation"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 6340,
     "name": "Genetic Programming"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 6410,
     "name": "Topics in Computer Graphics"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 6420,
     "name": "Topics In Image Processing and Computer Vision"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 6900,
     "name": "Thesis in Computer Science"
   },
   {
-    "dept": "CMP SCI",
+    "dept": "CS",
     "num": 7990,
     "name": "Ph.D. Dissertation Research in Computer Science"
   }

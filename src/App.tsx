@@ -59,14 +59,15 @@ const planDefault = [
 	}
 ]
 */
-const planDefault = [
+const planDefault:SemItem[] = [
   {
 		id: 'FS-2021',
 		year: 2021,
 		term: "FS",		
 		position: 1,
     maxCredHrs: 9,
-		courses: [] as Course[]
+		courses: [] as Course[],
+    courseOffered: false
 	}
 ]
 
@@ -81,7 +82,7 @@ const App = () => {
   };
 
   const updateWaivers = (newWaivers: Course[]) => {
-    setWaiverVals(newWaivers);
+    setWaiverVals(newWaivers);    
   };
 
   const updatePlan = (newPlan: SemItem[]) => {
