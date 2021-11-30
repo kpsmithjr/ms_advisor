@@ -170,7 +170,18 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 			}
 		}
 		return false;
-	}
+	};
+
+	const isCoursePlanned = (dept: string, num: number) => {
+		for (let i = 0; i < plan.length; ++i) {
+			for (let j = 0; j < plan[i].courses.length; ++j) {
+				if ((plan[i].courses[j].dept === dept) && (plan[i].courses[j].num === num)) {
+					return true;
+				}
+			}			
+		}
+		return false;
+	};
 
 	const getAvailCourses = () => {
 		let arr = [] as Course[];
@@ -183,7 +194,7 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 				credHrs: 3
 			};
 
-			if (!isCourseWaived(tmp.dept, tmp.num)) {
+			if (!isCourseWaived(tmp.dept, tmp.num) && !isCoursePlanned(tmp.dept, tmp.num)) {
 				arr.push(tmp);
 			}			
 		}
