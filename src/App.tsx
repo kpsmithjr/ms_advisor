@@ -7,8 +7,8 @@ import Options from './components/Options';
 import Waivers from './components/Waivers';
 import Planner from './components/Planner';
 import MsOptionsType from './types/msOptions';
-import SemItem from './types/semItem';
-import Course from './types/course';
+import SemItem from './types/semItemType';
+import CourseType from './types/courseType';
 
 const gcOptions = [
   {
@@ -39,7 +39,7 @@ const optionsDefault = {
   certs: gcOptions
 }
 
-const waiversDefault = [] as Course[];
+const waiversDefault = [] as CourseType[];
 
 /*
 const planDefault = [
@@ -66,26 +66,26 @@ const planDefault:SemItem[] = [
 		term: "FS",		
 		position: 1,
     maxCredHrs: 9,
-		courses: [] as Course[],
+		courses: [] as CourseType[],
     courseOffered: false
 	}
 ]
 
 const App = () => {
   const [optionsVal, setOptionsVal] = useState<MsOptionsType>(optionsDefault);
-  const [waiverVals, setWaiverVals] = useState<Course[]>(waiversDefault);
+  const [waiverVals, setWaiverVals] = useState<CourseType[]>(waiversDefault);
   const [planVals, setPlanVals] = useState<SemItem[]>(planDefault)
   const [firstTime, setFirstTime] = React.useState<boolean>(true);
 
-  const updateOptions = (newOptions: MsOptionsType) => {
+  const updateOptions = (newOptions: MsOptionsType): void => {
     setOptionsVal(newOptions);
   };
 
-  const updateWaivers = (newWaivers: Course[]) => {
+  const updateWaivers = (newWaivers: CourseType[]): void => {
     setWaiverVals(newWaivers);    
   };
 
-  const updatePlan = (newPlan: SemItem[]) => {
+  const updatePlan = (newPlan: SemItem[]): void => {
     setPlanVals(newPlan);
   };
 

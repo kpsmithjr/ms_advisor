@@ -4,8 +4,10 @@ import Semesters from "./Semesters";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Course from "../types/course";
-import SemItem from "../types/semItem";
+import Course from "../types/courseType";
+import SemItem from "../types/semItemType";
+
+import ICoursePlanner from "../interfaces/iCoursePlanner"
 
 import cs_courses from "../data/cs_courses.json"
 import { stringify } from "querystring";
@@ -144,11 +146,6 @@ const defaultAvail = [
 		num: 6900
 	}
 ]
-
-interface ICoursePlanner {
-	plan: SemItem[];
-	planHandler: any;
-}
 
 interface IGetSemIdx {
 	plan: SemItem;

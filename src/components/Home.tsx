@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React from "react";
-const Ajv2020 = require("ajv/dist/2020")
+import Ajv2020 from "ajv/dist/2020";
 const ajv = new Ajv2020({ allErrors: true })
 
 const Home = () => {
@@ -12,18 +12,18 @@ const Home = () => {
         navigate('/options');
     }
 
-    function getFile(url, callback) {
+    function getFile(url: any, callback: any) {
         const https = require('https')
-        https.request(url, function (res) {
+        https.request(url, function (res: any) {
             var data = "";
-            res.on('data', function (chunk) {
+            res.on('data', function (chunk: any) {
                 data += chunk;
             })
                 .on('end', function () {
                     callback("success", JSON.parse(data));
                 });
 
-        }).on('error', function (e) {
+        }).on('error', function (e: any) {
             callback("error", e);
         }).end();
     }
@@ -43,7 +43,7 @@ const Home = () => {
                         const studentPlan = JSON.parse(result);
 
                         //TODO: maybe make a central reference file to pull urls etc from?
-                        getFile("https://raw.githubusercontent.com/kpsmithjr/ms_advisor_files/main/studentPlan.schema.json", function (status, data) {
+                        getFile("https://raw.githubusercontent.com/kpsmithjr/ms_advisor_files/main/studentPlan.schema.json", function (status:any, data:any) {
                             if (status === "success") {
                                 const validate_plan = ajv.compile(data);
                                 if (validate_plan(studentPlan)) {

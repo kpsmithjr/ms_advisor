@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { Draggable} from "react-beautiful-dnd";
 
-import Course from "../types/course";
+import Course from "../types/courseType";
 
-const Container = styled.div`
+interface StyledDivProps {
+	isDragging: boolean;
+	isAvailable: boolean;
+}
+
+const Container = styled.div<StyledDivProps>`
 	background-color: ${props => (props.isDragging ? 'lightgrey' : (props.isAvailable ? 'lightgreen' : 'white'))};
 	border: 1px solid black;
 	border-radius: 8px;

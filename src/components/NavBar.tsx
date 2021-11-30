@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import INavBar from "../interfaces/iNavBar";
 
-const Navbar = ({title}) =>{
+const Navbar = ({title}: INavBar) =>{
     return (
         <nav className="navbar bg-primary">
             <h1>

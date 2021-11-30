@@ -2,15 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Courses from "../data/cs_courses.json";
 import styled from "styled-components";
-import WaiverType from "../types/waiverType";
-import Course from "../types/course";
+import CourseType from "../types/courseType";
+import IWaivers from "../interfaces/iWaivers";
 
 const WaiverContainer = styled.div`
   height: 600px;
   overflow-y: scroll;
 `
 
-const Waivers = ({waivers, handler}) => {
+type WaiverType = {
+  id: string;
+  dept: string;
+  num: number;
+  name: string;
+  selected: boolean;
+};
+
+const Waivers = ({waivers, handler}: IWaivers) => {
+  const navigate = useNavigate();
+  
   const waiverSelected = (dept: string, num: number) => {
     for (let i = 0; i < waivers.length; ++i) {
       if ((waivers[i].dept === dept) && (waivers[i].num === num)) {
@@ -35,8 +45,11 @@ const Waivers = ({waivers, handler}) => {
     }
     return arr;
   };
+  const [formData, setFormData] = useState<WaiverType[]>(generateWaiverData());
+  
+  
 
-  function handleClick(e) {
+  function handleClick(e: any) {
     const newFormData = formData.map(course => {
       if (course.id !== e.target.name ) return course;      
       return { ...course, selected: e.target.checked};
@@ -49,10 +62,10 @@ const Waivers = ({waivers, handler}) => {
   }
 
   function handleSubmit() {
-    let newWaivers = [] as Course[];
+    let newWaivers = [] as CourseType[];
     for (let i = 0; i < formData.length; ++i) {
       if (formData[i].selected) {
-        const waivedCourse:Course = {
+        const waivedCourse:CourseType = {
           id: formData[i].id,
           dept:formData[i].dept,
           num:formData[i].num,
@@ -64,10 +77,7 @@ const Waivers = ({waivers, handler}) => {
     handler(newWaivers);
     navigate('/planner');
   }
-
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState<WaiverType[]>(generateWaiverData());
-
+  
   return (
     <div className='waivers-header'>
       <h1>Input Waivers</h1>

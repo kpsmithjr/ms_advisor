@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import CourseCard from "./CourseCard";
-import Course from "../types/course";
+import Course from "../types/courseType";
 
 
 
@@ -24,7 +24,7 @@ const CourseList = styled.div`
 	min-height: 10px;
 	display: flex;
 	flex-direction: column;
-`;
+`
 //background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
 
 interface IAvailableCourses {
@@ -40,8 +40,7 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 				{(provided, snapshot) => (
 					<CourseList
 						ref={provided.innerRef}
-						{...provided.droppableProps}
-						isDraggingOver={snapshot.isDraggingOver}						
+						{...provided.droppableProps}				
 					>
 						{courses.map((course, index) => (
 							<CourseCard key={course.id} course={course} index={index}/>

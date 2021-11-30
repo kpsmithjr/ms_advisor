@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import CourseCard from "./CourseCard";
 
-import SemItem from "../types/semItem";
+import SemItem from "../types/semItemType";
 
 import cs_rotation from "../data/cs_rotation.json";
 
@@ -16,7 +16,12 @@ const Container = styled.div`
 const Title = styled.h3`
 	padding: 8px;
 `
-const CourseList = styled.div`
+interface ICourseList {
+	isDropDisabled: boolean;
+	isDraggingOver: boolean;
+};
+
+const CourseList = styled.div<ICourseList>`
 	padding: 8px;
 	transition: background-color 0.2s ease;
 	background-color: ${props => (props.isDropDisabled ? 'lightgrey' : props.isDraggingOver ? 'skyblue' : 'white')};

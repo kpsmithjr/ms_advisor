@@ -2,13 +2,10 @@ import * as React from "react";
 import CoursePlanner from "./CoursePlanner";
 import Requirements from "./Requirements";
 
-import SemItem from "../types/semItem";
+import SemItem from "../types/semItemType";
+import IPlan from "../interfaces/iPlan";
 
-interface IUpdatePlan {
-    newPlan: SemItem[];
-}
-
-const Plan =({msOptions, waivers, oldPlan, planHandler})=> {
+const Plan =({msOptions, waivers, oldPlan, planHandler}: IPlan)=> {
     const [plan, setPlan] = React.useState<SemItem[]>(oldPlan);
 
     const updatePlan = (newPlan: SemItem[]) => {

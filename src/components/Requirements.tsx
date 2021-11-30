@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import SemItem from "../types/semItem";
+import SemItem from "../types/semItemType";
 import styled from 'styled-components';
 import RequirementsLine from "./RequirementsLine";
 import RequirementsColumn from "./RequirementsColumn";
 
 import ReqLine from "../types/reqLine"
-import Course from "../types/course"
+import Course from "../types/courseType"
 import MsOptionsType from "../types/msOptions";
 
 import coreReqs from "../data/core_reqs.json";
@@ -446,7 +446,11 @@ const coreReqs = {
 }
 */
 
-const RequirementContainer = styled.div`
+interface ReqContainerProps {
+  met: boolean;
+};
+
+const RequirementContainer = styled.div<ReqContainerProps>`
 color: ${props => (props.met ? 'green' : 'red')};
 margin-left: 8px;
 `
@@ -458,7 +462,7 @@ interface IRequirements {
 }
 
 const Requirements =({msOptions, plan, waivers} : IRequirements) => {
-  let optReq;
+  let optReq: any;
   let track_found = false;
   for (let i = 0; i < track_reqs.length; ++i) {
     if (msOptions.msTrack === track_reqs[i].name) {
@@ -518,7 +522,7 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return false;
   };
 
-  const genReqArr = (reqs, waivers) => {
+  const genReqArr = (reqs: any, waivers: Course[]) => {
     let reqArr = [] as string[][];
 
     // Loop over all requirement vectors

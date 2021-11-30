@@ -1,15 +1,16 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import Alert from 'react-popup-alert';
 
 import MsOptionsType from "../types/msOptions";
-import AlertType from "../types/alertType";
 
 import track_reqs from "../data/track_req.json";
+import IOptions from "../interfaces/iOptions";
 
-const Options = ({options, handler})=> {
+const Options = ({options, handler}: IOptions)=> {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState<MsOptionsType>(options);
+
+  /*
   const [alert, setAlert] = React.useState<AlertType>({
     type: 'error',
     text: "You must select a Graduate Certificate for this track!",
@@ -23,14 +24,15 @@ const Options = ({options, handler})=> {
       show: false
     })
   };
-
-  const updateTrack = (e) => {
+  */
+  const updateTrack = (e: any) => {
     var newData:MsOptionsType = JSON.parse(JSON.stringify(formData));
     newData.msTrack = e.target.value;
     setFormData(newData);
   };
+  
 
-  const handleCertChange = (e) => {
+  const handleCertChange = (e: any) => {
     const newCerts = formData.certs.map(cert => {
       if (cert.name !== e.target.name ) return cert;      
       return { ...cert, selected: e.target.checked};
@@ -38,6 +40,7 @@ const Options = ({options, handler})=> {
     setFormData({ ...formData, certs: newCerts});
   };
 
+  /*
   const validateForm = () => {
     const errors = [] as string[];
     // Check that if Grad Cert track is selected, at least on Grad Cert is also selected
@@ -56,13 +59,14 @@ const Options = ({options, handler})=> {
     }
     return errors;
   }
-  
+  */
+
   const handleSubmit = () => {
-    const errors = validateForm();
-    if (errors.length > 0) {
-      setAlert({...alert, show: true})
-      return;
-    }
+    //const errors = validateForm();
+    //if (errors.length > 0) {
+    //  setAlert({...alert, show: true})
+    //  return;
+    //}
     
     handler(formData);
     navigate('/waivers');
@@ -157,20 +161,6 @@ const Options = ({options, handler})=> {
           <button onClick={handleCancel}>Cancel</button>
           <button onClick={handleSubmit}>Next</button>
         </div>
-        <Alert
-          header={'Error'}
-          btnText={'Close'}
-          text={alert.text}
-          type={alert.type}
-          show={alert.show}
-          onClosePress={onCloseAlert}
-          pressCloseOnOutsideClick={true}
-          showBorderBottom={false}
-          alertStyles={{}}
-          headerStyles={{}}
-          textStyles={{}}
-          buttonStyles={{}}
-        />
     </div>
 
     );

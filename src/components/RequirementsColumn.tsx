@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const RequirementContainer = styled.div`
+interface IReqCont {
+	clr: number;
+};
+
+const RequirementContainer = styled.div<IReqCont>`
 color: ${props => (props.clr === 0 ? 'red' : (props.clr === 1 ? 'green' : 'grey'))};
 margin-left: 4px;
 `

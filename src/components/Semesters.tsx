@@ -3,8 +3,9 @@ import { orderBy } from "lodash";
 import Semester from "./Semester";
 import styled from "styled-components";
 
-import Course from "../types/course";
-import SemItem from "../types/semItem";
+import Course from "../types/courseType";
+import SemItem from "../types/semItemType";
+import ISemesters from "../interfaces/iSemester";
 
 const SemestersContainer = styled.div`
 	display: inline-flex;
@@ -22,7 +23,7 @@ interface ISemtersProps {
 	newSemesterHandler: any
 }
 
-const Semesters = ({semData, newSemesterHandler, courseId}) => {
+const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	
 	const addSemester = () => {
 		const lastSem = semData.slice(-1)[0];
