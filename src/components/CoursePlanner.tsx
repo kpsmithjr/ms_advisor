@@ -152,7 +152,7 @@ interface IGetSemIdx {
 	semId: string;
 }
 
-const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
+const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
 		for (let i = 0; i < cs_courses.length; ++i) {
@@ -162,6 +162,15 @@ const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
 		}
 		return "";
 	};
+
+	const isCourseWaived = (dept: string, num: number) => {
+		for (let i = 0; i < waivers.length; ++i) {
+			if ((waivers[i].dept === dept) && (waivers[i].num === num)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	const getAvailCourses = () => {
 		let arr = [] as Course[];
@@ -173,7 +182,10 @@ const CoursePlanner = ({plan, planHandler}: ICoursePlanner) => {
 				name: getCourseName(defaultAvail[i].dept, defaultAvail[i].num),
 				credHrs: 3
 			};
-			arr.push(tmp);
+
+			if (!isCourseWaived(tmp.dept, tmp.num)) {
+				arr.push(tmp);
+			}			
 		}
 		return arr;
 	}

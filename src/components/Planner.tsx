@@ -23,7 +23,7 @@ const Plan =({msOptions, waivers, oldPlan, planHandler}: IPlan)=> {
                 <h1>Create Your Academic Plan</h1>
             </div>
             <div className="planner">
-                <CoursePlanner plan={plan} planHandler={updatePlan}/>
+                <CoursePlanner plan={plan} waivers={waivers} planHandler={updatePlan}/>
             </div>            
             <div className="plan-requirements">
                 <Requirements msOptions={msOptions} plan={plan} waivers={waivers}/>
