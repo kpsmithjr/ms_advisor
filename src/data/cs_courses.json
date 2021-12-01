@@ -2,411 +2,517 @@
   {
     "dept": "CS",
     "num": 1000,
-    "name": "Computer Science Experiences"
+    "name": "Computer Science Experiences",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 1012,
-    "name": "Learning to Program Using Virtual Worlds"
+    "name": "Learning to Program Using Virtual Worlds",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 1250,
-    "name": "Introduction to Computing"
+    "name": "Introduction to Computing",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 2250,
-    "name": "Programming and Data Structures"
+    "name": "Programming and Data Structures",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 2261,
-    "name": "Object-Oriented Programming"
+    "name": "Object-Oriented Programming",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 2700,
-    "name": "Computer Organization and Architecture"
+    "name": "Computer Organization and Architecture",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 2750,
-    "name": "Linux Environment and Programming"
+    "name": "Linux Environment and Programming",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3010,
-    "name": "Web Programming"
+    "name": "Web Programming",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3130,
-    "name": "Design and Analysis of Algorithms"
+    "name": "Design and Analysis of Algorithms",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3200,
-    "name": ".NET Framework"
+    "name": ".NET Framework",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3410,
-    "name": "Video Game Design and Development"
+    "name": "Video Game Design and Development",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3702,
-    "name": "Introduction to Cyber Threats and Defense"
+    "name": "Introduction to Cyber Threats and Defense",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3780,
-    "name": "Software Security"
+    "name": "Software Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 3990,
-    "name": "Undergraduate Internship"
+    "name": "Undergraduate Internship",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4010,
-    "name": "Web Development with Java"
+    "name": "Web Development with Java",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4011,
-    "name": "Web Development with Advanced JavaScript"
+    "name": "Web Development with Advanced JavaScript",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4012,
-    "name": "Introduction to Enterprise Web Development"
+    "name": "Introduction to Enterprise Web Development",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4020,
-    "name": "Introduction to Android Apps: Android Fundamentals"
+    "name": "Introduction to Android Apps: Android Fundamentals",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4030,
-    "name": "Introduction to Intelligent Web"
+    "name": "Introduction to Intelligent Web",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4200,
-    "name": "Python for Scientific Computing and Data Science"
+    "name": "Python for Scientific Computing and Data Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4220,
-    "name": "Introduction to iOS Programming and Apps"
+    "name": "Introduction to iOS Programming and Apps",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4222,
-    "name": "iOS Apps"
+    "name": "iOS Apps",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4250,
-    "name": "Programming Languages"
+    "name": "Programming Languages",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4280,
-    "name": "Program Translation Project"
+    "name": "Program Translation Project",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4300,
-    "name": "Introduction to Artificial Intelligence"
+    "name": "Introduction to Artificial Intelligence",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4320,
-    "name": "Introduction to Evolutionary Computation"
+    "name": "Introduction to Evolutionary Computation",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4340,
-    "name": "Introduction to Machine Learning"
+    "name": "Introduction to Machine Learning",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4342,
-    "name": "Introduction to Data Mining"
+    "name": "Introduction to Data Mining",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4370,
-    "name": "Introduction to Biological Data Science"
+    "name": "Introduction to Biological Data Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4390,
-    "name": "Introduction to Deep Learning"
+    "name": "Introduction to Deep Learning",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4410,
-    "name": "Introduction to Computer Graphics"
+    "name": "Introduction to Computer Graphics",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4420,
-    "name": "Introduction to Digital Image Processing and Computer Vision"
+    "name": "Introduction to Digital Image Processing and Computer Vision",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4500,
-    "name": "Introduction to the Software Profession"
+    "name": "Introduction to the Software Profession",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4520,
-    "name": "Introduction to Object-Oriented Analysis and Design"
+    "name": "Introduction to Object-Oriented Analysis and Design",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4610,
-    "name": "Database Management Systems"
+    "name": "Database Management Systems",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4700,
-    "name": "Computer Forensics"
+    "name": "Computer Forensics",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4730,
-    "name": "Computer Networks and Communications"
+    "name": "Computer Networks and Communications",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4732,
-    "name": "Introduction to Cryptography for Computer Security"
+    "name": "Introduction to Cryptography for Computer Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4740,
-    "name": "Introduction to High Performance Computing"
+    "name": "Introduction to High Performance Computing",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4750,
-    "name": "Introduction to Cloud Computing"
+    "name": "Introduction to Cloud Computing",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4760,
-    "name": "Operating Systems"
+    "name": "Operating Systems",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4780,
-    "name": "Computer and Network Security"
+    "name": "Computer and Network Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4782,
-    "name": "Information Security"
+    "name": "Information Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4792,
-    "name": "Introduction to Mobile Computing, Networking, and Security"
+    "name": "Introduction to Mobile Computing, Networking, and Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4794,
-    "name": "Introduction to Security of IoT Systems"
+    "name": "Introduction to Security of IoT Systems",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4880,
-    "name": "Individual Studies in Computer Science"
+    "name": "Individual Studies in Computer Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 4890,
-    "name": "Topics in Computer Science"
+    "name": "Topics in Computer Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5012,
-    "name": "Enterprise Web Development"
+    "name": "Enterprise Web Development",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5020,
-    "name": "Android Apps: Android Fundamentals"
+    "name": "Android Apps: Android Fundamentals",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5030,
-    "name": "Intelligent Web"
+    "name": "Intelligent Web",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5130,
-    "name": "Advanced Data Structures and Algorithms"
+    "name": "Advanced Data Structures and Algorithms",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5222,
-    "name": "Advanced iOS Apps"
+    "name": "Advanced iOS Apps",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5300,
-    "name": "Artificial Intelligence"
+    "name": "Artificial Intelligence",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5320,
-    "name": "Evolutionary Computation"
+    "name": "Evolutionary Computation",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5340,
-    "name": "Machine Learning"
+    "name": "Machine Learning",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5342,
-    "name": "Data Mining"
+    "name": "Data Mining",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5370,
-    "name": "Biological Data Science"
+    "name": "Biological Data Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5390,
-    "name": "Deep Learning"
+    "name": "Deep Learning",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5410,
-    "name": "Computer Graphics"
+    "name": "Computer Graphics",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5420,
-    "name": "Digital Image Processing and Computer Vision"
+    "name": "Digital Image Processing and Computer Vision",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5500,
-    "name": "Software Engineering"
+    "name": "Software Engineering",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5520,
-    "name": "Object Oriented Analysis and Design"
+    "name": "Object Oriented Analysis and Design",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5620,
-    "name": "Intelligent Information Retrieval"
+    "name": "Intelligent Information Retrieval",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5700,
-    "name": "Computer Systems"
+    "name": "Computer Systems",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5702,
-    "name": "Cyber Threats and Defense"
+    "name": "Cyber Threats and Defense",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5732,
-    "name": " Cryptography for Computer Security"
+    "name": " Cryptography for Computer Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5740,
-    "name": "High Performance Computing"
+    "name": "High Performance Computing",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5750,
-    "name": "Cloud Computing"
+    "name": "Cloud Computing",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5782,
-    "name": "Advanced Information Security"
+    "name": "Advanced Information Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5792,
-    "name": "Mobile Computing, Networking, and Security"
+    "name": "Mobile Computing, Networking, and Security",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5794,
-    "name": "Security of IoT Systems"
+    "name": "Security of IoT Systems",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5870,
-    "name": " Computer Science Seminar"
+    "name": " Computer Science Seminar",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5880,
-    "name": "Computer Science Independent Project"
+    "name": "Computer Science Independent Project",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5888,
-    "name": "Cybersecurity Capstone"
+    "name": "Cybersecurity Capstone",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5890,
-    "name": "Topics in Computer Science"
+    "name": "Topics in Computer Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 5900,
-    "name": "Graduate Internship in Computer Science"
+    "name": "Graduate Internship in Computer Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 6320,
-    "name": "Advances in Evolutionary Computation"
+    "name": "Advances in Evolutionary Computation",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 6340,
-    "name": "Genetic Programming"
+    "name": "Genetic Programming",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 6410,
-    "name": "Topics in Computer Graphics"
+    "name": "Topics in Computer Graphics",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "CS",
+            "num": 4410
+          },
+          {
+            "dept": "CS",
+            "num": 5410
+          }
+        ],
+        "numReq": 1        
+      }
+    ]
   },
   {
     "dept": "CS",
     "num": 6420,
-    "name": "Topics In Image Processing and Computer Vision"
+    "name": "Topics In Image Processing and Computer Vision",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "CS",
+            "num": 5420
+          }
+        ],
+        "numReq": 1        
+      } 
+    ]
   },
   {
     "dept": "CS",
     "num": 6900,
-    "name": "Thesis in Computer Science"
+    "name": "Thesis in Computer Science",
+    "prerequisite": []
   },
   {
     "dept": "CS",
     "num": 7990,
-    "name": "Ph.D. Dissertation Research in Computer Science"
+    "name": "Ph.D. Dissertation Research in Computer Science",
+    "prerequisite": []
   }
 ]
