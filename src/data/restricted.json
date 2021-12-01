@@ -1,0 +1,38 @@
+[
+	{
+		"dept": "CS",
+		"num": 1250		
+	},
+	{
+		"dept": "CS",
+		"num": 2250
+	},
+	{
+		"dept": "CS",
+		"num": 2261
+	},
+	{
+		"dept": "CS",
+		"num": 2700
+	},
+	{
+		"dept": "CS",
+		"num": 2750
+	},
+	{
+		"dept": "CS",
+		"num": 3130
+	},
+	{
+		"dept": "MATH",
+		"num": 1320
+	},
+	{
+		"dept": "MATH",
+		"num": 1800
+	},
+	{
+		"dept": "MATH",
+		"num": 3000
+	}
+]

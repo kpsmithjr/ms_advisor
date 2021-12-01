@@ -9,6 +9,7 @@ import Planner from './components/Planner';
 import MsOptionsType from './types/msOptions';
 import SemItem from './types/semItemType';
 import CourseType from './types/courseType';
+import Restricted from './components/Restricted';
 
 const gcOptions = [
   {
@@ -75,6 +76,7 @@ const App = () => {
   const [optionsVal, setOptionsVal] = useState<MsOptionsType>(optionsDefault);
   const [waiverVals, setWaiverVals] = useState<CourseType[]>(waiversDefault);
   const [planVals, setPlanVals] = useState<SemItem[]>(planDefault)
+  const [restrictedCourses, setRestrictedCourses] = React.useState<CourseType[]>([]);
   const [firstTime, setFirstTime] = React.useState<boolean>(true);
 
   const updateOptions = (newOptions: MsOptionsType): void => {
@@ -88,6 +90,11 @@ const App = () => {
   const updatePlan = (newPlan: SemItem[]): void => {
     setPlanVals(newPlan);
   };
+
+  const updateRestrictedCourses = (newRestrictedCourses: CourseType[]): void => {
+    setRestrictedCourses(newRestrictedCourses);
+    console.log(newRestrictedCourses);
+  }
 
   const autoFillFirstSem = () => {
     const current = new Date();
@@ -124,6 +131,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />
         <Route path="/options" element={<Options options={optionsVal} handler={updateOptions}/>} />
         <Route path="/waivers" element={<Waivers waivers={waiverVals} handler={updateWaivers}/>} />
         <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} oldPlan={planVals} planHandler={updatePlan}/>} />

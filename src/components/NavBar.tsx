@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import INavBar from "../interfaces/iNavBar";
 
@@ -11,6 +10,9 @@ const Navbar = ({title}: INavBar) =>{
             <ul>
                 <li>
                     <Link to='/options'>Options</Link>
+                </li>
+                <li>
+                    <Link to='/restricted'>Restricted</Link>
                 </li>
                 <li>
                     <Link to='/waivers'>Waivers</Link>

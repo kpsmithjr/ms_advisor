@@ -69,7 +69,7 @@ const Options = ({options, handler}: IOptions)=> {
     //}
     
     handler(formData);
-    navigate('/waivers');
+    navigate('/restricted');
   };
 
   const handleCancel = () => {
