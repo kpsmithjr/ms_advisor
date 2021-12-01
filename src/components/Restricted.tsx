@@ -42,7 +42,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 		let arr = [] as RestrictedCourseType[];
 
 		for (let i = 0; i < RestrictedCourses.length; ++i) {
-			if (RestrictedCourses[i].dept == dept) {
+			if (RestrictedCourses[i].dept === dept) {
 				const waiverData:RestrictedCourseType = {
 					id: RestrictedCourses[i].dept + " " + RestrictedCourses[i].num.toString(),
         	dept: RestrictedCourses[i].dept,

@@ -32,7 +32,7 @@ const Home = () => {
         //Get the details of the studentPlan file, propagate
         //TODO: handle exceptions
         const files = event.currentTarget.files as FileList;
-        if (files && files.length != 0) {
+        if (files && files.length !== 0) {
             const file = files[0];
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')

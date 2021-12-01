@@ -10,7 +10,6 @@ import SemItem from "../types/semItemType";
 import ICoursePlanner from "../interfaces/iCoursePlanner"
 
 import cs_courses from "../data/cs_courses.json"
-import { stringify } from "querystring";
 
 const Container = styled.div`
  display: flex;
@@ -147,11 +146,6 @@ const defaultAvail = [
 	}
 ]
 
-interface IGetSemIdx {
-	plan: SemItem;
-	semId: string;
-}
-
 const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
@@ -236,12 +230,12 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 				}
 				
 				// Deep copy of available courses
-				var newAvail = JSON.parse(JSON.stringify(availCourses));
+				let newAvail = JSON.parse(JSON.stringify(availCourses));
 				const [item] = newAvail.splice(source.index, 1); // Remove item
 				setAvailCourses(newAvail); // Update available courses
 								
 				// Deep copy of plan
-				var newPlan = JSON.parse(JSON.stringify(plan));
+				let newPlan = JSON.parse(JSON.stringify(plan));
 				newPlan[tgtIdx].courses.push(item);
 				planHandler(newPlan);
 				
@@ -253,12 +247,12 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 				}
 
 				// Deep copy of plan
-				var newPlan = JSON.parse(JSON.stringify(plan));
+				let newPlan = JSON.parse(JSON.stringify(plan));
 				const [item] = newPlan[srcIdx].courses.splice(source.index, 1); // Remove item
 				planHandler(newPlan);
 
 				// Deep copy of available courses
-				var newAvail = JSON.parse(JSON.stringify(availCourses));
+				let newAvail = JSON.parse(JSON.stringify(availCourses));
 				newAvail.push(item);
 				setAvailCourses(newAvail);
 
@@ -275,7 +269,7 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 					return;
 				}
 
-				var newPlan = JSON.parse(JSON.stringify(plan));
+				let newPlan = JSON.parse(JSON.stringify(plan));
 				const [item] = newPlan[srcIdx].courses.splice(source.index, 1); // Remove item
 				newPlan[tgtIdx].courses.push(item);
 				planHandler(newPlan);

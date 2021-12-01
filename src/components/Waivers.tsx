@@ -41,7 +41,7 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
 
   const isWaiverInArray = (waiver: WaiverType, arr: WaiverType[]): boolean => {
     for (let i = 0; i < arr.length; ++i) {
-      if ((waiver.dept === arr[i].dept) && (waiver.num == arr[i].num)) {
+      if ((waiver.dept === arr[i].dept) && (waiver.num === arr[i].num)) {
         return true;
       }
     }

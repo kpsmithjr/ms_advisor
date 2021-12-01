@@ -13,439 +13,6 @@ import track_reqs from "../data/track_req.json";
 
 import cs_rotation from "../data/cs_rotation.json";
 
-/*
-const tradReqs = {
-  name: "Traditional",
-  required: [
-    {
-      courses: [
-        {
-          id: "CS-4760",
-          dept: "CS",
-          num: 4760
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5700",
-          dept: "CS",
-          num: 5700
-        }
-      ],
-      numReq: 1
-    }
-  ],
-  electives: [
-    {
-      courses: [],
-      numReq: 0
-    }
-  ],
-  num_core: 2,
-  num_elective: 0
-};
-*/
-
-/*
-const profReqs = {
-    name: "Professional",
-    required: [
-      {
-        courses: [
-          {
-              dept: "CS",
-              num: 5994
-          }
-        ],
-        numReq: 1
-      },
-    ],
-    electives: [
-      {
-        courses: [],
-        numReq: 0
-      }
-    ],
-    num_core: 1,
-    num_elective: 2
-};
-*/
-
-/*
-const aiReqs = {
-  name: "Graduate Certificate in Artificial Intelligence",
-  required: [
-    {
-      courses: [
-        {
-          id: "CS-5130",
-          dept: "CS",
-          num: 5130
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5300",
-          dept: "CS",
-          num: 5300
-        }
-      ],
-      numReq: 1
-    }
-  ],
-  electives: [
-    {
-      courses: [
-        {
-          id: "CS-5320",
-          dept: "CS",
-          num: 5320
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5340",
-          dept: "CS",
-          num: 5340
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5342",
-          dept: "CS",
-          num: 5342
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5370",
-          dept: "CS",
-          num: 5370
-        },
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5390",
-          dept: "CS",
-          num: 5390
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-5420",
-          dept: "CS",
-          num: 5420
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-6320",
-          dept: "CS",
-          num: 6320
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          id: "CS-6340",
-          dept: "CS",
-          num: 6340
-        }
-      ],
-      numReq: 1
-    }
-  ],
-  num_core: 2,
-  num_elective: 2
-};
-*/
-
-/*
-const mobileReqs = {
-  name: "Graduate Certificate in Mobile Apps and Computing",
-  required: [
-    {
-      courses: [
-        {
-          dept: "CS",
-          num: 5020
-        }            
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          dept: "CS",
-          num: 420
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          dept: "CS",
-          num: 5792
-        }
-      ],
-      numReq: 1
-    }
-  ],
-  electives: [
-    {
-      course: [
-        {
-            dept: "CS",
-            num: 4610
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          dept: "CS",
-          num: 5222
-        }
-      ],
-      numReq: 1
-    },
-    {
-      courses: [
-        {
-          dept: "CS",
-          num: 5750
-        }
-      ],
-      numReq: 1
-    }
-  ],
-  num_core: 3,
-  num_elective: 1
-};
-*/
-
-/*
-const webReqs = {
-    name: "Graduate Certificate in Internet and Web",
-    required: [
-        [
-            {
-                dept: "CS",
-                num: 4010
-            }            
-        ],
-        [
-            {
-                dept: "CS",
-                num: 4011
-            }
-        ],
-        [
-            {
-                dept: "CS",
-                num: 5012
-            }            
-        ]
-    ],
-    electives: [
-        {
-            dept: "CS",
-            num: 5020
-        },
-        {
-            dept: "CS",
-            num: 5030
-        },
-        {
-            dept: "CS",
-            num: 5792
-        },
-        {
-            dept: "CS",
-            num: 5750
-        }
-    ],
-    num_core: 3,
-    num_elective: 1
-};
-*/
-/*
-const cyberReqs = {
-    name: "Graduate Certificate in Cybersecurity",
-    required: [
-        [
-            {
-                dept: "CS",
-                num: 5702
-            },
-            {
-                dept: "INFSYS",
-                num: 6828
-            }            
-        ],
-        [
-            {
-                dept: "CS",
-                num: 4730
-            },
-            {
-                dept: "INFSYS",
-                num: 6836
-            }
-        ],
-        [
-            {
-                dept: "CS",
-                num: 5782
-            },
-            {
-                dept: "INFSYS",
-                num: 6858
-            }
-        ]
-    ],
-    electives: [
-        {
-            dept: "CS",
-            num: 4700
-        },
-        {
-            dept: "CS",
-            num: 5020
-        },
-        {
-            dept: "CS",
-            num: 5222
-        },
-        {
-            dept: "CS",
-            num: 5732
-        },
-        {
-            dept: "CS",
-            num: 5750
-        },
-        {
-            dept: "CS",
-            num: 5792
-        },
-        {
-            dept: "CS",
-            num: 5794
-        },
-        {
-            dept: "INFSYS",
-            num: 6830
-        },
-        {
-            dept: "INFSYS",
-            num: 6862
-        },
-        {
-            dept: "INFSYS",
-            num: 6864
-        },
-        {
-            dept: "INFSYS",
-            num: 6868
-        },
-        {
-            dept: "INFSYS",
-            num: 6878
-        }
-    ],
-    num_core: 3,
-    num_elective: 1
-};
-*/
-/*
-const dsReqs = {
-    name: "Graduate Certificate in Data Science",
-    required: [
-        [
-            {
-                dept: "CS",
-                num: 4200
-            }
-        ],
-        [
-            {
-                dept: "CS",
-                num: 5340
-            }
-        ],
-        [
-            {
-                dept: "CS",
-                num: 5342
-            }
-        ]
-    ],
-    electives: [
-        {
-            dept: "CS",
-            num: 5320
-        },
-        {
-            dept: "CS",
-            num: 5370
-        },
-        {
-            dept: "CS",
-            num: 5390
-        },
-        {
-            dept: "MATH",
-            num: 4005
-        },
-        {
-            dept: "MATH",
-            num: 4200
-        },
-        {
-            dept: "MATH",
-            num: 4210
-        }
-    ],
-    num_core: 3,
-    num_elective: 1
-};
-*/
-
-/*
-const coreReqs = {
-    
-}
-*/
-
 interface ReqContainerProps {
   met: boolean;
 };
@@ -563,9 +130,10 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return false;
   }
 
-  const updateColor = (reqline: ReqLine, plan: SemItem[]) => {
-    // Intialize everything to 0      
-    let clrArr:number[] = Array(reqline.courses.length*2-1).fill(0);
+   const updateColor = (reqline:ReqLine, plan:SemItem[], defaultToTwo:boolean) => {
+    // Intialize everything to 0
+    const defaultNum:number = defaultToTwo ? 2 : 0;
+    let clrArr:number[] = Array(reqline.courses.length*2-1).fill(defaultNum);
 
     let count = 0;
     // Set course color to 1 if in plan
@@ -581,7 +149,7 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     // then set all 0's to 2
     if (count >= reqline.numReq) {
       for (let i = 0; i < clrArr.length; ++i) {
-        if (clrArr[i] === 0) {
+        if (clrArr[i] === defaultNum) {
           clrArr[i] = 2;
         }
       }
@@ -589,11 +157,30 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return clrArr;
   }
 
+  const calcNumElectivesMet = (electives: ReqLine[], plan: SemItem[]):number => {
+    let numMet = 0;
+    // Loop through all elective requirement lines
+    for (let i = 0; i < electives.length; ++i) {
+      // Loop through all courses for current requirement line
+      for (let j = 0; j < electives[i].courses.length; ++j) {
+        // Check if current course is in plan or waived
+        if ((isCourseInPlan(electives[i].courses[j], plan))
+        || isCourseWaived(electives[i].courses[j].dept, electives[i].courses[j].num, waivers)) {
+          numMet += 1; // Increment count and go to next requirement line
+          break;
+        }
+      }
+    }
+    return numMet;
+  }
+
   const reqCredHrs:number = coreReqs.credHrs;
   const [credHrs, setCredHrs] = React.useState<number>(calcCreditHours(plan));
   const [credHrs5000, setCredHrs5000] = React.useState<number>(calcCreditHours5000(plan));
   const [coreReq, setCoreReqs] = React.useState(coreReqs);
-  const coreTxt = genReqArr(coreReq.required, waivers);
+  const [numElectivesMet, setNumElectivesMet] = React.useState<number>(calcNumElectivesMet(optReq.electives, plan));
+
+  const coreTxt = genReqArr(coreReq.required, waivers);  
 
   const optReqTxt = genReqArr(optReq.required, waivers);
   const optElectTxt = optReq.electives ? genReqArr(optReq.electives, waivers) : [] as string[][];
@@ -601,7 +188,8 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
   React.useEffect(() => {
     setCredHrs(calcCreditHours(plan));
     setCredHrs5000(calcCreditHours5000(plan));
-  }, [plan]);
+    setNumElectivesMet(calcNumElectivesMet(optReq.electives, plan));
+  }, [plan, optReq.electives]);
 
   return (        
     <div>
@@ -616,15 +204,15 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
         6000+ CS Course
       </RequirementContainer>
       {coreTxt.map((lines, lineIndex) => (
-        <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(coreReq.required[lineIndex], plan)} />
+        <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(coreReq.required[lineIndex], plan, false)} />
       ))}
       <h3 className="reqheader">Track Requirements</h3>
       {optReqTxt.map((lines, lineIndex) => (
-        <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.required[lineIndex], plan)} />
+        <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.required[lineIndex], plan, false)} />
       ))}
       <h3 className="reqheader">Track Electives ({optReq.num_elective})</h3>
       {optElectTxt ? optElectTxt.map((lines, lineIndex) => (
-        <RequirementsColumn key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.electives[lineIndex], plan)} />
+        <RequirementsColumn key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.electives[lineIndex], plan, numElectivesMet>=optReq.num_elective)} />
       )) : null}
     </div>
   );
