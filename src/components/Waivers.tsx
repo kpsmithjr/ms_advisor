@@ -4,10 +4,10 @@ import Courses from "../data/cs_courses.json";
 import styled from "styled-components";
 import CourseType from "../types/courseType";
 import IWaivers from "../interfaces/iWaivers";
+import core_req from "../data/core_reqs.json";
+import track_req from "../data/track_req.json";
 
 const WaiverContainer = styled.div`
-  height: 600px;
-  overflow-y: scroll;
 `
 
 type WaiverType = {
@@ -18,10 +18,10 @@ type WaiverType = {
   selected: boolean;
 };
 
-const Waivers = ({waivers, handler}: IWaivers) => {
+const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
   const navigate = useNavigate();
   
-  const waiverSelected = (dept: string, num: number) => {
+  const waiverSelected = (dept: string, num: number): boolean => {
     for (let i = 0; i < waivers.length; ++i) {
       if ((waivers[i].dept === dept) && (waivers[i].num === num)) {
         return true;
@@ -30,21 +30,83 @@ const Waivers = ({waivers, handler}: IWaivers) => {
     return false;
   };
 
-  const generateWaiverData = () => {
-    let arr = [] as WaiverType[];
+  const getCourseName = (dept: string, num:number): string => {
+		for (let i = 0; i < Courses.length; ++i) {
+			if ((Courses[i].dept === dept) && (Courses[i].num === num)) {
+				return Courses[i].name;
+			}
+		}
+		return "";
+	};
 
-    for (let i = 0; i < Courses.length; ++i) {
-      const waiverData:WaiverType = {
-        id: Courses[i].dept + " " + Courses[i].num.toString(),
-        dept: Courses[i].dept,
-        num: Courses[i].num,
-        name: Courses[i].name,
-        selected: waiverSelected(Courses[i].dept, Courses[i].num)
-      };
-      arr.push(waiverData);      
+  const isWaiverInArray = (waiver: WaiverType, arr: WaiverType[]): boolean => {
+    for (let i = 0; i < arr.length; ++i) {
+      if ((waiver.dept === arr[i].dept) && (waiver.num == arr[i].num)) {
+        return true;
+      }
     }
-    return arr;
+    return false;
   };
+
+  const addCoreReqs = (waiverData: WaiverType[]): WaiverType[] => {
+    for (let i = 0; i < core_req.required.length; ++i) {
+      for (let j = 0; j < core_req.required[i].courses.length; ++j) {
+        let tmp = core_req.required[i].courses[j];
+
+        const newWaiver:WaiverType = {
+          id: tmp.dept + " " + tmp.num.toString(),
+          dept: tmp.dept,
+          num: tmp.num,
+          name: getCourseName(tmp.dept, tmp.num),
+          selected: waiverSelected(tmp.dept, tmp.num)
+        };
+
+        waiverData.push(newWaiver)
+      }
+    }
+    return waiverData;
+  }
+
+  const addTrackReqs = (waiverData: WaiverType[]): WaiverType[] => {
+    let reqs = null;
+    for (let k = 0; k < track_req.length; ++k) {
+      if (track_req[k].name === msTrack) {
+        reqs = track_req[k].required;
+      }
+    }
+    if (reqs === null) {
+      console.log("ERROR = Could not find MS Track Requirements")
+    } else {
+      for (let i = 0; i < reqs.length; ++i) {
+        for (let j = 0; j < reqs[i].courses.length; ++j) {
+          let tmp = reqs[i].courses[j];
+  
+          const newWaiver:WaiverType = {
+            id: tmp.dept + " " + tmp.num.toString(),
+            dept: tmp.dept,
+            num: tmp.num,
+            name: getCourseName(tmp.dept, tmp.num),
+            selected: waiverSelected(tmp.dept, tmp.num)
+          };
+          
+          if (!isWaiverInArray(newWaiver, waiverData)) {
+            waiverData.push(newWaiver)
+          }          
+        }
+      }
+    }    
+    return waiverData;
+  }
+
+  const generateWaiverData = (): WaiverType[] => {
+    let waiverData = [] as WaiverType[];
+
+    addCoreReqs(waiverData);
+    addTrackReqs(waiverData);
+
+    return waiverData;
+  };
+
   const [formData, setFormData] = useState<WaiverType[]>(generateWaiverData());
   
   

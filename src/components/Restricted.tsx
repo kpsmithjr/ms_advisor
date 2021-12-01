@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
 import IRestricted from "../interfaces/iRestricted";
-
-import RestrictedCourses from "../data/restricted.json";
 import Courses from "../data/cs_courses.json";
+import RestrictedCourses from "../data/restricted.json";
 import CourseType from '../types/courseType';
 
 type RestrictedCourseType = {
@@ -118,7 +117,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
                 <div >
                   <input
                     type="checkbox"
-                    id={`custom-checkbox-${index}`}
+                    id={`cs-checkbox-${index}`}
                     name={course.id}
                     onChange={handleClickCS}
                     checked={course.selected}
@@ -140,7 +139,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
                 <div >
                   <input
                     type="checkbox"
-                    id={`custom-checkbox-${index}`}
+                    id={`math-checkbox-${index}`}
                     name={course.id}
                     onChange={handleClickMath}
                     checked={course.selected}
