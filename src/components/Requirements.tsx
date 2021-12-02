@@ -26,9 +26,10 @@ interface IRequirements {
   msOptions: MsOptionsType;
   plan: SemItem[];
   waivers: Course[];
+  restrictedCourses: Course[];
 }
 
-const Requirements =({msOptions, plan, waivers} : IRequirements) => {
+const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequirements) => {
   let optReq: any;
   let track_found = false;
   for (let i = 0; i < track_reqs.length; ++i) {
@@ -48,8 +49,9 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     let credHrs: number = 0;
             
     for (let i:number = 0; i < plan.length; ++i) {
-      for (let j:number = 0; j < plan[i].courses.length; ++j) {
-        credHrs += 3;
+        for (let j: number = 0; j < plan[i].courses.length; ++j) {
+            credHrs += (plan[i].courses[j].num >= 4000 ? 3 : 0);
+            //credHrs += 3;
       }
     }      
     return credHrs;
@@ -118,6 +120,21 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return reqArr;
   };
 
+    const restrictedArr = (courses: Course[]) => {
+        let reqArr = [] as string[][];
+        if (courses.length === 0) {
+            return reqArr;
+        } else {
+            let courseArr = [];
+            for (let j: number = 0; j < courses.length; ++j) {
+                courseArr.push(courses[j].dept + " " + courses[j].num.toString());
+            }
+            reqArr.push(courseArr);
+            return reqArr;
+        }
+
+    }
+
   const isCourseInPlan = (course: Course, plan: SemItem[]) => {
     for (let i = 0; i < plan.length; ++i) {
       for (let j = 0; j < plan[i].courses.length; ++j) {
@@ -174,6 +191,14 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
     return numMet;
   }
 
+    function course2reqline(courses:Course[]) {
+        var reqline = {
+            "courses": courses,
+            "numReq": courses.length
+        };
+        return reqline
+    }
+
   const reqCredHrs:number = coreReqs.credHrs;
   const [credHrs, setCredHrs] = React.useState<number>(calcCreditHours(plan));
   const [credHrs5000, setCredHrs5000] = React.useState<number>(calcCreditHours5000(plan));
@@ -192,7 +217,18 @@ const Requirements =({msOptions, plan, waivers} : IRequirements) => {
   }, [plan, optReq.electives]);
 
   return (        
-    <div>
+      <div>
+
+          {restrictedCourses.length > 0 &&
+              <React.Fragment>
+              <h3 className="reqheader">Restricted Courses</h3>
+              {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
+                  <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(course2reqline(restrictedCourses), plan, false)} />
+              ))
+                  }
+              </React.Fragment>
+          }
+
       <h3 className="reqheader">Requirements</h3>
       <RequirementContainer met={credHrs >= coreReqs.credHrs} >
        {coreReqs.credHrs} Credit Hours ({credHrs})

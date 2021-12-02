@@ -10,10 +10,39 @@ import SemItem from "../types/semItemType";
 import ICoursePlanner from "../interfaces/iCoursePlanner"
 
 import cs_courses from "../data/cs_courses.json"
+import Restricted from "./Restricted";
+import { rest } from "lodash";
 
 const Container = styled.div`
  display: flex;
 `
+
+//const restrictedAvail = [
+//	{
+//		dept: 'CS',
+//		num: 1250
+//	},
+//	{
+//		dept: 'CS',
+//		num: 2250
+//	},
+//	{
+//		dept: 'CS',
+//		num: 2261
+//	},
+//	{
+//		dept: 'CS',
+//		num: 2700
+//	},
+//	{
+//		dept: 'CS',
+//		num: 2750
+//	},
+//	{
+//		dept: 'CS',
+//		num: 3130
+//	}
+//]
 
 const defaultAvail = [
 	{
@@ -146,7 +175,7 @@ const defaultAvail = [
 	}
 ]
 
-const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
+const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
 		for (let i = 0; i < cs_courses.length; ++i) {
@@ -179,6 +208,19 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 
 	const getAvailCourses = () => {
 		let arr = [] as Course[];
+		for (let i = 0; i < restrictedCourses.length; ++i) {
+			const tmp = {
+				id: restrictedCourses[i].dept + " " + restrictedCourses[i].num,
+				dept: restrictedCourses[i].dept,
+				num: restrictedCourses[i].num,
+				name: getCourseName(restrictedCourses[i].dept, restrictedCourses[i].num),
+				credHrs: 0
+			};
+
+			if (!isCoursePlanned(tmp.dept, tmp.num)) {
+				arr.push(tmp);
+            }
+        }
 		for (let i = 0; i < defaultAvail.length; ++i) {
 			const tmp = {
 				id: defaultAvail[i].dept + " " + defaultAvail[i].num,
@@ -192,6 +234,7 @@ const CoursePlanner = ({plan, waivers, planHandler}: ICoursePlanner) => {
 				arr.push(tmp);
 			}			
 		}
+		
 		return arr;
 	}
 

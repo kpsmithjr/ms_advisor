@@ -5,6 +5,7 @@ import SemItemType from "../types/semItemType"
 interface IPlan {
 	msOptions: MsOptionsType;
 	waivers: CourseType[];
+	restrictedCourses: CourseType[];
 	oldPlan: SemItemType[];
 	planHandler: (newPlan: SemItemType[]) => void;
 };

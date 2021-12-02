@@ -134,7 +134,7 @@ const App = () => {
         <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />
         <Route path="/options" element={<Options options={optionsVal} handler={updateOptions}/>} />
         <Route path="/waivers" element={<Waivers waivers={waiverVals} msTrack={optionsVal.msTrack} handler={updateWaivers}/>} />
-        <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} oldPlan={planVals} planHandler={updatePlan}/>} />
+              <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} restrictedCourses={restrictedCourses} oldPlan={planVals} planHandler={updatePlan}/>} />
       </Routes>      
     </Router>    
   );
