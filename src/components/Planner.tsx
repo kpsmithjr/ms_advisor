@@ -17,6 +17,17 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IP
         console.log(plan);
     }
 
+    const saveToFile = () => {
+        planHandler(plan);
+        const fileData = JSON.stringify({ msOptions, waivers, restrictedCourses, plan });
+        const blob = new Blob([fileData], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.download = 'UMSL_CS_MS_Plan.json';
+        link.href = url;
+        link.click();
+    }
+
     return (
         <div className="plan-container">            
             <div className="plan-header">
@@ -30,6 +41,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IP
             </div>
             <div className="plan-footer">
                 <button onClick={savePlan}>Save Plan</button>
+                <button onClick={saveToFile}>Save To File</button>
             </div>
         </div>
     );

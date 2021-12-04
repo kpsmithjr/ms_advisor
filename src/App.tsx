@@ -93,7 +93,13 @@ const App = () => {
 
   const updateRestrictedCourses = (newRestrictedCourses: CourseType[]): void => {
     setRestrictedCourses(newRestrictedCourses);
-    console.log(newRestrictedCourses);
+  }
+
+  const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[], newPlan: SemItem[]): void => {
+    setOptionsVal(newOptions);
+    setWaiverVals(newWaivers);
+    setRestrictedCourses(newRestrictions);
+    setPlanVals(newPlan);
   }
 
   const autoFillFirstSem = () => {
@@ -129,8 +135,8 @@ const App = () => {
   return(
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}/>
+          <Routes>
+              <Route path="/" element={<Home saveablePlanHandler={updateSaveablePlan} />} />
         <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />
         <Route path="/options" element={<Options options={optionsVal} handler={updateOptions}/>} />
         <Route path="/waivers" element={<Waivers waivers={waiverVals} msTrack={optionsVal.msTrack} handler={updateWaivers}/>} />

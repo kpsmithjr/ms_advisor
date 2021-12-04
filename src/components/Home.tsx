@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 import Ajv2020 from "ajv/dist/2020";
+import SaveablePlanType from "../types/saveablePlanType";
+
 const ajv = new Ajv2020({ allErrors: true })
 
-const Home = () => {
+const Home = ({ saveablePlanHandler }: any) => {
     const navigate = useNavigate();
-    //const inputFileRef = useRef();
 
     const createNewPlan = () => {
-      //create an empty studentPlan, propagate
         navigate('/options');
     }
 
@@ -28,31 +28,34 @@ const Home = () => {
         }).end();
     }
 
-    function setFile(event: React.ChangeEvent<HTMLInputElement>) {
-        //Get the details of the studentPlan file, propagate
+    //Get the details of the studentPlan file, propagate
+    function setFile(event: React.ChangeEvent<HTMLInputElement>) {    
         //TODO: handle exceptions
         const files = event.currentTarget.files as FileList;
+
         if (files && files.length !== 0) {
             const file = files[0];
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')
             reader.onerror = () => console.log('file reading has failed')
-            reader.onload = () => {
-                    const result = reader.result as string
-                    if (result) {
-                        const studentPlan = JSON.parse(result);
 
-                        //TODO: maybe make a central reference file to pull urls etc from?
-                        getFile("https://raw.githubusercontent.com/kpsmithjr/ms_advisor_files/main/studentPlan.schema.json", function (status:any, data:any) {
+            reader.onload = () => {
+                const result = reader.result as string
+
+                if (result) {
+                        getFile("https://raw.githubusercontent.com/kpsmithjr/ms_advisor_files/main/saveablePlanFiles/saveablePlan2.schema.json", function (status:any, data:any) {
+
                             if (status === "success") {
+                                const saveablePlan:SaveablePlanType = JSON.parse(result);
                                 const validate_plan = ajv.compile(data);
-                                if (validate_plan(studentPlan)) {
-                                    //TODO: propagate the studentPlan
+
+                                if (validate_plan(saveablePlan)) {
+                                    saveablePlanHandler(saveablePlan.msOptions, saveablePlan.waivers, saveablePlan.restrictedCourses, saveablePlan.plan);
                                     navigate('/planner');
                                 } else {
                                     //TODO: error popup
-                                }
-                            } //TODO: max wait time
+                                }  
+                            } //TODO: max wait time?
                         }); 
                     }
                 }
