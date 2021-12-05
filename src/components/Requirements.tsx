@@ -125,11 +125,9 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequireme
         if (courses.length === 0) {
             return reqArr;
         } else {
-            let courseArr = [];
             for (let j: number = 0; j < courses.length; ++j) {
-                courseArr.push(courses[j].dept + " " + courses[j].num.toString());
+                reqArr.push([courses[j].dept + " " + courses[j].num.toString()]);
             }
-            reqArr.push(courseArr);
             return reqArr;
         }
 
@@ -191,12 +189,9 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequireme
     return numMet;
   }
 
-    function course2reqline(courses:Course[]) {
-        var reqline = {
-            "courses": courses,
-            "numReq": courses.length
-        };
-        return reqline
+    const updateRestrictionColor = (course: Course, plan: SemItem[]) => {
+        const fillNum: number = isCourseInPlan(course, plan) ? 1 : 0;
+        return Array(1).fill(fillNum)
     }
 
   const reqCredHrs:number = coreReqs.credHrs;
@@ -223,7 +218,7 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequireme
               <React.Fragment>
               <h3 className="reqheader">Restricted Courses</h3>
               {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
-                  <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(course2reqline(restrictedCourses), plan, false)} />
+                  <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateRestrictionColor(restrictedCourses[lineIndex], plan)} />
               ))
                   }
               </React.Fragment>
