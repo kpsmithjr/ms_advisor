@@ -70,9 +70,9 @@ const CourseCard = ({course, index}: ICourseCard) => {
 					ref={provided.innerRef}
 					isDragging={snapshot.isDragging}
 					isAvailable={false}
-					onMouseEnter={showDescription}
-					onMouseLeave={hideDescription}
 					onMouseDown={hideDescription}
+					onDoubleClick={showDescription}
+					onMouseLeave={hideDescription}		
 				>
 					{course.id + " - " + course.name}
 				</Container>

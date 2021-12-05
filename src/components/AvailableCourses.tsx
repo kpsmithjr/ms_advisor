@@ -55,6 +55,9 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 	return (
 		<div>
 			<Title>Available Courses</Title>
+			<p>
+			(Double-click for descriptions)
+			</p>
 			{courseRenderer(courses)}
 		</div>
 	)
