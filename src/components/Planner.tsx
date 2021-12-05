@@ -23,7 +23,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IP
         const blob = new Blob([fileData], { type: "text/plain" });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.download = 'UMSL_CS_MS_Plan.json';
+        link.download = 'UMSL_CS_MS_Plan.txt';
         link.href = url;
         link.click();
     }
