@@ -7,10 +7,11 @@ import cs_courses from "../data/cs_courses.json"
 interface StyledDivProps {
 	isDragging: boolean;
 	isAvailable: boolean;
+	preReqNotMet: boolean;
 }
 
 const Container = styled.div<StyledDivProps>`
-	background-color: ${props => (props.isDragging ? 'lightgrey' : (props.isAvailable ? 'lightgreen' : 'white'))};
+	background-color: ${props => (props.preReqNotMet ? 'red': props.isDragging ? 'lightgrey' : (props.isAvailable ? 'lightgreen' : 'white'))};
 	border: 1px solid black;
 	border-radius: 8px;
 	padding: 2px;
@@ -20,6 +21,7 @@ const Container = styled.div<StyledDivProps>`
 interface ICourseCard {
 	course: Course;
 	index: number;
+	preReqNotMet: boolean;
 }
 
 const getCourseIdx = (dept: string, num: number) => {
@@ -55,7 +57,7 @@ const hideDescription = (event: any) => {
     }
 }
 
-const CourseCard = ({course, index}: ICourseCard) => {
+const CourseCard = ({course, index, preReqNotMet}: ICourseCard) => {
 	return (
 		<Draggable
 			draggableId={course.id}
@@ -70,9 +72,10 @@ const CourseCard = ({course, index}: ICourseCard) => {
 					ref={provided.innerRef}
 					isDragging={snapshot.isDragging}
 					isAvailable={false}
+					preReqNotMet={preReqNotMet}
 					onMouseDown={hideDescription}
 					onDoubleClick={showDescription}
-					onMouseLeave={hideDescription}		
+					onMouseLeave={hideDescription}
 				>
 					{course.id + " - " + course.name}
 				</Container>

@@ -43,7 +43,7 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 						{...provided.droppableProps}				
 					>
 						{courses.map((course, index) => (
-							<CourseCard key={course.id} course={course} index={index}/>
+							<CourseCard key={course.id} course={course} index={index} preReqNotMet={false}/>
 						))}
 					{provided.placeholder}
 					</CourseList>											

@@ -53,7 +53,7 @@ const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	
 	const semRenderer = orderBy(semData, "position").map((sem: SemItem) => 
 		<div key={sem.id} >
-			<Semester sem={sem} courseId={courseId}/>
+			<Semester sem={sem} courseId={courseId} plan={semData}/>
 		</div>		
 	);
 
