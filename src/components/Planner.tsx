@@ -30,9 +30,6 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IP
 
     return (
         <div className="plan-container">            
-            <div className="plan-header">
-                <h1>Create Your Academic Plan</h1>
-            </div>
             <div className="planner">
                 <CoursePlanner plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} planHandler={updatePlan}/>
             </div>            

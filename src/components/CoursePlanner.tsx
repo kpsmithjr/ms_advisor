@@ -7,43 +7,16 @@ import styled from "styled-components";
 import Course from "../types/courseType";
 import SemItem from "../types/semItemType";
 
-import ICoursePlanner from "../interfaces/iCoursePlanner"
+import ICoursePlanner from "../interfaces/iCoursePlanner";
 
-import cs_courses from "../data/cs_courses.json"
-import Restricted from "./Restricted";
+import cs_courses from "../data/cs_courses.json";
+import cs_rotation from "../data/cs_rotation.json";
+
 import { rest } from "lodash";
 
 const Container = styled.div`
  display: flex;
 `
-
-//const restrictedAvail = [
-//	{
-//		dept: 'CS',
-//		num: 1250
-//	},
-//	{
-//		dept: 'CS',
-//		num: 2250
-//	},
-//	{
-//		dept: 'CS',
-//		num: 2261
-//	},
-//	{
-//		dept: 'CS',
-//		num: 2700
-//	},
-//	{
-//		dept: 'CS',
-//		num: 2750
-//	},
-//	{
-//		dept: 'CS',
-//		num: 3130
-//	}
-//]
-
 const defaultAvail = [
 	{
 		dept: 'CS',
@@ -219,14 +192,14 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 
 			if (!isCoursePlanned(tmp.dept, tmp.num)) {
 				arr.push(tmp);
-            }
-        }
-		for (let i = 0; i < defaultAvail.length; ++i) {
+      }
+    }
+		for (let i = 0; i < cs_rotation.length; ++i) {
 			const tmp = {
-				id: defaultAvail[i].dept + " " + defaultAvail[i].num,
-				dept: defaultAvail[i].dept,
-				num: defaultAvail[i].num,
-				name: getCourseName(defaultAvail[i].dept, defaultAvail[i].num),
+				id: cs_rotation[i].dept + " " + cs_rotation[i].num,
+				dept: cs_rotation[i].dept,
+				num: cs_rotation[i].num,
+				name: getCourseName(cs_rotation[i].dept, cs_rotation[i].num),
 				credHrs: 3
 			};
 

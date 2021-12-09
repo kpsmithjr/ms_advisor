@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { orderBy } from "lodash";
 import Semester from "./Semester";
 import styled from "styled-components";
@@ -14,15 +13,6 @@ const SemestersContainer = styled.div`
 	alignment: center;
 	overflow-y: scroll;
 `
-
-const Contianer = styled.div`
-`
-
-interface ISemtersProps {
-	semData: SemItem[];
-	newSemesterHandler: any
-}
-
 const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	
 	const addSemester = () => {
@@ -72,7 +62,7 @@ const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 			{<button onClick={addSemester}>Add Semester</button>}
 			<div>
 				<SemestersContainer>
-				{semRenderer}
+					{semRenderer}
 				</SemestersContainer>
 			</div>			
 		</div>		
