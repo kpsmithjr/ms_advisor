@@ -4,6 +4,7 @@
     "num": 1000,
     "name": "Computer Science Experiences",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "This course is for recently declared undergraduate students majoring in Computer Science or Computing Technology. Topics may include resources that are available on campus and in the department, career opportunities, choosing the right degree, and exploration of concepts, skills and practices that are essential for successful careers. This course should be taken by freshmen and transfers within the first two semesters of declaring the major."
   },
   {
@@ -11,6 +12,7 @@
     "num": 1012,
     "name": "Learning to Program Using Virtual Worlds",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Introduces modern programming principles without requiring the knowledge of a traditional programming language. Instead, this course utilizes a novel graphical approach that enables the student to create, populate, and manipulate virtual 3-dimensional worlds which resemble video games. The development of these worlds allows students to gain direct experience and skills in using computers to solve problems. Students will create worlds of varying complexity."
   },
   {
@@ -40,6 +42,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: MATH 1030 with a B- or better, or MATH 1045 with B- or better, or MATH 1100 (can be taken concurrently), or MATH 1800 (can be taken concurrently), or a 70% on the proctored UMSL Math Placement obtained at most one year prior to enrollment in this course. This course provides an introduction to the concepts of computation, problem solving, and computer systems. It covers topics such as, fundamental programming constructs, basic data types, and modularization using a modern high level language. Problem solving skills are developed through a progression of programming projects."
   },
   {
@@ -57,6 +60,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisite: CMP SCI 1250. Continuation of CMP SCI 1250. Discusses properties and implementation of abstract data types such as lists, trees, stacks and queues. Introduces procedural and class abstraction, basic program architecture, use of interfaces, modular programming, and file processing."
   },
   {
@@ -74,6 +78,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisite: CMP SCI 2250. Introduces object-oriented concepts, terminology, and notation (UML) using Java. Covers encapsulation, classes, objects, inheritance, and the use of class libraries. Additional topics may include graphical user interfaces, applets, and related tools and technologies."
   },
   {
@@ -91,6 +96,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2250 (can be taken concurrently). This course introduces details of computer systems from architectural and organizational points of view. It covers data representation, basic digital logic circuits, memory types and hierarchies, I/O and storage devices, CPU architectures such as RISC, CISC, parallel, and multi-core."
   },
   {
@@ -117,6 +123,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2250 and CMP SCI 2700 (CMP SCI 2700 can be taken concurrently). This course introduces Linux Operating System and focuses on command-line interactions, the file system, and shell scripting. Additional topics may include source control, symbolic debugging, and system programming in C."
   },
   {
@@ -138,6 +145,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261 (can be taken concurrently) or INFSYS 3806. This course provides a comprehensive overview of website development using prevalent LAMP stack architecture. Students will create well-structured, easily maintained, standards-compliant, accessible client-side code (HTML, CSS, JavaScript) in addition to server-side code (PHP and Python). Client-server computing projects are a course requirement. Students leave the course knowing how client-side code, server-side code, web servers, and databases function together."
   },
   {
@@ -173,6 +181,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2250, MATH 1320, and MATH 3000. This course addresses the design and analysis of fundamental algorithms in computer science. Studies basic sorting algorithms, priority queues, order statistics, search trees, and hash tables. Analysis techniques may involve time and space complexity analysis of both iterative and recursive algorithms, analysis of algorithm correctness, and amortized complexity analysis. Additional topics may include data compression, string manipulation, greedy algorithms, dynamic programming, and graph traversal."
   },
   {
@@ -190,6 +199,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 3010. This course introduces the .NET framework and related languages and technologies. Topics will include Visual Studio and C# for OOP and web applications. Additional topics may include ASP.NET with MVC, data access, and windows communication."
   },
   {
@@ -207,6 +217,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261. This course covers major aspects of the design and development of video games, including world/level design, game UI design, game character design, game engine programming, 2D/3D modeling and rendering, game physics and animation. This is a project-based course in which students learn to apply acquired knowledge and skills to building a video game in a team environment."
   },
   {
@@ -222,6 +233,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5702
       }
     ],
     "description": "Prerequisites: CMP SCI 2250. This course introduces the importance of cybersecurity and covers its various components. Topics may include different types of malware, phishing, password attacks, spoofing, efficient encryption algorithms, firewalls, intrusion prevention/detection systems, and honeypots. Credit cannot be granted for both CMP SCI 3702 and CMP SCI 5702."
@@ -259,6 +276,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261, CMP SCI 2750, and CMP SCI 3010. This course introduces the basic software security principles and pitfalls, including topics such as buffer, integer and string problems, runtime errors, SQL and command injection. Additional topics may include data protection, secure file access, password and network security."
   },
   {
@@ -266,6 +284,7 @@
     "num": 3990,
     "name": "Undergraduate Internship",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Consent of instructor. This course is a computer science internship that provides a student field experience in an organization related to the profession. To be enrolled, students must be employed in an internship or co-op program and find an instructor to supervise the experience. Internship activities may vary by site, but will often require end-of-semester reporting. Typically 1 credit can be earned for about 100 work hours. A maximum of 3 credit hours of CMP SCI 3990 can be counted as major electives and a maximum of 6 credit hours of CMP SCI 3990 and CMP SCI 4880 combined can be counted as major electives."
   },
   {
@@ -296,6 +315,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 3010 and either CMP SCI 2261 or INFSYS 3806; or graduate standing. This course covers fundamental topics of Java EE technology. Topics start with servlets and JSP. Additional topics may include JDBC, expression language, JSTL, security, Maven, Hibernate ORM framework, MVC pattern, REST web services, testing and source control for Java web applications."
   },
   {
@@ -313,6 +333,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 3010. This course provides a comprehensive overview of website development using the modern MEAN (MongoDB, Express.js, Angular, Node.js) stack architecture. Students will create web applications that make use of today's modern JavaScript engine. Other topics may include React, Sass (Syntactically awesome style sheets), and Pug template engine."
   },
   {
@@ -330,6 +351,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5012
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4010. This course covers design and implementation aspects for enterprise web development, along with some popular advanced technologies. Topics start with MVC and persistence frameworks such as Spring and Hibernate, and continue with topics that may include REST Web services using Spring Boot, microservice architecture, and Java EE design patterns. Students practice industry standards for building microservice and serverless applications. Credit cannot be earned for both CMP SCI 4012 and CMP SCI 5012."
   },
   {
@@ -345,6 +372,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5020
       }
     ],
     "description": "Prerequisite: CMP SCI 2261. This course covers the fundamental programming principles, software architecture, and user experience considerations underlying handheld software applications and their development environments. The course involves in-depth, hands-on examples that are implemented on the Android Platform, along with discussions of security. Credit can not be granted for both CMP SCI 4020 and CMP SCI 5020."
@@ -371,6 +404,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5030
       }
     ],
     "description": "Prerequisites: CMP SCI 3010 and CMP SCI 3130. This course covers the application of artificial intelligence and other modern techniques to help construct, navigate, and experience the Web. Topics may include retrieval models, classification, mining, association, topology, and indexing algorithms such as PageRank and HITS. Credit cannot be earned for both CMP SCI 4030 and CMP SCI 5030."
@@ -438,6 +477,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 1250 and (MATH 1100 or MATH 1800) and (ANTHRO 3220/SOC 3220 or BIOL 4122 or CRIMIN 2220 or ECON 3100 or MATH 1320 or POL SCI 3000 or PSYCH 2201). This course covers programming using the Python language and related libraries. The course explores problem solving using Python's support of procedural, object-oriented, and functional approaches to programming. Topics may include NumPy arrays, visualization, Pandas DataFrames, and selected functions from statistical and scientific packages."
   },
   {
@@ -459,6 +499,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261 or INFSYS 3806 or graduate standing. This course will use Swift for building iOS apps. It also introduces Xcode, Interface Builder, basic design patterns like MVC and delegation, and core libraries for Swift and iOS. Additional topics may include network communication, data persistence, basic animation, and mapping. This is a project-oriented class that will require significant use of a Mac with Xcode installed."
   },
   {
@@ -474,6 +515,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5222
       }
     ],
     "description": "Prerequisites: CMP SCI 4220 or consent of the instructor. This course focuses on building more sophisticated iOS apps. May include networking such as web services, Bluetooth and wifi connectivity, graphics and animation in 2-d and 3-d, autolayouts, OpenGL, advanced data sources such as plist and core data, source control and unit testing. May also discuss security topics. Credit not granted for both CMP SCI 4222 and CMP SCI 5222."
@@ -502,6 +549,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261 and CMP SCI 3010, or graduate standing. This course studies the principles, approaches, and trade-offs in modern programming languages, including a comparative study of syntax, semantics, and pragmatics. It also examines major programming paradigms: object-oriented, imperative, functional and logic."
   },
   {
@@ -546,6 +594,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2700, CMP SCI 2750, CMP SCI 3130, and CMP SCI 4250, or graduate standing. This course uses program translation as an example of a complex task, and focuses on managing and developing solutions for such complex programming tasks using modular incremental development and testing while applying proper standards. Translation topics may include finite automata, BNF, language semantics, and various translation models."
   },
   {
@@ -561,6 +610,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5300
       }
     ],
     "description": "Prerequisites: CMP SCI 3130. This course provides an introduction to artificial intelligence. The list of topics may include search, planning, knowledge-based reasoning, probabilistic inference, machine learning, natural language processing, and practical applications. Credit cannot be granted for both CMP SCI 4300 and CMP SCI 5300."
@@ -598,6 +653,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5320
+      }
+    ],
     "description": "Prerequisites: CMP SCI 2261, CMP SCI 2750 and CMP SCI 3130. This course introduces the concepts of nature-inspired problem solving with artificial evolution using selection, crossover, mutation and inheritance. It discusses applications of evolutionary algorithms, overviews the existing models and instances, and analyzes specific instances such as genetic algorithms, evolutionary programming, evolution strategies, and genetic programming. Credit not granted for both CMP SCI 4320 and CMP SCI 5320."
   },
   {
@@ -605,6 +666,12 @@
     "num": 4340,
     "name": "Introduction to Machine Learning",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5340
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4342, or CMP SCI 2261 and CMP SCI 3130, or consent of instructor. This course provides an introduction to machine learning principles, algorithms and applications. Topics may include computational learning theory, VC Dimension, generalization, classification, regression, regularization, validation, and reinforcement learning. Credit cannot be granted for both CMP SCI 4340 and CMP SCI 5340."
   },
   {
@@ -612,6 +679,12 @@
     "num": 4342,
     "name": "Introduction to Data Mining",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5342
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4200, or CMP SCI 2261 and CMP SCI 3130. This course provides an introduction to data mining principles, algorithms, and applications. Topics may include data preprocessing, data transformation, similarity and dissimilarity measures, data representation, classification techniques, association analysis, cluster analysis, and anomaly detection. Credit cannot be granted for both CMP SCI 4342 and CMP SCI 5342."
   },
   {
@@ -629,6 +702,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5370
+      }
+    ],
     "description": "Prerequisites: CMP SCI 3130 or consent of instructor. This course provides an introduction into several key areas of biological data science, with a focus upon genetic data. Relevant background topics in genetics, current issues, and a variety of available resources will be explored. Upon successful completion of this course, the student will be able to evaluate algorithms for analyzing genetic data, including assessments of sources of errors and analysis of time and space complexity; address shortcomings in existing approaches; and implement efficient and effective software for exposing information hidden in genetic data. Credit cannot be granted for both CMP SCI 4370 and CMP SCI 5370."
   },
   {
@@ -644,6 +723,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5390
       }
     ],
     "description": "Prerequisites: CMP SCI 3130 or consent of instructor. This course introduces mathematical foundations for deep learning, and follows with practical applications using selected domains such as image classification or protein predictions. It also covers dense neural networks, convolutional neural networks, recurrent neural networks, and other state-of-the-art networks. Credit cannot be granted for both CMP SCI 4390 and CMP SCI 5390."
@@ -670,6 +755,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5410
       }
     ],
     "description": "Prerequisites: CMP SCI 2250 and MATH 2450. This course covers the theoretical foundation and algorithms for computer graphics. Students learn the basics of graphics programming for modeling, rendering, and animation of 2D and 3D objects, using standard graphics API. A brief discussion of special graphics hardware, such as GPU, may be included. Credit cannot be granted for both CMP SCI 4410 and CMP SCI 5410."
@@ -716,6 +807,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5420
+      }
+    ],
     "description": "Prerequisites: MATH 1900, MATH 2450, CMP SCI 2750, and CMP SCI 3130. This course focuses on image analysis and visual perception. Students learn data structures and algorithms for image processing, region and texture analysis, image filtering, edge detection, contour following, and image enhancement in both spatial and frequency domain. Other topics may include color processing, coding for storage, retrieval, transmission, and image restoration. Credit cannot be granted for both CMP SCI 4420 and CMP SCI 5420."
   },
   {
@@ -751,6 +848,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2261, CMP SCI 3010, and MATH 3000. This course focuses on software development and on the skills required for success in the software profession. Topics related to software development may include software process, models and views, software architectures, documentation, and testing strategies. Topics related to the profession may include ethics, licensing, copyright, trademarks, and professional conduct. Individual and group projects, research, and presentations may be required in this capstone course."
   },
   {
@@ -775,6 +873,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5520
       }
     ],
     "description": "Prerequisites: CMP SCI 2261 and CMP SCI 3130. This course covers object-oriented development, using UML and following an agile process. It discusses elements of analysis, requirements, design, implementation and deployment, such as use cases, static and dynamic models, patterns, and frameworks. This course includes a semester long project. Credit not granted for both CMP SCI 4520 and CMP SCI 5520."
@@ -803,6 +907,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 3010 and MATH 3000; or graduate standing. This course focuses on database theory and applications, with emphasis on the relational model. Topics include database design, modeling, file systems, indexing, integrity constraints, relational algebra, normalization, transaction processing, and concurrency control. Students are exposed to emerging DBMS technologies and applications. Several programming projects will be required using a popular SQL server."
   },
   {
@@ -820,6 +925,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2750 or graduate standing. This course explores topics and methodologies for examining digital evidence, along with some principles of the investigative process. Topics may include memory, file system, operating system, network, and mobile device forensics. This course addresses both theory and hands-on aspects for conducting digital forensic examinations."
   },
   {
@@ -846,6 +952,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2750 and MATH 1320, or graduate standing. The course provides an understanding of computer network fundamentals, design, management and security through the layered Internet architecture and the TCP/IP protocol stack. The topics may include common networking techniques and protocols, as well as more advanced concepts like cloud computing, software-defined networks, and virtual network functions."
   },
   {
@@ -866,6 +973,17 @@
         ],
         "numReq": 1
       }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4780
+      },
+      {
+        "dept": "CS",
+        "num": 5732
+      }
+
     ],
     "description": "Prerequisites: MATH 1100 or MATH 1800 or consent of instructor. This course provides an introduction to cryptography as it applies to computer security. It describes modern cryptographic systems and potential attacks on against these systems. Topics may include both symmetric and asymmetric encryption algorithms, authentication, key exchange protocols, onion networks and blockchain technology, as well as potential attacks on these systems. Credit cannot be granted for more than one of CMP SCI 4732, CMP SCI 4780, and CMP SCI 5732."
   },
@@ -893,6 +1011,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5740
+      }
+    ],
     "description": "Prerequisites: CMP SCI 2750 and CMP SCI 3130. This course introduces algorithms for multiprocessor and multi-core architectures. Students learn the models of modern parallel computation and techniques to take advantage of parallel architectures for distributed and shared memory multi-processor architectures. Credit not granted for both CMP SCI 4740 and CMP SCI 5740."
   },
   {
@@ -908,6 +1032,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5750
       }
     ],
     "description": "Prerequisites: CMP SCI 2750. This course provides an introduction to development and deployment of applications in the cloud space. Touches on different aspects of cloud computing such as IaaS, PaaS, and SaaS. Includes significant discussion on legal and security aspects of clouds in the marketplace. May also include public, private, and hybrid clouds, and Internet of Things. Credit not granted for both CMP SCI 4750 and CMP SCI 5750."
@@ -936,6 +1066,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 2750 and CMP SCI 3130; or graduate standing. This course covers the structure of a generic operating system, considering in detail the algorithms for interprocess communication, process scheduling, resource management, memory management, file systems, and device management. It presents examples from contemporary operating systems and requires practical projects implemented within a modern operating system or simulator environment."
   },
   {
@@ -951,6 +1082,16 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4732
+      },
+      {
+        "dpet": "CS",
+        "num": 5732
       }
     ],
     "description": "Prerequisites: CMP SCI 4730 or graduate standing. This course provides a broad overview of computer and network security technologies and concerns from multiple perspectives, such as cryptography, Public Key Infrastructures (PKI), hashes and message digests, computer viruses and malware, email security, TCP/IP security, IPSec, Secure Socket Layer (SSL), Transport Layer Security (TLS), Virtual Private Networks (VPN), Firewall, AAA (Authentication, Authorization, Accounting), wireless and mobile systems security, secure identifications (IDs), cloud security, privacy and integrity, network attacks, system monitoring, and Intrusion Detection System (IDS). Management and human factors related to security will also be discussed."
@@ -983,6 +1124,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5782
+      }
+    ],
     "description": "Prerequisites: CMP SCI 2750 and, CMP SCI 3702 or INFSYS 3848, or consent of instructor. This course provides an overview of the cybersecurity profession and the various domains associated with it. Students will be introduced to various information risk management concepts and how it is interconnected to cybersecurity. A broad range of cybersecurity domains will be discussed along with practical applications of information risk management. Additional topics may include labs in select cybersecurity domains. Credit can not be granted for both CMP SCI 4782 and CMP SCI 5782."
   },
   {
@@ -1013,6 +1160,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5792
+      }
+    ],
     "description": "Prerequisites: CMP SCI 2750 and, CMP SCI 3702 OR INFSYS 3848, or consent of instructor. This course introduces fundamental concepts of mobile wireless networks, mobile edge computing, and security measures at the edge. It discusses challenges related to mobile edge computing systems in general and may include topics such as crowdsourcing/crowdsensing systems, Quality of Experience (QoE) in real-time mobile services, Internet of Things, scalability, secure and verifiable computing, and vehicular and autonomous driving networks. Credit not granted for both CMP SCI 4792 and CMP SCI 5792."
   },
   {
@@ -1030,6 +1183,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 5794
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4730 or consent of instructor. This course covers the cutting-edge techniques on the emerging edge cloud and wireless/mobile Internet of Things (IoT) systems. It covers the IoT reference architecture, integrated IoT security architecture, major threats and vulnerabilities with the IoT devices and edge cloud, and defense mechanisms. It includes hands-on labs on both the vulnerabilities and defense of the systems. Credit cannot be granted for both CMP SCI 4794 and CMP SCI 5794."
   },
   {
@@ -1037,6 +1196,7 @@
     "num": 4880,
     "name": "Individual Studies in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Consent of instructor. This course allows a student to pursue individual studies under the supervision of a faculty member. Topics may include learning new technology, software development, or participation in research activities. Students must arrangements for an instructor to supervise their work. A maximum of 6 credit hours of CMP SCI 3990 and CMP SCI 4880 combined can be counted as major electives."
   },
   {
@@ -1044,6 +1204,7 @@
     "num": 4890,
     "name": "Topics in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Consent of the instructor. This course covers a special topic in computer science to be determined by recent developments in the field and the interests of the instructor. This course may be taken for credit more than once so long as the topic discussed in each semester is different."
   },
   {
@@ -1061,6 +1222,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4012
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4010 or consent of instructor. This course covers design and implementation aspects for enterprise web development, along with some popular advanced technologies. Topics start with MVC and persistence frameworks such as Spring and Hibernate, and continue with topics that may include REST Web services using Spring Boot, microservice architecture, and Java EE design patterns. Students practice industry standards for building microservice and serverless applications. Students cannot receive credit for both CMP SCI 4012 and CMP SCI 5012."
   },
   {
@@ -1068,6 +1235,12 @@
     "num": 5020,
     "name": "Android Apps: Android Fundamentals",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4020
+      }
+    ],
     "description": "Prerequisite: Graduate standing. This course covers fundamental programming principles, including software architecture and user experience considerations, which underlie handheld software applications and their development environments. The course involves in-depth, hands-on examples that are implemented on the Android Platform, along with discussions of security. Credit is not granted for both CMP SCI 4020 and CMP SCI 5020."
   },
   {
@@ -1075,6 +1248,12 @@
     "num": 5030,
     "name": "Intelligent Web",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4030
+      }
+    ],
     "description": "Prerequisite: Graduate standing. This course covers the application of artificial intelligence and other modern techniques to help construct, navigate, and experience the Web. Topics may include retrieval models, classification, mining, association, topology, and indexing algorithms such as PageRank and HITS. Credit cannot be earned for both CMP SCI 4030 and CMP SCI 5030."
   },
   {
@@ -1082,6 +1261,7 @@
     "num": 5130,
     "name": "Advanced Data Structures and Algorithms",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Graduate standing in Computer Science. This course covers the design of efficient data structures and algorithms, as well as an advanced analysis of the time and space complexities of iterative and recursive algorithms. Student will learn a variety of techniques including dynamic programming, greedy algorithms, various graph algorithms, and NP-completeness and approximation algorithms."
   },
   {
@@ -1099,6 +1279,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4222
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4220 or consent of instructor. Focuses on building sophisticated apps using iOS. Will cover recent developments in networking such as web services, Bluetooth and wifi connectivity, graphics and animation in 2-d and 3-d, autolayouts, OpenGL, advanced data sources such as plist and core data, source control and unit testing. May also discuss security topics. Credit not granted for both CMP SCI 4222 and CMP SCI 5222."
   },
   {
@@ -1106,6 +1292,12 @@
     "num": 5300,
     "name": "Artificial Intelligence",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4300
+      }
+    ],
     "description": "Prerequisites: Graduate standing. This course provides an introduction to artificial intelligence. The list of topics may include search, planning, knowledge-based reasoning, probabilistic inference, machine learning, natural language processing, and practical applications. Credit cannot be granted for both CMP SCI 4300 and CMP SCI 5300."
   },
   {
@@ -1113,6 +1305,12 @@
     "num": 5320,
     "name": "Evolutionary Computation",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4320
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science. This course introduces the concepts of nature-inspired problem solving with artificial evolution using selection, crossover, mutation and inheritance. It discusses applications of evolutionary algorithms, overviews the existing models and instances, and analyzes specific instances such as genetic algorithms, evolutionary programming, evolution strategies, and genetic programming. Credit not granted for both CMP SCI 4320 and CMP SCI 5320."
   },
   {
@@ -1120,6 +1318,12 @@
     "num": 5340,
     "name": "Machine Learning",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4340
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science/Cybersecurity (Computer Science option) or CMP SCI 4342 or CMP SCI 5342 or consent of the instructor. This course provides an introduction to machine learning principles, algorithms and applications. Topics may include computational learning theory, VC dimensions, generalization, classification, regression, regularization, validation, and reinforcement learning. Credit cannot be granted for both CMP SCI 4340 and CMP SCI 5340."
   },
   {
@@ -1127,6 +1331,12 @@
     "num": 5342,
     "name": "Data Mining",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4342
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science/Cybersecurity (Computer Science option) or consent of the instructor. This course provides an introduction to data-mining principles, algorithms, and applications. Topics may include data preprocessing, data transformation, similarity and dissimilarity measures, data representation, classification techniques, association analysis, cluster analysis, and anomaly detection. Credit cannot be granted for both CMP SCI 4342 and CMP SCI 5342."
   },
   {
@@ -1134,6 +1344,12 @@
     "num": 5370,
     "name": "Biological Data Science",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4370
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science or consent of instructor. This course provides an introduction into several key areas of biological data science, with a focus upon genetic data. Relevant background topics in genetics, current issues, and a variety of available resources will be explored. Upon successful completion of this course, the student will be able to evaluate algorithms for analyzing genetic data, including assessments of sources of errors and analysis of time and space complexity; address shortcomings in existing approaches; and implement efficient and effective software for exposing information hidden in genetic data. Credit cannot be granted for both CMP SCI 4370 and CMP SCI 5370."
   },
   {
@@ -1141,6 +1357,12 @@
     "num": 5390,
     "name": "Deep Learning",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4390
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science. This course reviews a typical machine learning recipe, mathematical foundations for deep learning, and provides an introduction to deep learning. Topics include dense neural networks, convolutional neural networks, and recurrent neural networks. The course will cover building, training, and using deep neural networks for solving various machine learning problems like image classification and protein contact prediction. Credit cannot be granted for both CMP SCI 4390 and CMP SCI 5390."
   },
   {
@@ -1148,6 +1370,12 @@
     "num": 5410,
     "name": "Computer Graphics",
     "prerequisite": [],
+    "relatedCourse": [
+      {
+        "dept": "CS",
+        "num": 4410
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science. This course covers the theoretical foundation and algorithms of computer graphics. Students learn the basics of graphics programming for modeling, rendering, and animation of 2D and 3D objects, using standard graphics API. A brief discussion of special graphics hardware, such as GPU, may be included. Credit cannot be granted for both CMP SCI 4410 and CMP SCI 5410."
   },
   {
@@ -1155,6 +1383,12 @@
     "num": 5420,
     "name": "Digital Image Processing and Computer Vision",
     "prerequisite": [],
+    "relatedCourse": [
+      {
+        "dept": "CS",
+        "num": 4420
+      }
+    ],
     "description": "Prerequisites: Graduate standing in Computer Science. This course focuses on image analysis and visual perception. Students will learn data structures and algorithms for image processing, region and texture analysis, image filtering, edge detection, contour following, and image enhancement in both spatial and frequency domain. Other topics may include color processing, coding for storage, retrieval, transmission, and image restoration. Credit cannot be granted for both CMP SCI 4420 and CMP SCI 5420."
   },
   {
@@ -1162,6 +1396,7 @@
     "num": 5500,
     "name": "Software Engineering",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisite: Graduate standing. Introduces software engineering as a discipline, discusses stages of the software life cycle, compares development models such as waterfall, prototyping and incremental/iterative, covers requirements analysis, effort and cost estimation, compares structured and object-oriented analysis and design methods. Discusses verification/validation, quality assurance, software reliability, testing methods, maintenance, documentation, project management and team structure, metrics, and available tools."
   },
   {
@@ -1169,6 +1404,12 @@
     "num": 5520,
     "name": "Object Oriented Analysis and Design",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4520
+      }
+    ],
     "description": "Prerequisite: Graduate Standing in Computer Science. This course covers object-oriented development, illustrated with a visual modeling language and following an agile process. Discusses elements of analysis, requirements, design, implementation, and deployment such as use cases, static and dynamic diagrams, patterns, and frameworks. This course includes a semester long project starting with requirements and culminating with deployment. Credit not granted for both CMP SCI 4520 and CMP SCI 5520."
   },
   {
@@ -1190,6 +1431,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 4300 or CMP SCI 5300. This course studies techniques for analysis of information by statistical, syntactical, and logical methods. Topics related to multimedia information are also discussed."
   },
   {
@@ -1197,6 +1439,7 @@
     "num": 5700,
     "name": "Computer Systems",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisite: Graduate standing in Computer Science. This course focuses on parallel computing architectures, including RISC, pipelining, vector processing, SIMD, MIMD, and array processing. It introduces different memory and I/O subsystems, hardware description languages, and it demonstrates performance enhancement using different architectures studied."
   },
   {
@@ -1204,6 +1447,12 @@
     "num": 5702,
     "name": "Cyber Threats and Defense",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 3702
+      }
+    ],
     "description": "Prerequisites: Graduate standing. This course introduces the importance of cybersecurity and covers its various components. Topics may include different types of malware, phishing, password attacks, spoofing, efficient encryption algorithms, firewalls, intrusion prevention/detection systems, and honeypots. Credit cannot be granted for both CMP SCI 3702 and CMP SCI 5702."
   },
   {
@@ -1211,6 +1460,16 @@
     "num": 5732,
     "name": " Cryptography for Computer Security",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4732
+      },
+      {
+        "dept": "CS",
+        "num": 4780
+      }
+    ],
     "description": "Prerequisites: Graduate standing. This course provides an introduction to cryptography as it applies to computer security. It describes cryptographic code-making and code-breaking, and how they are integrated within larger security systems. Topics include symmetric encryption algorithms like AES, asymmetric encryption using prime number factorization and elliptic curves, message authentication codes, key exchange protocols and attacks on all these systems. Additional topics may include onion networks and blockchain technology, as well as possible attacks on those systems. Credit cannot be grant for more than one of CMP SCI 4732, CMP SCI 4780, and CMP SCI 5732."
   },
   {
@@ -1218,6 +1477,12 @@
     "num": 5740,
     "name": "High Performance Computing",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4740
+      }
+    ],
     "description": "Prerequisite: Graduate Standing in Computer Science. This course introduces algorithms for multiprocessor and multi-core architectures. Students learn the models of modern parallel computation and techniques to take advantage of parallel architectures for distributed and shared memory multi-processor architectures. Credit not granted for both CMP SCI 4740 and CMP SCI 5740."
   },
   {
@@ -1225,6 +1490,12 @@
     "num": 5750,
     "name": "Cloud Computing",
     "prerequisite": [],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4750
+      }
+    ],
     "description": "Prerequisites: Graduate standing. Provides an introduction to development and deployment of applications in the cloud space. Touches on different aspects of cloud computing such as IaaS, PaaS, and SaaS. Includes significant discussion on legal and security aspects of clouds in the marketplace. May also include public, private, and hybrid clouds, and Internet of Things. Credit not granted for both CMP SCI 4750 and CMP SCI 5750."
   },
   {
@@ -1244,6 +1515,12 @@
           }
         ],
         "numReq": 1
+      }
+    ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4782
       }
     ],
     "description": "Prerequisites: CMP SCI 5702 or INFSYS 6828 or consent of instructor. This course provides an overview of the cybersecurity profession and the various domains associated with it. Students will be introduced to various information risk management concepts and how they are interconnected to cybersecurity. A broad range of cybersecurity domains will be discussed along with their practical applications in information risk management. Additional topics may include labs in select cybersecurity domains to further the learning process. Credit cannot be granted for both CMP SCI 4782 and CMP SCI 5782."
@@ -1267,6 +1544,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4792
+      }
+    ],
     "description": "Prerequisites: CMP SCI 5702 or INFSYS 6828 or consent of instructor. This course introduces fundamental concepts of mobile wireless networks, mobile edge computing, and security measures at the edge. It discusses challenges related to mobile edge computing systems in general and may include topics such as crowdsourcing/crowdsensing systems, Quality of Experience (QoE) in real-time mobile services, Internet of Things, scalability, secure and verifiable computing, and vehicular and autonomous driving networks. Credit not granted for both CMP SCI 4792 and CMP SCI 5792."
   },
   {
@@ -1284,6 +1567,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "CS",
+        "num": 4794
+      }
+    ],
     "description": "Prerequisites: CMP SCI 4730 or consent of the department. This course covers the cutting-edge techniques on the emerging edge cloud and wireless/mobile Internet of Things (IoT) systems. It covers the IoT reference architecture, integrated IoT security architecture, major threats and vulnerabilities with the IoT devices and edge cloud, and defense mechanisms. It includes hands-on labs on both the vulnerabilities and defense of the systems. Credit cannot be granted for both CMP SCI 4794 and CMP SCI 5794."
   },
   {
@@ -1291,6 +1580,7 @@
     "num": 5870,
     "name": " Computer Science Seminar",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Graduate standing. This is a seminar on various topics. Substantial student reading and participation is expected. It may be taken more than once for credit with the consent of the department."
   },
   {
@@ -1298,6 +1588,7 @@
     "num": 5880,
     "name": "Computer Science Independent Project",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Graduate standing and consent of instructor. This course offers the student an opportunity to work on a supervised project, individually or in a group. A maximum of 6 hours can be counted toward the M.S. in Computer Science program from a combination of CMP SCI 5880, CMP SCI 5900, and CMP SCI 6900."
   },
   {
@@ -1328,6 +1619,12 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [
+      {
+        "dept": "INFSYS",
+        "num": 6888
+      }
+    ],
     "description": "Prerequisites: INFSYS 6828 and one of either INFSYS 6858 or CMP SCI 5782. This course provides students an opportunity to participate in the full cybersecurity lifecycle in an applied setting using a project-based approach. Students from technical and non-technical backgrounds will work together in teams. Major tasks may include creating an information security management plan, conducting risk assessments, implementing technical and administrative controls to mitigate information security risks, and managing security operations with a focus on incident detection and response. Students may work on projects through an actual organization and demonstrate application of knowledge gained through all prior courses in the degree program. This course must be taken the last semester prior to graduation. Cannot receive credit for CMP SCI 5888 and INFSYS 6888."
   },
   {
@@ -1335,6 +1632,7 @@
     "num": 5890,
     "name": "Topics in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Graduate standing. This course offers various topics not offered on a regular basis. This course may be taken for credit more than once so long as the topic discussed in each semester is different."
   },
   {
@@ -1342,6 +1640,7 @@
     "num": 5900,
     "name": "Graduate Internship in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Consent of instructor. This course is an internship that provides a student field experience in an organization related to the profession. To be enrolled, students must be employed in an internship or co-op program. If an instructor is not named, the student must find an instructor to supervise the internship. Internship activities may vary by site, but will require some reporting. Typically 1 credit can be earned for about 100 work hours. Only up to 3 hours total can be counted toward the M.S. in Computer Science program, and at most 6 hours can be counted from a combination of CMP SCI 5880, CMP SCI 5900, and CMP SCI 6900."
   },
   {
@@ -1359,6 +1658,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 5320. This course focuses on some advanced topics in genetic and evolutionary computation (both theory and applications). Topics may include genetic algorithm variants, intelligent metaheuristics, evolutionary machine learning, differential evolution, swarm intelligence, learning classifier systems, and Markov models. A substantial part of the course will be based on selected topics from recent literature. This is a project-based course, with the project typically involving literature search and conducting and reporting research. Projects may involve developing specific applications or implementing a specific model."
   },
   {
@@ -1376,6 +1676,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 5320. This course focuses on some advanced topics in genetic and evolutionary computation (both theory and applications). Topics may include genetic algorithm variants, intelligent metaheuristics, evolutionary machine learning, differential evolution, swarm intelligence, learning classifier systems, and Markov models. A substantial part of the course will be based on selected topics from recent literature. This is a project-based course, with the project typically involving literature search and conducting and reporting research. Projects may involve developing specific applications or implementing a specific model."
   },
   {
@@ -1397,6 +1698,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 4410 or CMP SCI 5410. This course covers various aspects of advanced graphics techniques, such as geometric modeling, rendering, shading, texturing, and computer animation. The course provides an in-depth study of recent advanced topics in computer graphics."
   },
   {
@@ -1414,6 +1716,7 @@
         "numReq": 1
       }
     ],
+    "relatedCourse" : [],
     "description": "Prerequisites: CMP SCI 5420. This course covers new developments in digital image processing, computer vision, and multimedia. Topics to be covered may include image databases, object tracking, and large-scale data visualization."
   },
   {
@@ -1421,6 +1724,7 @@
     "num": 6900,
     "name": "Thesis in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Completion of at least 12 graduate credits and approval of research topic by thesis advisor. This course is designed for students intending to pursue a thesis as part of their M.S. in Computer Science program. A maximum of 6 hours can be counted toward the program from a combination of CMP SCI 5880, CMP SCI 5900, and CMP SCI 6900."
   },
   {
@@ -1428,6 +1732,7 @@
     "num": 7990,
     "name": "Ph.D. Dissertation Research in Computer Science",
     "prerequisite": [],
+    "relatedCourse" : [],
     "description": "Prerequisites: Completion of comprehensive examinations. This course is used to pursue research work for a Ph.D. dissertation under the supervision of a faculty advisor. This course is available only to the students pursuing a Ph.D. under the Computer Science option."
   }
 ]
