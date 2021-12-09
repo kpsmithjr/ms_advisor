@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import RequirementsLine from "./RequirementsLine";
 import RequirementsColumn from "./RequirementsColumn";
 
+import IRequirements from "../interfaces/iRequirements";
+
 import ReqLine from "../types/reqLine"
 import Course from "../types/courseType"
 import MsOptionsType from "../types/msOptions";
@@ -22,14 +24,7 @@ color: ${props => (props.met ? 'green' : 'red')};
 margin-left: 8px;
 `
 
-interface IRequirements {
-  msOptions: MsOptionsType;
-  plan: SemItem[];
-  waivers: Course[];
-  restrictedCourses: Course[];
-}
-
-const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequirements) => {
+const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs} : IRequirements) => {
   let optReq: any;
   let track_found = false;
   for (let i = 0; i < track_reqs.length; ++i) {
@@ -46,7 +41,7 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequireme
   }
 
   const calcCreditHours = (plan: SemItem[]) => {
-    let credHrs: number = 0;
+    let credHrs: number = transferHrs;
             
     for (let i:number = 0; i < plan.length; ++i) {
         for (let j: number = 0; j < plan[i].courses.length; ++j) {
@@ -222,6 +217,12 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses} : IRequireme
               ))
                   }
               </React.Fragment>
+          }
+
+          {transferHrs>0 &&
+            <React.Fragment>
+              <h3>Transfering {transferHrs} credit hours </h3>
+            </React.Fragment>
           }
 
       <h3 className="reqheader">Requirements</h3>

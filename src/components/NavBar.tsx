@@ -15,6 +15,9 @@ const Navbar = ({title}: INavBar) =>{
                     <Link to='/restricted'>Restricted</Link>
                 </li>
                 <li>
+                    <Link to='/transfers'>Transfers</Link>
+                </li>
+                <li>
                     <Link to='/waivers'>Waivers</Link>
                 </li>
                 <li>

@@ -76,7 +76,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
   }
 
 	const handleCancel = () => {
-    navigate(-1);    
+    navigate(-1);
   };
 
 	const handleSubmit = () => {
@@ -102,7 +102,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 			}
 		}
 		handler(newResticted);
-		navigate('/waivers');
+		navigate('/transfers');
 	}
 
 	return (

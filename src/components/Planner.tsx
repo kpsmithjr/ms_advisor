@@ -5,7 +5,7 @@ import Requirements from "./Requirements";
 import SemItem from "../types/semItemType";
 import IPlan from "../interfaces/iPlan";
 
-const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IPlan)=> {
+const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, transferHrs}: IPlan)=> {
     const [plan, setPlan] = React.useState<SemItem[]>(oldPlan);
 
     const updatePlan = (newPlan: SemItem[]) => {
@@ -34,7 +34,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler}: IP
                 <CoursePlanner plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} planHandler={updatePlan}/>
             </div>            
             <div className="plan-requirements">
-                <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses}/>
+                <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} transferHrs={transferHrs}/>
             </div>
             <div className="plan-footer">
                 <button onClick={savePlan}>Save Plan</button>

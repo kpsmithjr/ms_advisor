@@ -8,6 +8,7 @@ interface IPlan {
 	restrictedCourses: CourseType[];
 	oldPlan: SemItemType[];
 	planHandler: (newPlan: SemItemType[]) => void;
+	transferHrs:number;
 };
 
 export default IPlan;

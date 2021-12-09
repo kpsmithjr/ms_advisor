@@ -10,6 +10,7 @@ import MsOptionsType from './types/msOptions';
 import SemItem from './types/semItemType';
 import CourseType from './types/courseType';
 import Restricted from './components/Restricted';
+import Transfers from "./components/Transfers";
 
 const gcOptions = [
   {
@@ -42,24 +43,6 @@ const optionsDefault = {
 
 const waiversDefault = [] as CourseType[];
 
-/*
-const planDefault = [
-  {
-		id: 'FS-2021',
-		year: 2021,
-		term: "FS",		
-		position: 1,
-		courses: [{id: "CS 1000", dept: "CS", num: 1000}]
-	},
-	{
-		id: 'SP-2022',
-		year: 2022,
-		term: "SP",
-		position: 2,
-		courses: [{id: "CS 1001", dept: "CS", num: 1001}]
-	}
-]
-*/
 const planDefault:SemItem[] = [
   {
 		id: 'FS-2021',
@@ -74,14 +57,23 @@ const planDefault:SemItem[] = [
 
 const App = () => {
   const [optionsVal, setOptionsVal] = useState<MsOptionsType>(optionsDefault);
-  const [waiverVals, setWaiverVals] = useState<CourseType[]>(waiversDefault);
-  const [planVals, setPlanVals] = useState<SemItem[]>(planDefault)
   const [restrictedCourses, setRestrictedCourses] = React.useState<CourseType[]>([]);
+  const [transferHrs, setTransferHours] = React.useState<number>(0);
+  const [waiverVals, setWaiverVals] = useState<CourseType[]>(waiversDefault);
+  const [planVals, setPlanVals] = useState<SemItem[]>(planDefault)  
   const [firstTime, setFirstTime] = React.useState<boolean>(true);
 
   const updateOptions = (newOptions: MsOptionsType): void => {
     setOptionsVal(newOptions);
   };
+
+  const updateRestrictedCourses = (newRestrictedCourses: CourseType[]): void => {
+    setRestrictedCourses(newRestrictedCourses);
+  }
+
+  const updateTransferHours = (newTransferHrs: number):void => {
+    setTransferHours(newTransferHrs);
+  }
 
   const updateWaivers = (newWaivers: CourseType[]): void => {
     setWaiverVals(newWaivers);    
@@ -91,9 +83,7 @@ const App = () => {
     setPlanVals(newPlan);
   };
 
-  const updateRestrictedCourses = (newRestrictedCourses: CourseType[]): void => {
-    setRestrictedCourses(newRestrictedCourses);
-  }
+  
 
   const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[], newPlan: SemItem[]): void => {
     setOptionsVal(newOptions);
@@ -135,12 +125,14 @@ const App = () => {
   return(
     <Router>
       <Navbar />
-          <Routes>
-              <Route path="/" element={<Home saveablePlanHandler={updateSaveablePlan} />} />
-        <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />
+      <Routes>
+        <Route path="/" element={<Home saveablePlanHandler={updateSaveablePlan} />} />
         <Route path="/options" element={<Options options={optionsVal} handler={updateOptions}/>} />
+        <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />      
+        <Route path="/transfers" element={<Transfers transfersHrs={transferHrs} setTransferHanlder={updateTransferHours}/>} />
         <Route path="/waivers" element={<Waivers waivers={waiverVals} msTrack={optionsVal.msTrack} handler={updateWaivers}/>} />
-              <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} restrictedCourses={restrictedCourses} oldPlan={planVals} planHandler={updatePlan}/>} />
+              <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} restrictedCourses={restrictedCourses}
+                                                       oldPlan={planVals} planHandler={updatePlan} transferHrs={transferHrs}/>} />
       </Routes>      
     </Router>    
   );
