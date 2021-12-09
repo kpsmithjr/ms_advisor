@@ -102,6 +102,21 @@ const Semester = ({sem, courseId, plan}: {sem:SemItem, courseId:string, plan:Sem
 			return null;
 		};
 
+		// Check if the prerequisites are meet due to graduate status
+		const isPrereqWaivedAsGrad = (dept:string, num:number):boolean => {
+			for (let i = 0; i < cs_courses.length; ++i) {
+				// Check if the i-th course in the catalog matches dept/num
+				if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {					
+					return cs_courses[i].waivePrereqAsGrad;
+				}
+			}
+			return false;
+		}
+
+		if (isPrereqWaivedAsGrad(dept, num)) {
+			return false;
+		}
+
 		const prereqs = getPrereqs(dept, num);
 		if (prereqs === null) {
 			return false;
