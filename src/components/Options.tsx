@@ -31,7 +31,6 @@ const Options = ({options, handler}: IOptions)=> {
     setFormData(newData);
   };
   
-
   const handleCertChange = (e: any) => {
     const newCerts = formData.certs.map(cert => {
       if (cert.name !== e.target.name ) return cert;      
@@ -113,13 +112,16 @@ const Options = ({options, handler}: IOptions)=> {
   const msTracks = getTrackList();
 
   return (   
-    <div>
-      <div>
-        <h1>Select Academic Plan Options</h1>
+    <div className="page-container">
+      <div className="page-header">
+        <h1>Academic Plan Options</h1>
       </div>
-      <div>
+      <div className='instructions'>
+        Instuctions go here.
+      </div>
+      <div className="forms">
         <form>
-          <label>Select Your MS Track:
+          <label>Select Your MS Track: 
             <select
               name="msTrack"
               value={formData.msTrack}
@@ -154,15 +156,15 @@ const Options = ({options, handler}: IOptions)=> {
             <br />
             <br />
           */}
-          </form>
-        </div>
-        <div className="options-footer">
-          <button onClick={handleCancel}>Cancel</button>
-          <button onClick={handleSubmit}>Next</button>
-        </div>
+        </form>
+      </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Cancel</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
     </div>
-
-    );
-  }
+  );
+}
 
 export default Options;

@@ -1,11 +1,23 @@
-/* Options Tab */
-.options-header {
+.page-container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-header {
+  padding-left : 5px;
+	font-size : 14px;
+	font-weight : 600;
+}
+.instructions {
+  padding-left : 5px;
+	margin-top : 12px;
+	margin-bottom : 3px;
+	font-size : 12px;
+}
+.footer-buttons {
   text-align: center;
 }
-.options-footer {
-  text-align: center;
-}
-.options-form {
+.forms {
   margin-left : 10px;
 }
 
@@ -26,8 +38,6 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(20px, auto);
-  margin-left : 10px;
-  margin-right : 10px;
 }
 .plan-footer {
   grid-column: 1 / 7;

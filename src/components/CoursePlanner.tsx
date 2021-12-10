@@ -13,8 +13,9 @@ import cs_courses from "../data/cs_courses.json";
 import cs_rotation from "../data/cs_rotation.json";
 
 const Container = styled.div`
- display: flex;
-`
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+`;
 
 const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICoursePlanner) => {
 

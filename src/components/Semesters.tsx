@@ -7,14 +7,15 @@ import SemItem from "../types/semItemType";
 import ISemesters from "../interfaces/iSemester";
 
 const PlannerContainer = styled.div`
-`
+	text-align: center;
+`;
 
 const SemestersContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	max-height: 600px;
 	overflow-y: scroll;
-`
+`;
 const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	
 	const addSemester = () => {

@@ -16,6 +16,7 @@ type RestrictedCourseType = {
 };
 
 const RestrictedContainer = styled.div`
+	margin-left : 10px;
 `
 
 const Restricted = ({restrictedCourses, handler}: IRestricted) => {
@@ -106,16 +107,20 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 	}
 
 	return (
-		<div>
-			<p>Instruction Place Holder</p>
+		<div className='page-container'>
+			<div className="page-header">
+        <h1>Restricted Courses</h1>
+      </div>
+			<div className='instructions'>
+				<p>Instruction Place Holder</p>
+			</div>
+			
 			<h2>Computer Science Courses</h2>			
 			<RestrictedContainer>
-			{csFormData.map((course, index) => {
+				{csFormData.map((course, index) => {
           return (
             <li key={index}>
-              <div >
-                <div >
-                  <input
+                                <input
                     type="checkbox"
                     id={`cs-checkbox-${index}`}
                     name={course.id}
@@ -123,8 +128,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
                     checked={course.selected}
                   />
                   <label>{course.dept} {course.num}: {course.name}</label>                 
-                </div>
-              </div>
+              
             </li>
           );
       	})
@@ -152,9 +156,10 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       	})
 			}
 			</RestrictedContainer>
-			<div className="options-footer">
+			<div className='footer-buttons'>
 				<button onClick={handleCancel}>Cancel</button>
-			<button onClick={handleSubmit}>Next</button>
+				&nbsp;&nbsp;&nbsp;
+				<button onClick={handleSubmit}>Next</button>
 			</div>
 	</div>
 	);

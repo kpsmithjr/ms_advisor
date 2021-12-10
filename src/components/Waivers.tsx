@@ -141,8 +141,10 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
   }
   
   return (
-    <div className='waivers-header'>
-      <h1>Input Waivers</h1>
+    <div className='page-container'>
+      <div className="page-header">
+        <h1>Waivered Courses</h1>
+      </div>
       <WaiverContainer>
         {formData.map((course, index) => {
           return (
@@ -162,9 +164,12 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
             </li>
           );
         })}
-      </WaiverContainer>      
-    <button onClick={handleCancel}>Cancel</button>
-    <button onClick={handleSubmit}>Submit</button>
+      </WaiverContainer>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Cancel</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   );
 }

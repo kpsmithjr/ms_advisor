@@ -3,7 +3,9 @@ import { Droppable } from "react-beautiful-dnd";
 import CourseCard from "./CourseCard";
 import Course from "../types/courseType";
 
-
+const OuterContainer = styled.div`
+	text-align: center;
+`;
 
 const Container = styled.div`
 	margin: 8px;
@@ -13,10 +15,14 @@ const Container = styled.div`
 	min-height: 50px;
 	overflow-y: scroll;
 	height: 600px;
-`
+	text-align: center;
+`;
+
 const Title = styled.h3`
 	padding: 8px;
-`
+	text-align: center;
+`;
+
 const CourseList = styled.div`
 	padding: 8px;
 	transition: background-color 0.2s ease;
@@ -24,7 +30,7 @@ const CourseList = styled.div`
 	min-height: 10px;
 	display: flex;
 	flex-direction: column;
-`
+`;
 //background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
 
 interface IAvailableCourses {
@@ -53,13 +59,11 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 	)	;	
 
 	return (
-		<div>
+		<OuterContainer>
 			<Title>Available Courses</Title>
-			<p>
-			(Double-click for descriptions)
-			</p>
+			<p>(Double-click for descriptions)</p>
 			{courseRenderer(courses)}
-		</div>
+		</OuterContainer>
 	)
 }
 
