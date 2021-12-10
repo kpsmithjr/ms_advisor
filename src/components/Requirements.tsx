@@ -40,15 +40,15 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     console.error("Unknown Track");
   }
 
-  const calcCreditHours = (plan: SemItem[]) => {
-    let credHrs: number = transferHrs;
-            
+  const calcCreditHours = (plan: SemItem[]): number => {
+    let credHrs:number = +transferHrs; // 'transferHrs' was treated as string. This converts it to number
+    
     for (let i:number = 0; i < plan.length; ++i) {
-        for (let j: number = 0; j < plan[i].courses.length; ++j) {
-            credHrs += (plan[i].courses[j].num >= 4000 ? 3 : 0);
-            //credHrs += 3;
+      for (let j: number = 0; j < plan[i].courses.length; ++j) {
+        credHrs += (plan[i].courses[j].num >= 4000 ? 3 : 0);
       }
-    }      
+    }
+    
     return credHrs;
   }
 
@@ -226,23 +226,31 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
           }
 
       <h3 className="reqheader">Requirements</h3>
+
       <RequirementContainer met={credHrs >= coreReqs.credHrs} >
        {coreReqs.credHrs} Credit Hours ({credHrs})
       </RequirementContainer>
+
       <RequirementContainer met={credHrs5000 >= coreReqs.credHrs5000} >
         {coreReqs.credHrs5000} 5000+ Credit Hours ({credHrs5000})
       </RequirementContainer>
+
       <RequirementContainer met={check6000Course(plan)} >
         6000+ CS Course
       </RequirementContainer>
+
       {coreTxt.map((lines, lineIndex) => (
         <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(coreReq.required[lineIndex], plan, false)} />
       ))}
+
       <h3 className="reqheader">Track Requirements</h3>
+
       {optReqTxt.map((lines, lineIndex) => (
         <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.required[lineIndex], plan, false)} />
       ))}
+
       <h3 className="reqheader">Track Electives ({optReq.num_elective})</h3>
+
       {optElectTxt ? optElectTxt.map((lines, lineIndex) => (
         <RequirementsColumn key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.electives[lineIndex], plan, numElectivesMet>=optReq.num_elective)} />
       )) : null}
