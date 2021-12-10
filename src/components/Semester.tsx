@@ -7,20 +7,22 @@ import SemItem from "../types/semItemType";
 import cs_rotation from "../data/cs_rotation.json";
 import cs_courses from "../data/cs_courses.json";
 
+interface ICourseList {
+	isDropDisabled: boolean;
+	isDraggingOver: boolean;
+};
+
 const Container = styled.div`
 	margin: 8px;
 	border: 1px solid lightgray;
 	border-radius: 2px;
 	width: 360px;
 	min-height: 100px;
-`
+`;
+
 const Title = styled.h3`
 	padding: 8px;
-`
-interface ICourseList {
-	isDropDisabled: boolean;
-	isDraggingOver: boolean;
-};
+`;
 
 const CourseList = styled.div<ICourseList>`
 	padding: 8px;

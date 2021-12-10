@@ -6,11 +6,13 @@ import Course from "../types/courseType";
 import SemItem from "../types/semItemType";
 import ISemesters from "../interfaces/iSemester";
 
+const PlannerContainer = styled.div`
+`
+
 const SemestersContainer = styled.div`
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	max-height: 600px;
-	alignment: center;
 	overflow-y: scroll;
 `
 const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
@@ -58,14 +60,12 @@ const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	);
 
 	return (
-		<div>
+		<PlannerContainer>
 			{<button onClick={addSemester}>Add Semester</button>}
-			<div>
-				<SemestersContainer>
-					{semRenderer}
-				</SemestersContainer>
-			</div>			
-		</div>		
+			<SemestersContainer>
+				{semRenderer}
+			</SemestersContainer>
+		</PlannerContainer>		
 	)
 }
 

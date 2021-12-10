@@ -119,8 +119,7 @@ const Options = ({options, handler}: IOptions)=> {
       </div>
       <div>
         <form>
-          <label>
-            Select Your MS Track
+          <label>Select Your MS Track:
             <select
               name="msTrack"
               value={formData.msTrack}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SemItem from "../types/semItemType";
 import styled from 'styled-components';
 import RequirementsLine from "./RequirementsLine";
@@ -13,16 +13,14 @@ import MsOptionsType from "../types/msOptions";
 import coreReqs from "../data/core_reqs.json";
 import track_reqs from "../data/track_req.json";
 
-import cs_rotation from "../data/cs_rotation.json";
-
-interface ReqContainerProps {
+interface IReqContainerProps {
   met: boolean;
 };
 
-const RequirementContainer = styled.div<ReqContainerProps>`
+const RequirementContainer = styled.div<IReqContainerProps>`
 color: ${props => (props.met ? 'green' : 'red')};
 margin-left: 8px;
-`
+`;
 
 const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs} : IRequirements) => {
   let optReq: any;
@@ -184,12 +182,11 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     return numMet;
   }
 
-    const updateRestrictionColor = (course: Course, plan: SemItem[]) => {
-        const fillNum: number = isCourseInPlan(course, plan) ? 1 : 0;
-        return Array(1).fill(fillNum)
-    }
+  const updateRestrictionColor = (course: Course, plan: SemItem[]) => {
+    const fillNum: number = isCourseInPlan(course, plan) ? 1 : 0;
+    return Array(1).fill(fillNum)
+  }
 
-  const reqCredHrs:number = coreReqs.credHrs;
   const [credHrs, setCredHrs] = React.useState<number>(calcCreditHours(plan));
   const [credHrs5000, setCredHrs5000] = React.useState<number>(calcCreditHours5000(plan));
   const [coreReq, setCoreReqs] = React.useState(coreReqs);

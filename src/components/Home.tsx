@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from "react";
+import React from "react";
 import Ajv2020 from "ajv/dist/2020";
 import SaveablePlanType from "../types/saveablePlanType";
 import MsOptionsType from "../types/msOptions";
@@ -19,7 +19,7 @@ const Home = ({ saveablePlanHandler }: any) => {
         if (errorLabel) {
             errorLabel.innerHTML = errorMessage;
         }
-    }, [errorState]);
+    }, [errorState, errorMessage]);
     
 
     const createNewPlan = () => {
