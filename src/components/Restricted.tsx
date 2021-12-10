@@ -16,7 +16,6 @@ type RestrictedCourseType = {
 };
 
 const RestrictedContainer = styled.div`
-	margin-left : 10px;
 `
 
 const Restricted = ({restrictedCourses, handler}: IRestricted) => {
@@ -61,14 +60,15 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 	const [csFormData, setCsFormData] = React.useState<RestrictedCourseType[]>(initializeFormData("CS"));
 	const [mathFormData, setMathFormData] = React.useState<RestrictedCourseType[]>(initializeFormData("MATH"));
 
-	function handleClickCS(e: any) {
+	const handleClickCS = (e: any) => {
     const newFormData = csFormData.map(course => {
       if (course.id !== e.target.name ) return course;      
       return { ...course, selected: e.target.checked};
     });
     setCsFormData(newFormData);
   }
-	function handleClickMath(e: any) {
+
+	const handleClickMath = (e: any) => {
     const newFormData = mathFormData.map(course => {
       if (course.id !== e.target.name ) return course;      
       return { ...course, selected: e.target.checked};
@@ -115,43 +115,38 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 				<p>Instruction Place Holder</p>
 			</div>
 			
-			<h2>Computer Science Courses</h2>			
+			<h3>Computer Science Courses</h3>
 			<RestrictedContainer>
 				{csFormData.map((course, index) => {
           return (
-            <li key={index}>
-                                <input
-                    type="checkbox"
-                    id={`cs-checkbox-${index}`}
-                    name={course.id}
-                    onChange={handleClickCS}
-                    checked={course.selected}
-                  />
-                  <label>{course.dept} {course.num}: {course.name}</label>                 
-              
-            </li>
+						<div>
+              <input
+                type="checkbox"
+                id={`cs-checkbox-${index}`}
+                name={course.id}
+                onChange={handleClickCS}
+                checked={course.selected}
+              />
+              <label>  {course.dept} {course.num}: {course.name}</label>
+						</div>
           );
       	})
 			}
 			</RestrictedContainer>
-			<h2>Mathmatic Courses</h2>
+			<h3>Mathmatic Courses</h3>
 			<RestrictedContainer>
 			{mathFormData.map((course, index) => {
           return (
-            <li key={index}>
-              <div >
-                <div >
-                  <input
-                    type="checkbox"
-                    id={`math-checkbox-${index}`}
-                    name={course.id}
-                    onChange={handleClickMath}
-                    checked={course.selected}
-                  />
-                  <label>{course.dept} {course.num}: {course.name}</label>                 
-                </div>
-              </div>
-            </li>
+	          <div >
+              <input
+                type="checkbox"
+                id={`math-checkbox-${index}`}
+                name={course.id}
+                onChange={handleClickMath}
+                checked={course.selected}
+              />
+              <label>  {course.dept} {course.num}: {course.name}</label>                 
+            </div>  
           );
       	})
 			}

@@ -145,23 +145,22 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       <div className="page-header">
         <h1>Waivered Courses</h1>
       </div>
+      <div className='instructions'>
+				<p>Instruction Place Holder</p>
+			</div>
       <WaiverContainer>
         {formData.map((course, index) => {
           return (
-            <li key={index}>
-              <div >
-                <div >
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={course.id}
-                    onChange={handleClick}
-                    checked={course.selected}
-                  />
-                  <label>{course.dept} {course.num}: {course.name}</label>                 
-                </div>
-              </div>
-            </li>
+            <div >
+              <input
+                type="checkbox"
+                id={`custom-checkbox-${index}`}
+                name={course.id}
+                onChange={handleClick}
+                checked={course.selected}
+              />
+              <label>  {course.dept} {course.num}: {course.name}</label>                 
+            </div>
           );
         })}
       </WaiverContainer>

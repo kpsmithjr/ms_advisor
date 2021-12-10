@@ -4,13 +4,11 @@
   margin-right: auto;
 }
 .page-header {
-  padding-left : 5px;
-	font-size : 14px;
+  font-size : 14px;
 	font-weight : 600;
 }
 .instructions {
-  padding-left : 5px;
-	margin-top : 12px;
+  margin-top : 12px;
 	margin-bottom : 3px;
 	font-size : 12px;
 }
@@ -18,7 +16,7 @@
   text-align: center;
 }
 .forms {
-  margin-left : 10px;
+  text-align: left;
 }
 
 /* Waivres */
