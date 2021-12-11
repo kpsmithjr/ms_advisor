@@ -3,7 +3,6 @@ import SelectedSemester from "../types/selectedSemester";
 
 interface IAvailableCourses {
 	courses: Course[];
-	selectedSemester: SelectedSemester;	
 }
 
 export default IAvailableCourses;

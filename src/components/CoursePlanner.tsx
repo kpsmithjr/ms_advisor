@@ -12,6 +12,7 @@ import ICoursePlanner from "../interfaces/iCoursePlanner";
 
 import cs_courses from "../data/cs_courses.json";
 import cs_rotation from "../data/cs_rotation.json";
+import CourseType from "../types/courseType";
 
 const Container = styled.div`
 	display: grid;
@@ -70,7 +71,6 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 	};
 
 	const getAvailCourses = () => {
-		console.log(restrictedCourses);
 		let arr = [] as Course[];
 		for (let i = 0; i < restrictedCourses.length; ++i) {
 			const tmp = {
@@ -106,7 +106,58 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 	}
 
 	const [availCourses, setAvailCourses] = useState<Course[]>(getAvailCourses());
+	
+	
+	const [selectedSemester, setSelectedSemester] = React.useState<SelectedSemester>(defaultSelSem);
+	const [selectedCourseID, setSelectedCourseID] = React.useState("");
+	const onDragStart = (start: any) => {
+		setSelectedCourseID(start.draggableId);
+	}
+
+	const updateSelectedPlan = (newSelSem: SelectedSemester):void => {
+    console.log(newSelSem);
+		setSelectedSemester(newSelSem);
+  };
+
+	const filterYearTerm = (course: Course[], selSem:SelectedSemester):Course[] => {
+		if ((selSem.term === "") && (selSem.year === 0)) {
+			return course;
+		}
+
+		let output = [] as Course[];
+		// Loop through all courses
+		for (let i = 0; i < course.length; ++i) {
+			let cs_rot_entry:any = null;
+
+			// Find the course in the cs rotation
+			for (let j = 0; j < cs_rotation.length; ++j) {
+				// Check if the j-th entry in the cs rotation matches the i-th course
+				if ((cs_rotation[j].dept === course[i].dept) && (cs_rotation[j].num === course[i].num)) {
+					cs_rot_entry = cs_rotation[j];
+					break;
+				}
+			}
 		
+			if (cs_rot_entry === null) {
+				console.error("Could not find course in CS rotation");
+			} else {
+				// Check if the j-th course is offered in the selected year
+				if (((selSem.year % 2 === 0) && cs_rot_entry.evenYr) || ((selSem.year % 2 === 1) && cs_rot_entry.oddYr)) {
+					// Check if the i-th course is offered in the selected term
+					if (((selSem.term === "SP") && cs_rot_entry.springSem) ||
+							((selSem.term === "SS") && cs_rot_entry.summerSem) ||
+							((selSem.term === "FS") && cs_rot_entry.fallSem)) {	
+						output.push(course[i]);
+					}
+				}
+			}			
+		}
+		
+		return output;
+	};
+
+	const [coursesToDisplay, setCoursesToDisplay] = React.useState<CourseType[]>(availCourses);
+	
 	const getSemIdx = (plan: SemItem[], semId: string) => {
 		for (let i:number = 0; i < plan.length; ++i) {
 			if (plan[i].id === semId) return i;
@@ -140,9 +191,9 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 				}
 				
 				// Deep copy of available courses
-				let newAvail = JSON.parse(JSON.stringify(availCourses));
+				let newAvail = JSON.parse(JSON.stringify(coursesToDisplay));
 				const [item] = newAvail.splice(source.index, 1); // Remove item
-				setAvailCourses(newAvail); // Update available courses
+				setCoursesToDisplay(newAvail); // Update available courses
 								
 				// Deep copy of plan
 				let newPlan = JSON.parse(JSON.stringify(plan));
@@ -162,9 +213,9 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 				planHandler(newPlan);
 
 				// Deep copy of available courses
-				let newAvail = JSON.parse(JSON.stringify(availCourses));
+				let newAvail = JSON.parse(JSON.stringify(coursesToDisplay));
 				newAvail.push(item);
-				setAvailCourses(newAvail);
+				setCoursesToDisplay(newAvail);
 
 			} else { // Moving between semesters
 				console.log("Moving between semetsers");
@@ -189,23 +240,16 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 		return;
 	}
 
-	const [selectedSemester, setSelectedSemester] = React.useState<SelectedSemester>(defaultSelSem);
-	const [selectedCourseID, setSelectedCourseID] = React.useState("");
-	const onDragStart = (start: any) => {
-		setSelectedCourseID(start.draggableId);
-	}
-
-	const updateSelectedPlan = (newSelSem: SelectedSemester):void => {
-    setSelectedSemester(newSelSem);
-  };
+	React.useEffect(() => {
+		const tmp = filterYearTerm(availCourses, selectedSemester);
+		console.log(tmp);
+		setCoursesToDisplay(tmp);
+	}, [selectedSemester, availCourses]);
 
 	return (
 		<DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
 			<Container>
-				<AvailableCourses
-					courses={availCourses}
-					selectedSemester={selectedSemester}
-				/>
+				<AvailableCourses courses={coursesToDisplay} />
 				<Semesters
 					semData={plan}
 					newSemesterHandler={planHandler}
