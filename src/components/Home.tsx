@@ -12,7 +12,7 @@ const Home = ({ saveablePlanHandler }: any) => {
   const [errorMessage, seterrorMessage] = React.useState<string>("")
 
   //TODO: make this not hard coded?
-  const remoteValidationSchemaUrl: string = "https://raw.githubusercontent.com/kpsmithjr/ms_advisor_files/main/saveablePlanFiles/saveablePlan2.schema.json";
+  const remoteValidationSchemaUrl: string = "https://kpsmithjr.github.io/ms_advisor_files/saveablePlanFiles/saveablePlan2.schema.json";
 
   React.useEffect(() => {
     const errorLabel: HTMLElement | null = document.getElementById('errorLabel')
@@ -71,12 +71,13 @@ const Home = ({ saveablePlanHandler }: any) => {
                   try {
                     const myOpt: MsOptionsType = saveablePlan.msOptions;
                     const myRes: CourseType[] = saveablePlan.restrictedCourses;
-                    const myTransHrs: number = saveablePlan.transferHrs;
+                    const myTransHrs: number = saveablePlan.transferHours;
                     const myWav: CourseType[] = saveablePlan.waivers;
                     const myComp: CourseType[] = saveablePlan.completed;
                     const myPln: SemItemType[] = saveablePlan.plan;
 
-                    if (myOpt && myRes && myTransHrs && myWav && myComp && myPln) {
+                    //don't check transfer hours, if it's zero it will want to throw an error
+                    if (myOpt && myRes && myWav && myComp && myPln) {
                       saveablePlanHandler(myOpt, myWav, myRes, myPln, myTransHrs, myComp);
                       navigate('/planner');
                     } else {
