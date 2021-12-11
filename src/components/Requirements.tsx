@@ -239,13 +239,13 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
 
       {completed.length>0 &&
         <React.Fragment>
-          <h3>Completed {calcCompletedHours()} credit hours </h3>
+          <p>Completed {calcCompletedHours()} credit hours </p>
         </React.Fragment>
       }
 
       {transferHrs>0 &&
         <React.Fragment>
-          <h3>Transfering {transferHrs} credit hours </h3>
+          <p>Transfering {transferHrs} credit hours </p>
         </React.Fragment>
       }
 

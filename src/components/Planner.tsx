@@ -23,8 +23,11 @@ const PlanFooterContainer = styled.div`
   text-align: center;
 `;
 
+
+
 const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, transferHrs, completed}: IPlan)=> {
   const [plan, setPlan] = React.useState<SemItem[]>(oldPlan);
+  
   const updatePlan = (newPlan: SemItem[]) => {
     setPlan(newPlan);
    }

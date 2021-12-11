@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import CourseCard from "./CourseCard";
 
-import SemItem from "../types/semItemType";
+import SelectedSemester from "../types/selectedSemester";
+import ISemester from "../interfaces/iSemester";
 
 import cs_rotation from "../data/cs_rotation.json";
 import cs_courses from "../data/cs_courses.json";
 import ugradCourses from "../data/restricted.json";
-import CourseType from "../types/courseType";
+import { resolveUrl } from "ajv/dist/compile/resolve";
+
 
 interface ICourseList {
 	isDropDisabled: boolean;
@@ -35,12 +37,20 @@ const CourseList = styled.div<ICourseList>`
 	flex-direction: column;
 `;
 
+interface IButton {
+	selected:boolean;
+}
+
+const ButtonStyle = styled.button<IButton>`
+	background-color: ${props => (props.selected ? 'skyblue' : 'lightgrey')};
+`
 const ButtonContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	color: red;
 `;
 
-const Semester = ({sem, courseId, plan, restricted}: {sem:SemItem, courseId:string, plan:SemItem[], restricted:CourseType[]}) => {
+const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanlder}: ISemester) => {
 	
 	const courseOffered = () => {
 		if (courseId === "") {
@@ -162,10 +172,33 @@ const Semester = ({sem, courseId, plan, restricted}: {sem:SemItem, courseId:stri
 		return false;		
 	};
 
+	const isSemSelected = ():boolean => {
+		if ((selectedSemester.year === sem.year) && (selectedSemester.term === sem.term)) {
+			return true;
+		}
+		return false;
+	};
+
+	const updateSelectedSem = () => {
+		let newSelSem:SelectedSemester = {year: 0, term: ""};
+
+		if (isSemSelected()) {
+			selSemHanlder(newSelSem);
+		} else {
+			newSelSem.term = sem.term;
+			newSelSem.year = sem.year;
+			selSemHanlder(newSelSem);
+		}		
+	};
+
 	return (
-		<Container>			
+		<Container>
 			<ButtonContainer>
-				<button>{sem.term} {sem.year}</button>
+				<ButtonStyle
+					onClick={updateSelectedSem}
+					selected={isSemSelected()}
+				>{sem.term} {sem.year}
+				</ButtonStyle> 
 			</ButtonContainer>			
 			<Droppable 
 				droppableId={sem.id}

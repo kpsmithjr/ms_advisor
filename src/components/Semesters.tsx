@@ -16,7 +16,7 @@ const SemestersContainer = styled.div`
 	max-height: 600px;
 	overflow-y: scroll;
 `;
-const Semesters = ({semData, newSemesterHandler, courseId, restricted}: ISemesters) => {
+const Semesters = ({semData, newSemesterHandler, courseId, restricted, selectedSemester, selSemHanlder}: ISemesters) => {
 	
 	const addSemester = () => {
 		const lastSem = semData.slice(-1)[0];
@@ -56,7 +56,14 @@ const Semesters = ({semData, newSemesterHandler, courseId, restricted}: ISemeste
 	
 	const semRenderer = orderBy(semData, "position").map((sem: SemItem) => 
 		<div key={sem.id} >
-			<Semester sem={sem} courseId={courseId} plan={semData} restricted={restricted}/>
+			<Semester
+				sem={sem}
+				courseId={courseId}
+				plan={semData}
+				restricted={restricted}
+				selectedSemester={selectedSemester}
+				selSemHanlder={selSemHanlder}
+			/>
 		</div>		
 	);
 

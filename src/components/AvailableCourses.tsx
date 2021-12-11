@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import CourseCard from "./CourseCard";
+
 import Course from "../types/courseType";
+
+import IAvailableCourses from "../interfaces/iAvailableCourses";
+
+import cs_rotation from "../data/cs_rotation.json";
+import SelectedSemester from "../types/selectedSemester";
 
 const OuterContainer = styled.div`
 	text-align: center;
@@ -31,15 +37,49 @@ const CourseList = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-//background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
 
-interface IAvailableCourses {
-	courses: Course[];
-	selectedSemYear?: number;
-	selectedSemTerm?: string;
-}
 
-const AvailableCourses = ({courses}: IAvailableCourses) => {
+
+const AvailableCourses = ({courses, selectedSemester}: IAvailableCourses) => {
+	
+	const filterYearTerm = (course: Course[], selSem:SelectedSemester):Course[] => {
+		if ((selSem.term === "") && (selSem.year === 0)) {
+			return course;
+		}
+
+		let output = [] as Course[];
+		// Loop through all courses
+		for (let i = 0; i < course.length; ++i) {
+			let cs_rot_entry:any = null;
+
+			// Find the course in the cs rotation
+			for (let j = 0; j < cs_rotation.length; ++j) {
+				// Check if the j-th entry in the cs rotation matches the i-th course
+				if ((cs_rotation[j].dept === course[i].dept) && (cs_rotation[j].num === course[i].num)) {
+					cs_rot_entry = cs_rotation[j];
+					break;
+				}
+			}
+		
+			if (cs_rot_entry === null) {
+				console.error("Could not find course in CS rotation");
+			} else {
+				// Check if the j-th course is offered in the selected year
+				if (((selSem.year % 2 === 0) && cs_rot_entry.evenYr) || ((selSem.year % 2 === 1) && cs_rot_entry.oddYr)) {
+					// Check if the i-th course is offered in the selected term
+					if (((selSem.term === "SP") && cs_rotation[i].springSem) ||
+							((selSem.term === "SS") && cs_rotation[i].summerSem) ||
+							((selSem.term === "FS") && cs_rotation[i].fallSem)) {	
+						output.push(course[i]);
+					}
+				}
+			}			
+		}
+		
+		return output;
+	};
+
+
 	const courseRenderer = (courses: Course[]) => (
 		<Container>
 			<Droppable  droppableId={"AVAILABLE-COURSES"} >
@@ -56,13 +96,13 @@ const AvailableCourses = ({courses}: IAvailableCourses) => {
 				)}
 			</Droppable>
 		</Container>
-	)	;	
+	);	
 
 	return (
 		<OuterContainer>
 			<Title>Available Courses</Title>
 			<p>(Double-click for descriptions)</p>
-			{courseRenderer(courses)}
+			{courseRenderer(filterYearTerm(courses, selectedSemester))}
 		</OuterContainer>
 	)
 }

@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import Course from "../types/courseType";
 import SemItem from "../types/semItemType";
+import SelectedSemester from "../types/selectedSemester";
 
 import ICoursePlanner from "../interfaces/iCoursePlanner";
 
@@ -16,6 +17,8 @@ const Container = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 `;
+
+const defaultSelSem:SelectedSemester = {term:"", year:0};
 
 const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICoursePlanner) => {
 
@@ -74,7 +77,7 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 
 			if (!isCourseWaived(tmp.dept, tmp.num) && !isCoursePlanned(tmp.dept, tmp.num)) {
 				arr.push(tmp);
-			}			
+			}
 		}
 		
 		return arr;
@@ -164,18 +167,33 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 		return;
 	}
 
+	const [selectedSemester, setSelectedSemester] = React.useState<SelectedSemester>(defaultSelSem);
 	const [selectedCourseID, setSelectedCourseID] = React.useState("");
 	const onDragStart = (start: any) => {
 		setSelectedCourseID(start.draggableId);
 	}
 
+	const updateSelectedPlan = (newSelSem: SelectedSemester):void => {
+    setSelectedSemester(newSelSem);
+  };
+
 	return (
 		<DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
 			<Container>
-				<AvailableCourses courses={availCourses}/>
-				<Semesters semData={plan} newSemesterHandler={planHandler} courseId={selectedCourseID} restricted={restrictedCourses}/>
-			</Container>			
-		</DragDropContext>		
+				<AvailableCourses
+					courses={availCourses}
+					selectedSemester={selectedSemester}
+				/>
+				<Semesters
+					semData={plan}
+					newSemesterHandler={planHandler}
+					courseId={selectedCourseID}
+					restricted={restrictedCourses}
+					selectedSemester={selectedSemester}
+					selSemHanlder={updateSelectedPlan}
+				/>
+			</Container>
+		</DragDropContext>
 	)
 }
 
