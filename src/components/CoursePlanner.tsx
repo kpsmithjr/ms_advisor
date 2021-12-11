@@ -173,7 +173,7 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 		<DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
 			<Container>
 				<AvailableCourses courses={availCourses}/>
-				<Semesters semData={plan} newSemesterHandler={planHandler} courseId={selectedCourseID}/>
+				<Semesters semData={plan} newSemesterHandler={planHandler} courseId={selectedCourseID} restricted={restrictedCourses}/>
 			</Container>			
 		</DragDropContext>		
 	)

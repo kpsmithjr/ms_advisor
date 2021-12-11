@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Course from "../types/courseType";
 import SemItem from "../types/semItemType";
-import ISemesters from "../interfaces/iSemester";
+import ISemesters from "../interfaces/iSemesters";
 
 const PlannerContainer = styled.div`
 	text-align: center;
@@ -16,7 +16,7 @@ const SemestersContainer = styled.div`
 	max-height: 600px;
 	overflow-y: scroll;
 `;
-const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
+const Semesters = ({semData, newSemesterHandler, courseId, restricted}: ISemesters) => {
 	
 	const addSemester = () => {
 		const lastSem = semData.slice(-1)[0];
@@ -56,7 +56,7 @@ const Semesters = ({semData, newSemesterHandler, courseId}: ISemesters) => {
 	
 	const semRenderer = orderBy(semData, "position").map((sem: SemItem) => 
 		<div key={sem.id} >
-			<Semester sem={sem} courseId={courseId} plan={semData}/>
+			<Semester sem={sem} courseId={courseId} plan={semData} restricted={restricted}/>
 		</div>		
 	);
 

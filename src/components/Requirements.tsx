@@ -18,8 +18,7 @@ interface IReqContainerProps {
 };
 
 const RequirementContainer = styled.div<IReqContainerProps>`
-color: ${props => (props.met ? 'green' : 'red')};
-margin-left: 8px;
+  color: ${props => (props.met ? 'green' : 'red')};
 `;
 
 const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs} : IRequirements) => {
@@ -113,18 +112,17 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     return reqArr;
   };
 
-    const restrictedArr = (courses: Course[]) => {
-        let reqArr = [] as string[][];
-        if (courses.length === 0) {
-            return reqArr;
-        } else {
-            for (let j: number = 0; j < courses.length; ++j) {
-                reqArr.push([courses[j].dept + " " + courses[j].num.toString()]);
-            }
-            return reqArr;
-        }
-
+  const restrictedArr = (courses: Course[]) => {
+    let reqArr = [] as string[][];
+    if (courses.length === 0) {
+      return reqArr;
+    } else {
+      for (let j: number = 0; j < courses.length; ++j) {
+        reqArr.push([courses[j].dept + " " + courses[j].num.toString()]);
+      }
+      return reqArr;
     }
+  }
 
   const isCourseInPlan = (course: Course, plan: SemItem[]) => {
     for (let i = 0; i < plan.length; ++i) {
@@ -183,7 +181,7 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
   }
 
   const updateRestrictionColor = (course: Course, plan: SemItem[]) => {
-    const fillNum: number = isCourseInPlan(course, plan) ? 1 : 0;
+    const fillNum:number = isCourseInPlan(course, plan) ? 1 : 0;
     return Array(1).fill(fillNum)
   }
 
@@ -204,25 +202,23 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
   }, [plan, optReq.electives]);
 
   return (        
-      <div>
-
-          {restrictedCourses.length > 0 &&
-              <React.Fragment>
-              <h3 className="reqheader">Restricted Courses</h3>
-              {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
-                  <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateRestrictionColor(restrictedCourses[lineIndex], plan)} />
-              ))
-                  }
-              </React.Fragment>
+    <div>
+      {restrictedCourses.length > 0 &&
+        <React.Fragment>
+          <h3>Restricted Courses</h3>
+          {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
+            <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateRestrictionColor(restrictedCourses[lineIndex], plan)} />))
           }
+        </React.Fragment>
+      }
 
-          {transferHrs>0 &&
-            <React.Fragment>
-              <h3>Transfering {transferHrs} credit hours </h3>
-            </React.Fragment>
-          }
+      {transferHrs>0 &&
+        <React.Fragment>
+          <h3>Transfering {transferHrs} credit hours </h3>
+        </React.Fragment>
+      }
 
-      <h3 className="reqheader">Requirements</h3>
+      <h3>Requirements</h3>
 
       <RequirementContainer met={credHrs >= coreReqs.credHrs} >
        {coreReqs.credHrs} Credit Hours ({credHrs})
@@ -240,13 +236,13 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
         <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(coreReq.required[lineIndex], plan, false)} />
       ))}
 
-      <h3 className="reqheader">Track Requirements</h3>
+      <h3>Track Requirements</h3>
 
       {optReqTxt.map((lines, lineIndex) => (
         <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.required[lineIndex], plan, false)} />
       ))}
 
-      <h3 className="reqheader">Track Electives ({optReq.num_elective})</h3>
+      <h3>Track Electives ({optReq.num_elective})</h3>
 
       {optElectTxt ? optElectTxt.map((lines, lineIndex) => (
         <RequirementsColumn key={lineIndex} txtArr={lines} clrArr={updateColor(optReq.electives[lineIndex], plan, numElectivesMet>=optReq.num_elective)} />

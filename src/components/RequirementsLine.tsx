@@ -7,11 +7,12 @@ interface IReqCont {
 
 const RequirementContainer = styled.div<IReqCont>`
 color: ${props => (props.clr === 0 ? 'red' : (props.clr === 1 ? 'green' : 'grey'))};
-margin-left: 4px;
-`
+`;
+
 const LineContainer = styled.div`
 display: inline-flex;
-`
+`;
+
 interface IReqLine {
 	txtArr: string[];
 	clrArr: number[];

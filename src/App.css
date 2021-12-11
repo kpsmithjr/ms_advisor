@@ -28,7 +28,12 @@
   text-align: left;
 }
 
-
+.semesterBox {
+	width:100%;
+	font-size: 12pt;
+	padding: 6px 1px 6px 1px !important;
+	overflow-x: hidden;
+}
 
 
 .plan-container {
@@ -69,19 +74,6 @@
   grid-column: 2 / 5;
   text-align: center;
   border: 3px solid rgb(2, 0, 128);
-}
-
-.reqheader {
-  color: black;
-  margin-left : 10px;
-}
-.failedreq {
-  color: red;
-  margin-left : 20px;
-}
-.passedreq {
-  color: green;
-  margin-left : 20px;
 }
 
 .product {

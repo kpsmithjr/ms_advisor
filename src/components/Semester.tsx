@@ -6,6 +6,8 @@ import SemItem from "../types/semItemType";
 
 import cs_rotation from "../data/cs_rotation.json";
 import cs_courses from "../data/cs_courses.json";
+import ugradCourses from "../data/restricted.json";
+import CourseType from "../types/courseType";
 
 interface ICourseList {
 	isDropDisabled: boolean;
@@ -33,7 +35,12 @@ const CourseList = styled.div<ICourseList>`
 	flex-direction: column;
 `;
 
-const Semester = ({sem, courseId, plan}: {sem:SemItem, courseId:string, plan:SemItem[]}) => {
+const ButtonContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const Semester = ({sem, courseId, plan, restricted}: {sem:SemItem, courseId:string, plan:SemItem[], restricted:CourseType[]}) => {
 	
 	const courseOffered = () => {
 		if (courseId === "") {
@@ -78,20 +85,33 @@ const Semester = ({sem, courseId, plan}: {sem:SemItem, courseId:string, plan:Sem
 		const isCourseInPlanBefore = (dept: string, num:number, year:number, term:string): boolean => {
 			for (let i = 0; i < plan.length; ++i) {
 				for (let j = 0; j < plan[i].courses.length; ++j) {
-					if ((dept === plan[i].courses[j].dept)
-						&& (num === plan[i].courses[j].num)) {
-						
-							// Check if the i-th semetser is before the current semester
-							if (plan[i].year < sem.year) {
-								return true;
-							} else if (plan[i].year === sem.year) {
-								return isTermBefore(plan[i].term, sem.term);
-							}
+					if ((dept === plan[i].courses[j].dept) && (num === plan[i].courses[j].num)) {
+						// Check if the i-th semetser is before the current semester
+						if (plan[i].year < sem.year) {
+						  return true;
+						} else if (plan[i].year === sem.year) {
+							return isTermBefore(plan[i].term, sem.term);
+						}
 					}
 				}
 			}
 			return false;
 		};
+
+		const isCourseInUGradPlan = (dept:string, num:number):boolean => {
+			for (let i = 0; i < restricted.length; ++i) {
+				if ((dept === restricted[i].dept) && (num === restricted[i].num)) {
+					return false;
+				}
+			}
+
+			for (let i = 0; i < ugradCourses.length; ++i) {
+				if ((dept === ugradCourses[i].dept) && (num === ugradCourses[i].num)) {
+					return true;
+				}
+			}
+			return false;
+		}
 
 		// Declare function to look up prerequisites in courese catalog
 		const getPrereqs = (dept:string, num:number) => {
@@ -128,7 +148,8 @@ const Semester = ({sem, courseId, plan}: {sem:SemItem, courseId:string, plan:Sem
 			let numMet = 0;
 			for (let j = 0; j < prereqs[i].courses.length; ++j) {
 				// Check if the j-th course in the i-th prereq is in the plan before the current year/term
-				if (isCourseInPlanBefore(prereqs[i].courses[j].dept, prereqs[i].courses[j].num, sem.year, sem.term)) {
+				if ((isCourseInPlanBefore(prereqs[i].courses[j].dept, prereqs[i].courses[j].num, sem.year, sem.term))
+				 || (isCourseInUGradPlan(prereqs[i].courses[j].dept, prereqs[i].courses[j].num))){
 					++numMet;
 				}
 			}
@@ -142,9 +163,10 @@ const Semester = ({sem, courseId, plan}: {sem:SemItem, courseId:string, plan:Sem
 	};
 
 	return (
-		<Container>
-			<Title>{sem.id}</Title>
-			{/*<button>{sem.id}</button>*/}
+		<Container>			
+			<ButtonContainer>
+				<button>{sem.term} {sem.year}</button>
+			</ButtonContainer>			
 			<Droppable 
 				droppableId={sem.id}
 				isDropDisabled={!courseOffered()}

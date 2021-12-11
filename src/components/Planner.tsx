@@ -8,7 +8,7 @@ import IPlan from "../interfaces/iPlan";
 
 const PlanContainer = styled.div`
   display: grid;
-  grid-template-columns: 6fr 1fr;
+  grid-template-columns: 5fr 1fr;
   gap: 10px;
   grid-auto-rows: minmax(20px, auto);
 `;
