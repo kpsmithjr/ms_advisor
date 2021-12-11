@@ -90,12 +90,14 @@ const App = () => {
     setPlanVals(newPlan);
   };  
 
-  const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[], newPlan: SemItem[], newTransHrs:number): void => {
+  const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[],
+                              newPlan: SemItem[], newTransHrs:number, newCompleted: CourseType[]): void => {
     setOptionsVal(newOptions);
     setWaiverVals(newWaivers);
     setRestrictedCourses(newRestrictions);
     setPlanVals(newPlan);
     setTransferHours(newTransHrs);
+    setCompletedVals(newCompleted);
   }
 
   const autoFillFirstSem = () => {

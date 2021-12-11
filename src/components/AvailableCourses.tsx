@@ -67,9 +67,9 @@ const AvailableCourses = ({courses, selectedSemester}: IAvailableCourses) => {
 				// Check if the j-th course is offered in the selected year
 				if (((selSem.year % 2 === 0) && cs_rot_entry.evenYr) || ((selSem.year % 2 === 1) && cs_rot_entry.oddYr)) {
 					// Check if the i-th course is offered in the selected term
-					if (((selSem.term === "SP") && cs_rotation[i].springSem) ||
-							((selSem.term === "SS") && cs_rotation[i].summerSem) ||
-							((selSem.term === "FS") && cs_rotation[i].fallSem)) {	
+					if (((selSem.term === "SP") && cs_rot_entry.springSem) ||
+							((selSem.term === "SS") && cs_rot_entry.summerSem) ||
+							((selSem.term === "FS") && cs_rot_entry.fallSem)) {	
 						output.push(course[i]);
 					}
 				}

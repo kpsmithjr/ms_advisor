@@ -66,28 +66,29 @@ const Home = ({ saveablePlanHandler }: any) => {
                 const saveablePlan: SaveablePlanType = JSON.parse(result);
                 const ajv = new Ajv2020({ allErrors: true })
                 const validate_plan = ajv.compile(data);
-
+                console.log(data);
                 if (validate_plan(saveablePlan)) {
                   try {
                     const myOpt: MsOptionsType = saveablePlan.msOptions;
-                    const myWav: CourseType[] = saveablePlan.waivers;
                     const myRes: CourseType[] = saveablePlan.restrictedCourses;
-                    const myPln: SemItemType[] = saveablePlan.plan;
                     const myTransHrs: number = saveablePlan.transferHrs;
+                    const myWav: CourseType[] = saveablePlan.waivers;
+                    const myComp: CourseType[] = saveablePlan.completed;
+                    const myPln: SemItemType[] = saveablePlan.plan;
 
-                    if (myOpt && myWav && myRes && myPln && myTransHrs) {
-                      saveablePlanHandler(myOpt, myWav, myRes, myPln, myTransHrs);
+                    if (myOpt && myRes && myTransHrs && myWav && myComp && myPln) {
+                      saveablePlanHandler(myOpt, myWav, myRes, myPln, myTransHrs, myComp);
                       navigate('/planner');
                     } else {
-                      seterrorMessage("Selected File has Format or Content Errors :(");
+                      seterrorMessage("Selected File has Format or Content Errors 3:(");
                       seterrorState(true);
                     }
                   } catch {
-                    seterrorMessage("Selected File has Format or Content Errors :(");
+                    seterrorMessage("Selected File has Format or Content Errors 2 :(");
                     seterrorState(true);
                   }
                 } else {
-                  seterrorMessage("Selected File has Format or Content Errors :(");
+                  seterrorMessage("Selected File has Format or Content Errors 1 :(");
                   seterrorState(true);
                 }
               } else {
