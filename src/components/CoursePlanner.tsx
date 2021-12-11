@@ -20,7 +20,7 @@ const Container = styled.div`
 
 const defaultSelSem:SelectedSemester = {term:"", year:0};
 
-const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICoursePlanner) => {
+const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
 		for (let i = 0; i < cs_courses.length; ++i) {
@@ -31,9 +31,27 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 		return "";
 	};
 
-	const isCourseWaived = (dept: string, num: number) => {
+	const isCourseWaived = (dept: string, num: number):boolean => {
 		for (let i = 0; i < waivers.length; ++i) {
 			if ((waivers[i].dept === dept) && (waivers[i].num === num)) {
+				return true;
+			}
+		}
+		return false;
+	};
+
+	const isCoursRestricted = (dept:string, num:number):boolean => {
+		for (let i = 0; i < restrictedCourses.length; ++i) {
+			if ((restrictedCourses[i].dept === dept) && (restrictedCourses[i].num === num)) {
+				return true;
+			}
+		}
+		return false;
+	};
+
+	const isCourstCompleted = (dept:string, num:number):boolean => {
+		for (let i = 0; i < completed.length; ++i) {
+			if ((completed[i].dept === dept) && (completed[i].num === num)) {
 				return true;
 			}
 		}
@@ -52,6 +70,7 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 	};
 
 	const getAvailCourses = () => {
+		console.log(restrictedCourses);
 		let arr = [] as Course[];
 		for (let i = 0; i < restrictedCourses.length; ++i) {
 			const tmp = {
@@ -75,7 +94,10 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, planHandler}: ICourseP
 				credHrs: 3
 			};
 
-			if (!isCourseWaived(tmp.dept, tmp.num) && !isCoursePlanned(tmp.dept, tmp.num)) {
+			if (tmp.num >= 4000 &&
+					!isCourseWaived(tmp.dept, tmp.num) &&
+					!isCourstCompleted(tmp.dept, tmp.num) &&
+					!isCoursePlanned(tmp.dept, tmp.num)) {
 				arr.push(tmp);
 			}
 		}

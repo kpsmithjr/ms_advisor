@@ -5,6 +5,7 @@ interface ICoursePlanner {
 	plan: SemItemType[];
 	waivers: CourseType[];
 	restrictedCourses: CourseType[];
+	completed: CourseType[];
 	planHandler: (newPlan: SemItemType[]) => void;
 };
 
