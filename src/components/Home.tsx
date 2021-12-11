@@ -38,7 +38,7 @@ const Home = ({ saveablePlanHandler }: any) => {
           var JSONfile = JSON.parse(data);
           callback("success", JSONfile);
         } catch {
-          seterrorMessage("unable to access remote validation schema :(");
+          seterrorMessage("Unable to Parse Remote Validation Schema :(");
           seterrorState(true);
         }
       });
@@ -81,34 +81,34 @@ const Home = ({ saveablePlanHandler }: any) => {
                       saveablePlanHandler(myOpt, myWav, myRes, myPln, myTransHrs, myComp);
                       navigate('/planner');
                     } else {
-                      seterrorMessage("Selected File has Format or Content Errors 3:(");
+                      seterrorMessage("Selected File has Format or Content Errors :(");
                       seterrorState(true);
                     }
                   } catch {
-                    seterrorMessage("Selected File has Format or Content Errors 2 :(");
+                    seterrorMessage("Unable to Parse Selected File :(");
                     seterrorState(true);
                   }
                 } else {
-                  seterrorMessage("Selected File has Format or Content Errors 1 :(");
+                  seterrorMessage("Selected File is not a Valid Plan :(");
                   seterrorState(true);
                 }
               } else {
-                seterrorMessage("unable to access remote validation schema :(");
+                seterrorMessage("Unable to Access Remote Validation Schema :(");
                 seterrorState(true);
               }
             });
           } else {
-            seterrorMessage("file contents not found :(");
+            seterrorMessage("File Contents not Found :(");
             seterrorState(true);
           }
         }
         reader.readAsText(file)
       } else {
-        seterrorMessage("file not found :(");
+        seterrorMessage("file not Found :(");
         seterrorState(true);
       }
     } catch {
-      seterrorMessage("unknown error :(");
+      seterrorMessage("Unknown Error :(");
       seterrorState(true);
     }
   }
