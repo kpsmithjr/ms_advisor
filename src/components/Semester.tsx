@@ -101,7 +101,7 @@ const Semester = ({sem, courseId, plan, restricted}: {sem:SemItem, courseId:stri
 		const isCourseInUGradPlan = (dept:string, num:number):boolean => {
 			for (let i = 0; i < restricted.length; ++i) {
 				if ((dept === restricted[i].dept) && (num === restricted[i].num)) {
-					return false;
+					return false ;
 				}
 			}
 

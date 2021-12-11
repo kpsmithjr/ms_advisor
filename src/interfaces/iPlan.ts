@@ -9,6 +9,7 @@ interface IPlan {
 	oldPlan: SemItemType[];
 	planHandler: (newPlan: SemItemType[]) => void;
 	transferHrs:number;
+	completed:CourseType[];
 };
 
 export default IPlan;

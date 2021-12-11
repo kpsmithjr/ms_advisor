@@ -23,7 +23,7 @@ const PlanFooterContainer = styled.div`
   text-align: center;
 `;
 
-const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, transferHrs}: IPlan)=> {
+const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, transferHrs, completed}: IPlan)=> {
   const [plan, setPlan] = React.useState<SemItem[]>(oldPlan);
   const updatePlan = (newPlan: SemItem[]) => {
     setPlan(newPlan);
@@ -36,7 +36,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
 
   const saveToFile = () => {
     planHandler(plan);
-    const fileData = JSON.stringify({ msOptions, waivers, restrictedCourses, plan });
+    const fileData = JSON.stringify({ msOptions, waivers, restrictedCourses, plan, completed, "transferHrs":transferHrs });
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -55,7 +55,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
         <CoursePlanner plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} planHandler={updatePlan}/>
       </PlannerContiner>            
       <RequirementsContainer>
-        <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} transferHrs={transferHrs}/>
+        <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} transferHrs={transferHrs} completed={completed}/>
       </RequirementsContainer>      
     </PlanContainer>
     <PlanFooterContainer>

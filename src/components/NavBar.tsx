@@ -21,6 +21,9 @@ const Navbar = ({title}: INavBar) =>{
                     <Link to='/waivers'>Waivers</Link>
                 </li>
                 <li>
+                    <Link to='/completed'>Completed</Link>
+                </li>
+                <li>
                     <Link to='/planner'>Planner</Link>
                 </li>
                 <li>

@@ -21,7 +21,7 @@ const RequirementContainer = styled.div<IReqContainerProps>`
   color: ${props => (props.met ? 'green' : 'red')};
 `;
 
-const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs} : IRequirements) => {
+const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs, completed} : IRequirements) => {
   let optReq: any;
   let track_found = false;
   for (let i = 0; i < track_reqs.length; ++i) {
@@ -37,6 +37,17 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     console.error("Unknown Track");
   }
 
+  const calcCompletedHours = ():number => {
+    let hrs:number = 0;
+
+    for (let i = 0; i < completed.length; ++i) {
+      hrs += (completed[i].num >= 4000 ? 3 : 0);
+    }
+
+    return hrs;
+  };
+
+
   const calcCreditHours = (plan: SemItem[]): number => {
     let credHrs:number = +transferHrs; // 'transferHrs' was treated as string. This converts it to number
     
@@ -45,6 +56,8 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
         credHrs += (plan[i].courses[j].num >= 4000 ? 3 : 0);
       }
     }
+
+    credHrs += calcCompletedHours();    
     
     return credHrs;
   }
@@ -58,18 +71,29 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
           credHrs += 3;
         }
       }
-    }      
+    }
+
+    for (let i:number = 0; i < completed.length; ++i) {
+      credHrs += (completed[i].num >= 5000 ? 3 : 0);
+    }
     return credHrs;
   }
 
   const check6000Course = (plan: SemItem[]) => {
     for (let i:number = 0; i < plan.length; ++i) {        
       for (let j:number = 0; j < plan[i].courses.length; ++j) {
-        if (((plan[i].courses[j].dept === 'CS') || (plan[i].courses[j].dept === 'CS')) 
+        if (((plan[i].courses[j].dept === 'CS') || (plan[i].courses[j].dept === 'CMP SCI')) 
           && (plan[i].courses[j].num >= 6000)){
           return true;          
         }
       }
+    }
+
+    for (let i:number = 0; i < completed.length; ++i) {
+      if (((completed[i].dept === 'CS') || (completed[i].dept === 'CMP SCI')) 
+          && (completed[i].num >= 6000)){
+          return true;          
+        }
     }
     return false;
   };
@@ -124,11 +148,10 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     }
   }
 
-  const isCourseInPlan = (course: Course, plan: SemItem[]) => {
+  const isCourseInPlan = (course: Course, plan: SemItem[]):boolean => {
     for (let i = 0; i < plan.length; ++i) {
       for (let j = 0; j < plan[i].courses.length; ++j) {
-        if ((course.dept === plan[i].courses[j].dept)
-          && (course.num === plan[i].courses[j].num)) {
+        if ((course.dept === plan[i].courses[j].dept) && (course.num === plan[i].courses[j].num)) {
           return true;
         }
       }
@@ -136,7 +159,16 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     return false;
   }
 
-   const updateColor = (reqline:ReqLine, plan:SemItem[], defaultToTwo:boolean) => {
+  const isCourseCompleted = (course: Course):boolean => {
+    for (let i = 0; i < completed.length; ++i) {
+      if ((course.dept === completed[i].dept) && (course.num === completed[i].num)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const updateColor = (reqline:ReqLine, plan:SemItem[], defaultToTwo:boolean) => {
     // Intialize everything to 0
     const defaultNum:number = defaultToTwo ? 2 : 0;
     let clrArr:number[] = Array(reqline.courses.length*2-1).fill(defaultNum);
@@ -144,7 +176,7 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
     let count = 0;
     // Set course color to 1 if in plan
     for (let i = 0; i < reqline.courses.length; ++i) {
-      if ((isCourseInPlan(reqline.courses[i], plan))
+      if (isCourseInPlan(reqline.courses[i], plan) || isCourseCompleted(reqline.courses[i])
       || isCourseWaived(reqline.courses[i].dept, reqline.courses[i].num, waivers)){        
         clrArr[2*i] = 1;
         ++count;
@@ -203,18 +235,26 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs}
 
   return (        
     <div>
-      {restrictedCourses.length > 0 &&
+      <h2>Degree Checklist</h2>
+
+      {completed.length>0 &&
         <React.Fragment>
-          <h3>Restricted Courses</h3>
-          {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
-            <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateRestrictionColor(restrictedCourses[lineIndex], plan)} />))
-          }
+          <h3>Completed {calcCompletedHours()} credit hours </h3>
         </React.Fragment>
       }
 
       {transferHrs>0 &&
         <React.Fragment>
           <h3>Transfering {transferHrs} credit hours </h3>
+        </React.Fragment>
+      }
+
+      {restrictedCourses.length > 0 &&
+        <React.Fragment>
+          <h3>Restricted Courses</h3>
+          {restrictedArr(restrictedCourses).map((lines, lineIndex) => (
+            <RequirementsLine key={lineIndex} txtArr={lines} clrArr={updateRestrictionColor(restrictedCourses[lineIndex], plan)} />))
+          }
         </React.Fragment>
       }
 

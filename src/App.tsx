@@ -11,6 +11,7 @@ import SemItem from './types/semItemType';
 import CourseType from './types/courseType';
 import Restricted from './components/Restricted';
 import Transfers from "./components/Transfers";
+import CompletedCourses from './components/CompletedCoureses';
 
 const gcOptions = [
   {
@@ -42,6 +43,7 @@ const optionsDefault = {
 }
 
 const waiversDefault = [] as CourseType[];
+const completedDefault = [] as CourseType[];
 
 const planDefault:SemItem[] = [
   {
@@ -60,6 +62,7 @@ const App = () => {
   const [restrictedCourses, setRestrictedCourses] = React.useState<CourseType[]>([]);
   const [transferHrs, setTransferHours] = React.useState<number>(0);
   const [waiverVals, setWaiverVals] = useState<CourseType[]>(waiversDefault);
+  const [completedVals, setCompletedVals] = useState<CourseType[]>(completedDefault);
   const [planVals, setPlanVals] = useState<SemItem[]>(planDefault)  
   const [firstTime, setFirstTime] = React.useState<boolean>(true);
 
@@ -76,20 +79,23 @@ const App = () => {
   }
 
   const updateWaivers = (newWaivers: CourseType[]): void => {
-    setWaiverVals(newWaivers);    
+    setWaiverVals(newWaivers);
+  };
+
+  const updateCompleted = (newCompleted: CourseType[]): void => {
+    setCompletedVals(newCompleted);
   };
 
   const updatePlan = (newPlan: SemItem[]): void => {
     setPlanVals(newPlan);
-  };
+  };  
 
-  
-
-  const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[], newPlan: SemItem[]): void => {
+  const updateSaveablePlan = (newOptions: MsOptionsType, newWaivers: CourseType[], newRestrictions: CourseType[], newPlan: SemItem[], newTransHrs:number): void => {
     setOptionsVal(newOptions);
     setWaiverVals(newWaivers);
     setRestrictedCourses(newRestrictions);
     setPlanVals(newPlan);
+    setTransferHours(newTransHrs);
   }
 
   const autoFillFirstSem = () => {
@@ -131,8 +137,17 @@ const App = () => {
         <Route path="/restricted" element={<Restricted restrictedCourses={restrictedCourses} handler={updateRestrictedCourses}/>} />      
         <Route path="/transfers" element={<Transfers transfersHrs={transferHrs} setTransferHanlder={updateTransferHours}/>} />
         <Route path="/waivers" element={<Waivers waivers={waiverVals} msTrack={optionsVal.msTrack} handler={updateWaivers}/>} />
-              <Route path="/planner" element={<Planner msOptions={optionsVal} waivers={waiverVals} restrictedCourses={restrictedCourses}
-                                                       oldPlan={planVals} planHandler={updatePlan} transferHrs={transferHrs}/>} />
+        <Route path="/completed" element={<CompletedCourses completed={completedVals} msTrack={optionsVal.msTrack} handler={updateCompleted}/>} />
+        <Route path="/planner" element={<Planner
+                                          msOptions={optionsVal}
+                                          waivers={waiverVals}
+                                          restrictedCourses={restrictedCourses}
+                                          oldPlan={planVals}
+                                          planHandler={updatePlan}
+                                          transferHrs={transferHrs}
+                                          completed={completedVals}
+                                        />}
+        />
       </Routes>      
     </Router>    
   );

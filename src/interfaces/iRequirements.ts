@@ -8,6 +8,7 @@ interface IRequirements {
   waivers: Course[];
   restrictedCourses: Course[];
   transferHrs: number;
+  completed: Course[];
 }
 
 export default IRequirements;

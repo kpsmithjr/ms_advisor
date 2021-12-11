@@ -107,9 +107,7 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
     return waiverData;
   };
 
-  const [formData, setFormData] = useState<WaiverType[]>(generateWaiverData());
-  
-  
+  const [formData, setFormData] = useState<WaiverType[]>(generateWaiverData());  
 
   function handleClick(e: any) {
     const newFormData = formData.map(course => {
@@ -137,7 +135,7 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       }
     }
     handler(newWaivers);
-    navigate('/planner');
+    navigate('/completed');
   }
   
   return (
@@ -151,7 +149,7 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       <WaiverContainer>
         {formData.map((course, index) => {
           return (
-            <div >
+            <div key={`waiver-checkbox-${index}`}>
               <input
                 type="checkbox"
                 id={`custom-checkbox-${index}`}

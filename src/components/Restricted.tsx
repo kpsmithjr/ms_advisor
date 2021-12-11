@@ -119,9 +119,9 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 			<RestrictedContainer>
 				{csFormData.map((course, index) => {
           return (
-						<div>
+						<div key={`cs-${index}`}>
               <input
-                type="checkbox"
+                type="checkbox"								
                 id={`cs-checkbox-${index}`}
                 name={course.id}
                 onChange={handleClickCS}
@@ -137,7 +137,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 			<RestrictedContainer>
 			{mathFormData.map((course, index) => {
           return (
-	          <div >
+	          <div key={`math-${index}`}>
               <input
                 type="checkbox"
                 id={`math-checkbox-${index}`}

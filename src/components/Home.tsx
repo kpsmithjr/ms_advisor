@@ -73,9 +73,10 @@ const Home = ({ saveablePlanHandler }: any) => {
                     const myWav: CourseType[] = saveablePlan.waivers;
                     const myRes: CourseType[] = saveablePlan.restrictedCourses;
                     const myPln: SemItemType[] = saveablePlan.plan;
+                    const myTransHrs: number = saveablePlan.transferHrs;
 
-                    if (myOpt && myWav && myRes && myPln) {
-                      saveablePlanHandler(myOpt, myWav, myRes, myPln);
+                    if (myOpt && myWav && myRes && myPln && myTransHrs) {
+                      saveablePlanHandler(myOpt, myWav, myRes, myPln, myTransHrs);
                       navigate('/planner');
                     } else {
                       seterrorMessage("Selected File has Format or Content Errors :(");

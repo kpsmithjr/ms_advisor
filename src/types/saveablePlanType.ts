@@ -6,7 +6,8 @@ type SaveablePlanType = {
 	msOptions: MsOptionsType;
 	waivers: CourseType[];
 	restrictedCourses: CourseType[];
-	plan: SemItemType[]
+	plan: SemItemType[];	
+	transferHrs: number;
 }
 
 export default SaveablePlanType;
