@@ -185,15 +185,15 @@ const Options = ({options, handler}: IOptions)=> {
               <h4>Additional Enrollment Options:</h4>
               <ul className="checkbox">
                   <li>
-                      <input type="checkbox" id="cb1" value="Full-time Enrollment" onChange={updateFulltime}/>
+                      <input type="checkbox" id="cb1" value="Full-time Enrollment" onChange={updateFulltime} checked={formData.fullTime}/>
                       <label htmlFor="cb1">Full-time Enrollment</label>
                   </li>
                   <li>
-                      <input type="checkbox" id="cb2" value="Evening-only Courses" onChange={updateEvening}/>
+                      <input type="checkbox" id="cb2" value="Evening-only Courses" onChange={updateEvening} checked={formData.eveningOnly}/>
                       <label htmlFor="cb2">Evening-only Courses</label>
                   </li>
                   <li>
-                      <input type="checkbox" id="cb3" value="Online-only Courses" onChange={updateOnline}/>
+                      <input type="checkbox" id="cb3" value="Online-only Courses" onChange={updateOnline} checked={formData.onlineOnly}/>
                       <label htmlFor="cb3">Online-only Courses</label>
                   </li>
               </ul>

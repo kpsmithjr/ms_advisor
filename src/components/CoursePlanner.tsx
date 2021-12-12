@@ -21,7 +21,7 @@ const Container = styled.div`
 
 const defaultSelSem:SelectedSemester = {term:"", year:0};
 
-const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
+const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
 		for (let i = 0; i < cs_courses.length; ++i) {
@@ -70,6 +70,15 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 		return false;
 	};
 
+	const meetsMyOptions = (offeredEvening: boolean, offeredOnline: boolean) => {
+		if ((options.eveningOnly && !offeredEvening) ||
+			options.onlineOnly && !offeredOnline) {
+			return false;
+		} else {
+			return true;
+        }
+	}
+
 	const getAvailCourses = () => {
 		let arr = [] as Course[];
 		for (let i = 0; i < restrictedCourses.length; ++i) {
@@ -95,9 +104,11 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 			};
 
 			if (tmp.num >= 4000 &&
-					!isCourseWaived(tmp.dept, tmp.num) &&
-					!isCourstCompleted(tmp.dept, tmp.num) &&
-					!isCoursePlanned(tmp.dept, tmp.num)) {
+				!isCourseWaived(tmp.dept, tmp.num) &&
+				!isCourstCompleted(tmp.dept, tmp.num) &&
+				!isCoursePlanned(tmp.dept, tmp.num) &&
+				meetsMyOptions(cs_rotation[i].evening, cs_rotation[i].online)) {
+
 				arr.push(tmp);
 			}
 		}

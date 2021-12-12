@@ -56,7 +56,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
       </div>
     <PlanContainer>            
       <PlannerContiner>
-        <CoursePlanner plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} completed={completed} planHandler={updatePlan}/>
+        <CoursePlanner options = {msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} completed={completed} planHandler={updatePlan}/>
       </PlannerContiner>            
       <RequirementsContainer>
         <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} transferHrs={transferHrs} completed={completed}/>
