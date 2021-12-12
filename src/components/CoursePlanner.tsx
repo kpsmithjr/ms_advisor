@@ -221,7 +221,8 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 
 				// Deep copy of available courses
 				let newAvail = JSON.parse(JSON.stringify(coursesToDisplay));
-				newAvail.push(item);
+				var idx = getNewAvailIdx(newAvail, item);
+				newAvail.splice(idx, 0, item);
 				setCoursesToDisplay(newAvail);
 
 			} else { // Moving between semesters
