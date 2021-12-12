@@ -133,7 +133,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       	})
 			}
 			</RestrictedContainer>
-			<h3>Mathmatic Courses</h3>
+			<h3>Mathematics Courses</h3>
 			<RestrictedContainer>
 			{mathFormData.map((course, index) => {
           return (
