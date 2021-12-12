@@ -6,6 +6,8 @@ import MsOptionsType from "../types/msOptions";
 import track_reqs from "../data/track_req.json";
 import IOptions from "../interfaces/iOptions";
 
+import '../App.css';
+
 const Options = ({options, handler}: IOptions)=> {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState<MsOptionsType>(options);
@@ -30,6 +32,22 @@ const Options = ({options, handler}: IOptions)=> {
     newData.msTrack = e.target.value;
     setFormData(newData);
   };
+
+    const updateFulltime = (e: any) => {
+        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+        newData.fullTime = e.target.checked;
+        setFormData(newData);
+    }
+    const updateEvening = (e: any) => {
+        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+        newData.eveningOnly = e.target.checked;
+        setFormData(newData);
+    }
+    const updateOnline = (e: any) => {
+        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+        newData.onlineOnly = e.target.checked;
+        setFormData(newData);
+    }
   
   const handleCertChange = (e: any) => {
     const newCerts = formData.certs.map(cert => {
@@ -158,6 +176,29 @@ const Options = ({options, handler}: IOptions)=> {
           */}
         </form>
       </div>
+          <div className = "spacer"> </div>
+
+          <div className="filter">
+              <style>
+                  h4 {"text-align: center;"};
+              </style>
+              <h4>Additional Enrollment Options:</h4>
+              <ul className="checkbox">
+                  <li>
+                      <input type="checkbox" id="cb1" value="Full-time Enrollment" onChange={updateFulltime}/>
+                      <label htmlFor="cb1">Full-time Enrollment</label>
+                  </li>
+                  <li>
+                      <input type="checkbox" id="cb2" value="Evening-only Courses" onChange={updateEvening}/>
+                      <label htmlFor="cb2">Evening-only Courses</label>
+                  </li>
+                  <li>
+                      <input type="checkbox" id="cb3" value="Online-only Courses" onChange={updateOnline}/>
+                      <label htmlFor="cb3">Online-only Courses</label>
+                  </li>
+              </ul>
+          </div>
+
       <div className="footer-buttons">
         <button onClick={handleCancel}>Cancel</button>
         &nbsp;&nbsp;&nbsp;

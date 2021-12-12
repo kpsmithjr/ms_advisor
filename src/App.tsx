@@ -39,7 +39,10 @@ const gcOptions = [
 const optionsDefault = {
   //firstSem: 'FS 21',
   msTrack: 'Traditional',  
-  certs: gcOptions
+  certs: gcOptions,
+  fullTime: false,
+  eveningOnly: false,
+  onlineOnly: false
 }
 
 const waiversDefault = [] as CourseType[];
