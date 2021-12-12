@@ -521,6 +521,19 @@
 	},
 	{
 		"dept": "CS",
+		"num": 5991,
+		"day": true,
+		"evening": true,
+		"online": true,
+		"arranged": true,
+		"springSem": true,
+		"summerSem": true,
+		"fallSem": true,
+		"evenYr": true,
+		"oddYr": true
+	},
+	{
+		"dept": "CS",
 		"num": 6320,
 		"day": false,
 		"evening": true,

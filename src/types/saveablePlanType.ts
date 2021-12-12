@@ -4,11 +4,11 @@ import SemItemType from "../types/semItemType"
 
 type SaveablePlanType = {
 	msOptions: MsOptionsType;
-	restrictedCourses: CourseType[];
-	transferHrs: number;
 	waivers: CourseType[];
+	restrictedCourses: CourseType[];
 	completed: CourseType[];
-	plan: SemItemType[];	
+	plan: SemItemType[];
+	transferHours: number;
 }
 
 export default SaveablePlanType;

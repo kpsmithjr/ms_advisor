@@ -164,6 +164,13 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 		}
 		return -1;
 	}
+
+	const getNewAvailIdx = (curAvail: Course[], addedCourse: Course) => {
+		for (let i: number = 0; i < curAvail.length; ++i) {
+			if (addedCourse.num < curAvail[i].num) return i;
+		}
+		return curAvail.length;
+	}
 	
 	const onDragEnd = (result: any) => {
 		setSelectedCourseID("");
@@ -213,9 +220,18 @@ const CoursePlanner = ({plan, waivers, restrictedCourses, completed, planHandler
 				planHandler(newPlan);
 
 				// Deep copy of available courses
+<<<<<<< HEAD
 				let newAvail = JSON.parse(JSON.stringify(coursesToDisplay));
 				newAvail.push(item);
 				setCoursesToDisplay(newAvail);
+=======
+				let newAvail = JSON.parse(JSON.stringify(availCourses));
+				var idx = getNewAvailIdx(newAvail, item);
+				//insert based on ascending course num
+				newAvail.splice(idx, 0, item)
+				//newAvail.push(item);
+				setAvailCourses(newAvail);
+>>>>>>> 9a126b4d7faa630e5a8e267b774192fe4525c628
 
 			} else { // Moving between semesters
 				console.log("Moving between semetsers");

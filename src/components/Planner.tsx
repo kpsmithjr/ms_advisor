@@ -39,7 +39,8 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
 
   const saveToFile = () => {
     planHandler(plan);
-    const fileData = JSON.stringify({ msOptions, waivers, restrictedCourses, plan, completed, "transferHrs":transferHrs });
+    let transferHours: number = +transferHrs
+    const fileData = JSON.stringify({ msOptions, waivers, restrictedCourses, completed, plan, transferHours });
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
