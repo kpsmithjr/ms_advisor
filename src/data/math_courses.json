@@ -1,0 +1,558 @@
+[
+	{
+		"dept": "MATH",
+		"num": 1320,
+		"name": "Introduction to Probability and Statistics",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1030
+          },
+          {
+            "dept": "MATH",
+            "num": 1040
+          },
+          {
+            "dept": "MATH",
+            "num": 1045
+          }
+        ],
+        "numReq": 1      
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1030 or MATH 1040 or MATH 1045 or consent of the department. The course will cover basic concepts and methods in probability and statistics. Topics include descriptive statistics, probabilities of events, random variables and their distributions, sampling distributions, estimation of population parameters, confidence intervals and hypothesis testing for population means and population proportions, chi-square tests. A student may not receive credit for more than one of MATH 1310, MATH 1320 and MATH 1105."
+	},
+	{
+		"dept": "MATH",
+		"num": 1800,
+		"name": "Analytic Geometry and Calculus I",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1030
+          }
+        ],
+        "numReq": 1
+      },
+			{
+				"courses": [
+					{
+						"dept": "MATJ",
+						"num": 1035
+					}
+				],
+				"numReq": 1
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1030 and MATH 1035, or MATH 1040 and MATH 1035, or MATH 1045, or a satisfactory score on the UMSL ALEKS Math Placement Examination, obtained at most one year prior to enrollment in this course, or approval of the department. This course provides an introduction to differential and integral calculus. Topics include limits, derivatives, related rates, Newton's method, the Mean-Value Theorem, Max-Min problems, the integral, the Fundamental Theorem of Integral Calculus, areas, volumes, and average values."
+	},
+	{
+		"dept": "MATH",
+		"num": 3000,
+		"name": " Discrete Structures",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1800
+          },
+          {
+            "dept": "MATH",
+            "num": 1100
+          }
+        ],
+        "numReq": 1
+      },
+			{
+				"courses": [
+					{
+						"dept": "CS",
+						"num": 1250
+					}
+				],
+				"numReq": 1
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1800 or MATH 1100, and CMP SCI 1250 or equivalent. This course introduces fundamental concepts and important data structures in Discrete Mathematics and serves as an important foundation for subsequent courses in Computer Science. It provides a formal system on which mathematical reasoning is based, and various problem-solving strategies with emphasis on the algorithmic approach (both iterative and recursive). Topics include logic, sets, functions and relations; methods of proof, including mathematical induction; elements of number theory; order of growth and basic analysis of algorithms efficiency; recurrence relations; basic counting methods; graphs and trees. This course does not apply towards the elective requirements for any of the majors, minors or related areas in mathematics and statistics."
+	},
+	{
+		"dept": "MATH",
+		"num": 4005,
+		"name": "Exploratory Data Analysis with R",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1100
+          },
+          {
+            "dept": "MATH",
+            "num": 1800
+          }
+        ],
+        "numReq": 1
+      },
+			{
+				"courses": [
+					{
+						"dept": "ANTHRO",
+						"num": 3220
+					},
+					{
+						"dept": "SOC",
+						"num": 3220
+					},
+					{
+						"dept": "BIOL",
+						"num": 4122
+					},
+					{
+						"dept": "CRIMIN",
+						"num": 2220
+					},
+					{
+						"dept": "ECON",
+						"num": 3100
+					},
+					{
+						"dept": "MATH",
+						"num": 1320
+					},
+					{
+						"dept": "POL SCI",
+						"num": 3000
+					},
+					{
+						"dept": "PSYCH",
+						"num": 2201
+					}
+				],
+				"numReq": 1
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: (MATH 1100 or MATH 1800) and (ANTHRO 3220 /SOC 3220 or BIOL 4122 or CRIMIN 2220 or ECON 3100 or MATH 1320 or POL SCI 3000 or PSYCH 2201). This course covers data analysis methods with R. It introduces the basic goals and techniques of the data science process, methods of characterizing and visualizing data and building predictive and inferential models. R will be introduced at the beginning of the class and then used throughout the rest of the class."
+	},
+	{
+		"dept": "MATH",
+		"num": 4100,
+		"name": "Real Analysis I",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+          {
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 3250, or CMP SCI 3130, or consent of instructor. This course provides an introduction to real analysis in one variable. Topics include the real number system, limits, continuity, differentiability, and sequences and series of functions."
+	},
+	{
+		"dept": "MATH",
+		"num": 4160,
+		"name": "Complex Analysis I",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2000
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2000 or consent of the instructor. This course introduces complex numbers and their geometrical representation, point sets, analytic functions of a complex variable, complex integration, Taylor and Laurent series, residue theorem, and conformal mapping."
+	},
+	{
+		"dept": "MATH",
+		"num": 4200,
+		"name": "Mathematical Statistics I",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1320
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2000
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 1320 and MATH 2000. Introduction to the theory of probability and statistics using concepts and methods of calculus."
+	},
+	{
+		"dept": "MATH",
+		"num": 4210,
+		"name": "Mathematical Statistics II",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 4200
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 4200. Continuation of MATH 4200. Sampling distributions, estimation theory, properties of estimators, hypothesis testing, NeymanPearson Theorem, likelihood ratio tests, introduction of analysis of variance and linear models. Basics of some nonparametric procedures."
+	},
+	{
+		"dept": "MATH",
+		"num": 4400,
+		"name": "Introduction to Abstract Algebra I",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+					{
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2450 and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course introduces groups, rings, and fields, with an emphasis on groups and rings."
+	},
+	{
+		"dept": "MATH",
+		"num": 4450,
+		"name": "Linear Algebra",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+					{
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2450 and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on topics selected from vector spaces, bases, linear transformations, matrices, canonical forms, eigenvalues, hermitian and unitary matrices, inner product spaces, and quadratic forms."
+	},
+	{
+		"dept": "MATH",
+		"num": 4660,
+		"name": "Linear Algebra",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3000
+          },
+					{
+            "dept": "CS",
+            "num": 3250
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2450 and either MATH 3000 or MATH 3250. This course is an introductory course in coding theory. Topics may include linear codes, generator and parity check matrices, dual codes, weight and distance, encoding and decoding, and the Sphere Packing Bound; various examples of codes like the Hamming codes, Golay codes, binary Reed-Muller codes, and the hexacode; Shannon's theorem for the binary symmetric channel, upper and lower bounds on the size of linear and nonlinear codes; constructions and properties of finite fields, basic theory of cyclic codes; concepts of idempotent generator, generator polynomial, zeros of a code, and defining sets, special families of BCH and Reed-Solomon cyclic codes as well as generalized Reed-Solomon codes. Credit cannot be granted for both MATH 4460 and MATH 5460."
+	},
+	{
+		"dept": "MATH",
+		"num": 4670,
+		"name": "Introduction to Non-Euclidean Geometry",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2000
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+					{
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2000, MATH 2450, and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on a summary of the history of the non-Euclidean geometries and a study of hyperbolic plane geometry."
+	},
+	{
+		"dept": "MATH",
+		"num": 5070,
+		"name": "Introduction to Non-Euclidean Geometry",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2000
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+					{
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2000, MATH 2450, and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on a summary of the history of the non-Euclidean geometries and a study of hyperbolic plane geometry."
+	},
+	{
+		"dept": "MATH",
+		"num": 5080,
+		"name": "Introduction to Non-Euclidean Geometry",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2000
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 2450
+          }
+        ],
+        "numReq": 1
+      },
+			{
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 3250
+          },
+					{
+            "dept": "CS",
+            "num": 3130
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 2000, MATH 2450, and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on a summary of the history of the non-Euclidean geometries and a study of hyperbolic plane geometry."
+	},
+	{
+		"dept": "MATH",
+		"num": 5090,
+		"name": "High-dimensional Data Analysis",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: Graduate standing. This course introduces several advanced classical and modern techniques for modeling and analysis of high-dimensional datasets with low-dimensional structures. The methods covered in this course include principal component analysis, factor analysis, clustering-based methods, and sparse and low-rank recovery theory and algorithms. Topics are identical to MATH 4090 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be earned for both MATH 4090 and MATH 5090."
+	},
+	{
+		"dept": "MATH",
+		"num": 5100,
+		"name": "Real Analysis II",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 4100
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 4100. Introduction to measure and integration. Topics include the Riemann-Stieltjes integral, Lebesgue measure, measurable functions, the Lebesgue integral, Radon-Nikodym and Fubini theorems and the basics of Lp-spaces."
+	},
+	{
+		"dept": "MATH",
+		"num": 5225,
+		"name": "Statistical Computing",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: Graduate standing. This course will introduce fundamental algorithms in Monte Carlo methods: random variable generation, Monte Carlo integration, Monte Carlo optimization, Markov chain Monte Carlo, Metropolis-Hastings algorithm, Gibbs sampler, Langevin algorithms and Hamilton Monte Carlo, perfect, iterated and sequential importance sampling. Other topics covered may include particle systems, hidden Markov models, parallel and cloud computing. Topics are identical to MATH 4085 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be earned for both MATH 4225 and MATH 5225."
+	},
+	{
+		"dept": "MATH",
+		"num": 5250,
+		"name": "Statistical Methods in Learning and Modeling",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: Graduate standing. This course will introduce basic statistical principles and methods for modeling, inference, prediction and classification. The topics will be chosen from linear regression, basis expansion methods, kernel smoothing methods, model regularization, other nonparametric methods, and model selection and assessment. Topics are identical to MATH 4250 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be earned for both MATH 4250 and MATH 5250."
+	},
+	{
+		"dept": "MATH",
+		"num": 5320,
+		"name": "Topics in Statistics and its Applications",
+    "prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 4210
+          }
+        ],
+        "numReq": 1
+      }
+    ],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: MATH 4210 or consent of instructor. The course studies classical and recently developed statistical procedures selected from areas including multivariate analysis, linear and non-linear models, nonparametric methods, and statistical learning. Emphasis is on applications of the procedures."
+	},
+	{
+		"dept": "MATH",
+		"num": 5460,
+		"name": "Coding Theory",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: Graduate standing. This course is an introductory course in coding theory. Topics may include linear codes, generator and parity check matrices, dual codes, weight and distance, encoding and decoding, and the Sphere Packing Bound; various examples of codes like the Hamming codes, Golay codes, binary Reed-Muller codes, and the hexacode; Shannon's theorem for the binary symmetric channel, upper and lower bounds on the size of linear and nonlinear codes; constructions and properties of finite fields, basic theory of cyclic codes; concepts of idempotent generator, generator polynomial, zeros of a code, and defining sets, special families of BCH and Reed-Solomon cyclic codes as well as generalized Reed–Solomon codes. Topics are identical to MATH 4460 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be granted for both MATH 4460 and MATH 5460."
+	},
+	{
+		"dept": "MATH",
+		"num": 5600,
+		"name": "ITopics in Computation",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisite: Consent of instructor. The course will cover various advanced topics in computation, and can be taken more than once for credit. Examples of such topics are: computer graphics, computer architecture, theories of language, analysis of operating systems, numerical geometry and computer aided design, etc."
+	},
+	{
+		"dept": "MATH",
+		"num": 5820,
+		"name": "Topics in Algebra",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisite: Consent of instructor. Topics selected from the theory of groups, rings, fields, algebras and other algebraic systems. May be taken more than once for credit with consent of department."
+	},
+	{
+		"dept": "MATH",
+		"num": 5890,
+		"name": "Advanced Topics in Mathematics",
+    "prerequisite": [],
+    "waivePrereqAsGrad": false,
+    "relatedCourse": [],
+    "description": "Prerequisites: Consent of the instructor. The course will cover various advanced topics in mathematics, statistics, or data science. May be taken more than once if the topic differs."
+	}
+]
