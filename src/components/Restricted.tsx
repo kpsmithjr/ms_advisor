@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
 import IRestricted from "../interfaces/iRestricted";
-import Courses from "../data/cs_courses.json";
+import CS_Courses from "../data/cs_courses.json";
+import MATH_Courses from "../data/math_courses.json";
 import RestrictedCourses from "../data/restricted.json";
 import CourseType from '../types/courseType';
 
@@ -21,6 +22,13 @@ const RestrictedContainer = styled.div`
 const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 
 	const getCourseName = (dept: string, num:number): string => {
+		let Courses;
+		if (dept === "CS")	{
+			Courses = CS_Courses;
+		} else {
+			Courses = MATH_Courses;
+			
+		}
 		for (let i = 0; i < Courses.length; ++i) {
 			if ((Courses[i].dept === dept) && (Courses[i].num === num)) {
 				return Courses[i].name;

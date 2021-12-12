@@ -1,8 +1,95 @@
 [
 	{
 		"dept": "MATH",
+		"num": 1320,
+		"name": "Introduction to Probability and Statistics",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1030
+          },
+          {
+            "dept": "MATH",
+            "num": 1040
+          },
+          {
+            "dept": "MATH",
+            "num": 1045
+          }
+        ],
+        "numReq": 1      
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1030 or MATH 1040 or MATH 1045 or consent of the department. The course will cover basic concepts and methods in probability and statistics. Topics include descriptive statistics, probabilities of events, random variables and their distributions, sampling distributions, estimation of population parameters, confidence intervals and hypothesis testing for population means and population proportions, chi-square tests. A student may not receive credit for more than one of MATH 1310, MATH 1320 and MATH 1105."
+	},
+	{
+		"dept": "MATH",
+		"num": 1800,
+		"name": "Analytic Geometry and Calculus I",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1030
+          }
+        ],
+        "numReq": 1
+      },
+			{
+				"courses": [
+					{
+						"dept": "MATJ",
+						"num": 1035
+					}
+				],
+				"numReq": 1
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1030 and MATH 1035, or MATH 1040 and MATH 1035, or MATH 1045, or a satisfactory score on the UMSL ALEKS Math Placement Examination, obtained at most one year prior to enrollment in this course, or approval of the department. This course provides an introduction to differential and integral calculus. Topics include limits, derivatives, related rates, Newton's method, the Mean-Value Theorem, Max-Min problems, the integral, the Fundamental Theorem of Integral Calculus, areas, volumes, and average values."
+	},
+	{
+		"dept": "MATH",
+		"num": 3000,
+		"name": " Discrete Structures",
+		"prerequisite": [
+      {
+        "courses": [
+          {
+            "dept": "MATH",
+            "num": 1800
+          },
+          {
+            "dept": "MATH",
+            "num": 1100
+          }
+        ],
+        "numReq": 1
+      },
+			{
+				"courses": [
+					{
+						"dept": "CS",
+						"num": 1250
+					}
+				],
+				"numReq": 1
+			}
+    ],
+		"waivePrereqAsGrad": false,
+		"relatedCourse": [],
+		"description": "Prerequisites: MATH 1800 or MATH 1100, and CMP SCI 1250 or equivalent. This course introduces fundamental concepts and important data structures in Discrete Mathematics and serves as an important foundation for subsequent courses in Computer Science. It provides a formal system on which mathematical reasoning is based, and various problem-solving strategies with emphasis on the algorithmic approach (both iterative and recursive). Topics include logic, sets, functions and relations; methods of proof, including mathematical induction; elements of number theory; order of growth and basic analysis of algorithms efficiency; recurrence relations; basic counting methods; graphs and trees. This course does not apply towards the elective requirements for any of the majors, minors or related areas in mathematics and statistics."
+	},
+	{
+		"dept": "MATH",
 		"num": 4005,
-		"name": " Exploratory Data Analysis with R",
+		"name": "Exploratory Data Analysis with R",
 		"prerequisite": [
       {
         "courses": [
