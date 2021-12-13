@@ -97,6 +97,38 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
     }
     return false;
   };
+
+    const checkFullTime = (plan: SemItem[]) => {
+        if (!msOptions.fullTime) return true;
+
+        //don't throw error if there are leading or trailing empty semesters
+        //--maybe theyre starting in a later semester or added excess empty semesters
+        var start: number = plan.findIndex(element => element.courses.length > 0);
+        start = start > 0 ? start : 0;
+        var reversedEnd: number = plan.slice().reverse().findIndex(element => element.courses.length > 0);
+        reversedEnd = reversedEnd > 0 ? reversedEnd : 0;
+        var end: number = plan.length - reversedEnd;
+
+        console.log(start);
+        console.log(end);
+        console.log(plan.length);
+
+        for (let i: number = start; i < end; ++i) {
+            if (!(plan[i].term === "SS")) {  // does the 9 cred hour minimum apply to summer semester too?
+                var creditHourSum: number = 0;
+
+                for (let j: number = 0; j < plan[i].courses.length; ++j) {
+                    let ch: number = plan[i].courses[j].credHrs!;
+                    creditHourSum += ch;
+                }
+                if (creditHourSum < 9) {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    };
   
   const isCourseWaived = (dept: string, num: number, waivers: Course[]) => {
     for (let i = 0; i < waivers.length; ++i) {
@@ -236,6 +268,14 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
   return (        
     <div>
       <h2>Degree Checklist</h2>
+
+      {msOptions.fullTime &&
+        <React.Fragment>
+          <RequirementContainer met={checkFullTime(plan)} >
+            Full-time Status
+          </RequirementContainer>
+        </React.Fragment>
+      }
 
       {completed.length>0 &&
         <React.Fragment>
