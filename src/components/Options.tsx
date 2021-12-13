@@ -135,11 +135,27 @@ const Options = ({options, handler}: IOptions)=> {
         <h1>Academic Plan Options</h1>
       </div>
       <div className='instructions'>
-        Instuctions go here.
+              <p>
+              Select which Computer Science MS track you wish to pursue from the drop-down menu.
+              </p>
+              <br/>
+              <p>
+              You may specify additional preferences below to filter which classes are shown in the planner
+              <br/>
+              (e.g. only show classes that are offered in the evenings, or classes that are available online).
+              </p>
+              <br/>
+              <p>
+              Selecting the Full-time Enrollment option will have the planner check that 9+ credit hours are taken each semester.
+              <br/>
+              -Note that F-1 and J-1 graduate students must maintain full-time enrollment in order to comply with visa regulations.
+              </p>
+              <br/> <br/>
       </div>
       <div className="forms">
         <form>
-          <label>Select Your MS Track: 
+          <label>Select Your MS Track:
+            &nbsp;
             <select
               name="msTrack"
               value={formData.msTrack}
@@ -186,14 +202,17 @@ const Options = ({options, handler}: IOptions)=> {
               <ul className="checkbox">
                   <li>
                       <input type="checkbox" id="cb1" value="Full-time Enrollment" onChange={updateFulltime} checked={formData.fullTime}/>
+                      &nbsp;
                       <label htmlFor="cb1">Full-time Enrollment</label>
                   </li>
                   <li>
                       <input type="checkbox" id="cb2" value="Evening-only Courses" onChange={updateEvening} checked={formData.eveningOnly}/>
+                      &nbsp;
                       <label htmlFor="cb2">Evening-only Courses</label>
                   </li>
                   <li>
                       <input type="checkbox" id="cb3" value="Online-only Courses" onChange={updateOnline} checked={formData.onlineOnly}/>
+                      &nbsp;
                       <label htmlFor="cb3">Online-only Courses</label>
                   </li>
               </ul>
