@@ -36,8 +36,11 @@ const Transfers = ({transfersHrs, setTransferHanlder}: ITransfers) => {
         <h1>Transfer Courses</h1>
       </div>
 			<div className='instructions'>
-        Enter the number of credit hours to transfer into the program. (Note: A maximim of {max_trans_hrs} transfered hours will be applied to the degree.)
-      </div>			
+        Enter the number of credit hours to transfer into the program.
+				<br></br>
+				Note: A maximim of {max_trans_hrs} transfered hours will be applied to the degree.
+      </div>
+			<br></br>
 			<form className='forms'>
 				<label>Transfer credit hours:
 					<input

@@ -17,7 +17,7 @@ type RestrictedCourseType = {
 };
 
 const RestrictedContainer = styled.div`
-`
+`;
 
 const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 
@@ -120,7 +120,12 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
         <h1>Restricted Courses</h1>
       </div>
 			<div className='instructions'>
-				<p>Instruction Place Holder</p>
+				<p>Restricted courses are those that cover undergraduate level computer science and mathematics skills required in order to proceed with graduate study.</p>
+				<p>Please select any courses you have <big><b>NOT</b></big> taken.</p>				
+				<br></br>
+				<p>Note: These restricted courses should be fulfilled in the first few semesters (optimally in the first semester).</p>
+				<p>Note: Credit hours in these courses will not count toward the 30 graduate hour requirement. </p>
+				<br></br>
 			</div>
 			
 			<h3>Computer Science Courses</h3>
@@ -140,6 +145,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
           );
       	})
 			}
+			<br></br>
 			</RestrictedContainer>
 			<h3>Mathematics Courses</h3>
 			<RestrictedContainer>

@@ -110,7 +110,9 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
         <h1>Completed Courses</h1>
       </div>
       <div className='instructions'>
-				<p>Instruction Place Holder</p>
+				<p>Select any course you have completed while in the MS program in Computer Science at UMSL.</p>
+        <br>
+        </br>
 			</div>
       <CompletedContainer>
         {formData.map((course, index) => {

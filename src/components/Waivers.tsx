@@ -144,7 +144,13 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
         <h1>Waivered Courses</h1>
       </div>
       <div className='instructions'>
-				<p>Instruction Place Holder</p>
+				<p>Waivers may be granted by the Department of Computer Science if you have previous experience with
+           the subject matter from work or a class taken at another university. Required courses, based on the MS
+           options selected earlier, are shown</p>
+        <br></br>
+        <p>Note: Credit hours in these courses will not count toward the 30 graduate hour requirement.</p>
+        <p>Note: A '(W)' will be displayed next to any requirment with a waiver.</p>
+        <br></br>
 			</div>
       <WaiverContainer>
         {formData.map((course, index) => {

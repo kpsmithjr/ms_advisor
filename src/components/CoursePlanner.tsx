@@ -71,12 +71,11 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 	};
 
 	const meetsMyOptions = (offeredEvening: boolean, offeredOnline: boolean) => {
-		if ((options.eveningOnly && !offeredEvening) ||
-			options.onlineOnly && !offeredOnline) {
+		if ((options.eveningOnly && !offeredEvening) || options.onlineOnly && !offeredOnline) {
 			return false;
 		} else {
 			return true;
-        }
+    }
 	}
 
 	const getAvailCourses = () => {
