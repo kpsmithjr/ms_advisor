@@ -1,6 +1,58 @@
 [
 	{
 		"dept": "MATH",
+		"num": 1320,
+		"day": true,
+		"evening": true,
+		"online": true,
+		"arranged": false,
+		"springSem": true,
+		"summerSem": false,
+		"fallSem": true,
+		"evenYr": true,
+		"oddYr": true
+	},
+	{
+		"dept": "MATH",
+		"num": 1800,
+		"day": true,
+		"evening": true,
+		"online": true,
+		"arranged": false,
+		"springSem": true,
+		"summerSem": false,
+		"fallSem": true,
+		"evenYr": true,
+		"oddYr": true
+	},
+	{
+		"dept": "MATH",
+		"num": 3000,
+		"day": false,
+		"evening": true,
+		"online": true,
+		"arranged": false,
+		"springSem": true,
+		"summerSem": false,
+		"fallSem": true,
+		"evenYr": true,
+		"oddYr": true
+	},
+	{
+		"dept": "MATH",
+		"num": 3000,
+		"day": true,
+		"evening": true,
+		"online": true,
+		"arranged": false,
+		"springSem": true,
+		"summerSem": false,
+		"fallSem": true,
+		"evenYr": true,
+		"oddYr": true
+	},
+	{
+		"dept": "MATH",
 		"num": 4005,
 		"day": false,
 		"evening": true,
