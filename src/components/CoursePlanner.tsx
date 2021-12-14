@@ -11,7 +11,11 @@ import SelectedSemester from "../types/selectedSemester";
 import ICoursePlanner from "../interfaces/iCoursePlanner";
 
 import cs_courses from "../data/cs_courses.json";
+import math_courses from "../data/math_courses.json";
+
 import cs_rotation from "../data/cs_rotation.json";
+import math_rotation from "../data/math_rotation.json";
+
 import CourseType from "../types/courseType";
 
 const Container = styled.div`
@@ -19,14 +23,17 @@ const Container = styled.div`
 	grid-template-columns: 1fr 3fr;
 `;
 
-const defaultSelSem:SelectedSemester = {term:"", year:0};
+const defaultSelSem: SelectedSemester = { term: "", year: 0 };
+
+const allTheCourses = cs_courses.concat(math_courses);
+const allTheRotations = cs_rotation.concat(math_rotation);
 
 const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
 
 	const getCourseName = (dept: string, num: number) => {
-		for (let i = 0; i < cs_courses.length; ++i) {
-			if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {
-				return cs_courses[i].name;
+		for (let i = 0; i < allTheCourses.length; ++i) {
+			if ((allTheCourses[i].dept === dept) && (allTheCourses[i].num === num)) {
+				return allTheCourses[i].name;
 			}
 		}
 		return "";
@@ -94,12 +101,12 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 				arr.push(tmp);
       }
     }
-		for (let i = 0; i < cs_rotation.length; ++i) {
+		for (let i = 0; i < allTheRotations.length; ++i) {
 			const tmp = {
-				id: cs_rotation[i].dept + " " + cs_rotation[i].num,
-				dept: cs_rotation[i].dept,
-				num: cs_rotation[i].num,
-				name: getCourseName(cs_rotation[i].dept, cs_rotation[i].num),
+				id: allTheRotations[i].dept + " " + allTheRotations[i].num,
+				dept: allTheRotations[i].dept,
+				num: allTheRotations[i].num,
+				name: getCourseName(allTheRotations[i].dept, allTheRotations[i].num),
 				credHrs: 3
 			};
 
@@ -107,7 +114,7 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 				!isCourseWaived(tmp.dept, tmp.num) &&
 				!isCourstCompleted(tmp.dept, tmp.num) &&
 				!isCoursePlanned(tmp.dept, tmp.num) &&
-				meetsMyOptions(cs_rotation[i].evening, cs_rotation[i].online)) {
+				meetsMyOptions(allTheRotations[i].evening, allTheRotations[i].online)) {
 
 				arr.push(tmp);
 			}
@@ -141,10 +148,10 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 			let cs_rot_entry:any = null;
 
 			// Find the course in the cs rotation
-			for (let j = 0; j < cs_rotation.length; ++j) {
+			for (let j = 0; j < allTheRotations.length; ++j) {
 				// Check if the j-th entry in the cs rotation matches the i-th course
-				if ((cs_rotation[j].dept === course[i].dept) && (cs_rotation[j].num === course[i].num)) {
-					cs_rot_entry = cs_rotation[j];
+				if ((allTheRotations[j].dept === course[i].dept) && (allTheRotations[j].num === course[i].num)) {
+					cs_rot_entry = allTheRotations[j];
 					break;
 				}
 			}
