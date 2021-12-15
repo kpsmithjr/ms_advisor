@@ -143,6 +143,20 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
       return { ...course, selected: e.target.checked};
     });
     setFormData(newFormData);
+
+    let newWaivers = [] as CourseType[];
+    for (let i = 0; i < newFormData.length; ++i) {
+      if (newFormData[i].selected) {
+        const waivedCourse:CourseType = {
+          id: newFormData[i].id,
+          dept:newFormData[i].dept,
+          num:newFormData[i].num,
+          name:newFormData[i].name,
+        }
+        newWaivers.push(waivedCourse);
+      }
+    }
+    handler(newWaivers);
   }
   
   function handleCancel() {
@@ -150,19 +164,6 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
   }
 
   function handleSubmit() {
-    let newWaivers = [] as CourseType[];
-    for (let i = 0; i < formData.length; ++i) {
-      if (formData[i].selected) {
-        const waivedCourse:CourseType = {
-          id: formData[i].id,
-          dept:formData[i].dept,
-          num:formData[i].num,
-          name:formData[i].name,
-        }
-        newWaivers.push(waivedCourse);
-      }
-    }
-    handler(newWaivers);
     navigate('/planner');
   }
   

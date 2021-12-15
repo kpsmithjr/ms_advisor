@@ -14,10 +14,13 @@ const Transfers = ({transfersHrs, setTransferHanlder}: ITransfers) => {
 		const val:number = event.target.value;
 		if (val > max_trans_hrs) {
 			setTransHours(max_trans_hrs);
+			setTransferHanlder(max_trans_hrs);
 		} else if (val < min_trans_hrs) {
 			setTransHours(min_trans_hrs);
+			setTransferHanlder(min_trans_hrs);
 		} else {
 			setTransHours(val);
+			setTransferHanlder(val);
 		}
 	}
 	
@@ -26,7 +29,7 @@ const Transfers = ({transfersHrs, setTransferHanlder}: ITransfers) => {
 	};
 
 	const handleSubmit = () => {
-		setTransferHanlder(transHrs);
+		
 		navigate('/waivers');
 	}
 

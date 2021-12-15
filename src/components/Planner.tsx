@@ -36,17 +36,25 @@ const InstructionHeaderContainer = styled.div`
   margin-left: 10px;
 `;
 
+const InstructionButtonContainer = styled.button`
+  width: 150px;
+`;
+const SaveButtonContainer = styled.button`
+  background: lightgreen;
+  width: 150px;
+`;
+
 const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, transferHrs, completed}: IPlan)=> {
   const [plan, setPlan] = React.useState<SemItem[]>(oldPlan);
   
   const updatePlan = (newPlan: SemItem[]) => {
     setPlan(newPlan);
-   }
-
-  const savePlan = () => {
-    planHandler(plan);
   }
 
+	React.useEffect(() => {
+		planHandler(plan);
+	}, [plan]);
+  
   const saveToFile = () => {
     planHandler(plan);
     let transferHours: number = +transferHrs
@@ -72,7 +80,14 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
       <PlanHeaderContainer>
         <h1>Academic Planner</h1>
         &nbsp;&nbsp;&nbsp;
-        <button onClick={handleInstructions}>Instructions</button>
+        <InstructionButtonContainer onClick={handleInstructions}>
+          Instructions
+        </InstructionButtonContainer>
+        &nbsp;&nbsp;&nbsp;
+        <SaveButtonContainer onClick={saveToFile}>
+          Save To File
+        </SaveButtonContainer>        
+        
       </PlanHeaderContainer>
       { showInstructions && 
         <React.Fragment>
@@ -128,11 +143,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
         <RequirementsContainer>
           <Requirements msOptions={msOptions} plan={plan} waivers={waivers} restrictedCourses={restrictedCourses} transferHrs={transferHrs} completed={completed}/>
         </RequirementsContainer>
-      </PlanContainer>
-      <PlanFooterContainer>
-        <button onClick={savePlan}>Save Plan</button>
-        <button onClick={saveToFile}>Save To File</button>
-      </PlanFooterContainer>
+      </PlanContainer>      
     </div>
   );
 }

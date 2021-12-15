@@ -74,6 +74,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       return { ...course, selected: e.target.checked};
     });
     setCsFormData(newFormData);
+		updateGlobal(newFormData, mathFormData);
   }
 
 	const handleClickMath = (e: any) => {
@@ -82,35 +83,39 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       return { ...course, selected: e.target.checked};
     });
     setMathFormData(newFormData);
+		updateGlobal(csFormData, newFormData);
   }
 
 	const handleCancel = () => {
     navigate(-1);
   };
 
-	const handleSubmit = () => {
+	const updateGlobal = (csData:any, mathData:any) => {
 		let newResticted = [] as CourseType[];
-		for (let i = 0; i < csFormData.length; ++i) {
-			if (csFormData[i].selected) {
+		for (let i = 0; i < csData.length; ++i) {
+			if (csData[i].selected) {
 				const tmp = {
-					id: csFormData[i].id,
-					dept: csFormData[i].dept,
-					num: csFormData[i].num
+					id: csData[i].id,
+					dept: csData[i].dept,
+					num: csData[i].num
 				}
 				newResticted.push(tmp);
 			}
 		}
-		for (let i = 0; i < mathFormData.length; ++i) {
-			if (mathFormData[i].selected) {
+		for (let i = 0; i < mathData.length; ++i) {
+			if (mathData[i].selected) {
 				const tmp = {
-					id: mathFormData[i].id,
-					dept: mathFormData[i].dept,
-					num: mathFormData[i].num
+					id: mathData[i].id,
+					dept: mathData[i].dept,
+					num: mathData[i].num
 				}
 				newResticted.push(tmp);
 			}
 		}
-		handler(newResticted);
+		handler(newResticted);	
+	};
+
+	const handleSubmit = () => {		
 		navigate('/transfers');
 	}
 
