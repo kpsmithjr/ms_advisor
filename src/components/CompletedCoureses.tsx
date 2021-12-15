@@ -12,6 +12,10 @@ import cs_rotation from "../data/cs_rotation.json";
 import track_reqs from "../data/track_req.json";
 
 const CompletedContainer = styled.div`
+min-height: 50px;
+overflow-y: scroll;
+height: 600px;
+overflow-y: scroll;
 `;
 
 type CompletedType = {
@@ -126,8 +130,6 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
         }
       }
     }
-    
-
     return completedData;
   };
 
@@ -169,6 +171,11 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
       <div className="page-header">
         <h1>Completed Courses</h1>
       </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
       <div className='instructions'>
 				<p>Select any course you have completed while in the MS program in Computer Science at UMSL.</p>
         <br>
@@ -190,11 +197,6 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
           );
         })}
       </CompletedContainer>
-      <div className="footer-buttons">
-        <button onClick={handleCancel}>Cancel</button>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
     </div>
   );
 }

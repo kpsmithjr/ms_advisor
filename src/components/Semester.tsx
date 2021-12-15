@@ -7,7 +7,16 @@ import ISemester from "../interfaces/iSemester";
 
 import cs_rotation from "../data/cs_rotation.json";
 import cs_courses from "../data/cs_courses.json";
+
+import math_rotation from "../data/math_rotation.json";
+import math_courses from "../data/math_courses.json";
+
 import ugradCourses from "../data/restricted.json";
+import { resolveUrl } from "ajv/dist/compile/resolve";
+
+const allTheCourses = cs_courses.concat(math_courses);
+const allTheRotations = cs_rotation.concat(math_rotation);
+
 
 interface ICourseList {
 	isDropDisabled: boolean;
@@ -51,20 +60,18 @@ const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanl
 			return true;
 		}
 		
-		var course_rot;
-		console.log(courseId.split(",")[0])
-		for (let i = 0; i < cs_rotation.length; ++i) {
-			if (courseId === (cs_rotation[i].dept + " " + cs_rotation[i].num.toString())) {
+		for (let i = 0; i < allTheRotations.length; ++i) {
+			if (courseId === (allTheRotations[i].dept + " " + allTheRotations[i].num.toString())) {
 				
 				// Check that the course is offered in this current semester
-				if (((sem.term === "SP") && !cs_rotation[i].springSem) ||
-						((sem.term === "SS") && !cs_rotation[i].summerSem) ||
-						((sem.term === "FS") && !cs_rotation[i].fallSem)) {
+				if (((sem.term === "SP") && !allTheRotations[i].springSem) ||
+						((sem.term === "SS") && !allTheRotations[i].summerSem) ||
+						((sem.term === "FS") && !allTheRotations[i].fallSem)) {
 					return false;					
 				}
 
-				if (((sem.year % 2 === 0) && !cs_rotation[i].evenYr) || 
-						((sem.year % 2 === 1) && !cs_rotation[i].oddYr)) {
+				if (((sem.year % 2 === 0) && !allTheRotations[i].evenYr) || 
+						((sem.year % 2 === 1) && !allTheRotations[i].oddYr)) {
 					return false;
 				}
 				
@@ -121,10 +128,10 @@ const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanl
 
 		// Declare function to look up prerequisites in courese catalog
 		const getPrereqs = (dept:string, num:number) => {
-			for (let i = 0; i < cs_courses.length; ++i) {
+			for (let i = 0; i < allTheCourses.length; ++i) {
 				// Check if the i-th course in the catalog matches dept/num
-				if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {
-					return cs_courses[i].prerequisite;
+				if ((allTheCourses[i].dept === dept) && (allTheCourses[i].num === num)) {
+					return allTheCourses[i].prerequisite;
 				}
 			}
 			return null;
@@ -132,10 +139,10 @@ const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanl
 
 		// Check if the prerequisites are meet due to graduate status
 		const isPrereqWaivedAsGrad = (dept:string, num:number):boolean => {
-			for (let i = 0; i < cs_courses.length; ++i) {
+			for (let i = 0; i < allTheCourses.length; ++i) {
 				// Check if the i-th course in the catalog matches dept/num
-				if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {					
-					return cs_courses[i].waivePrereqAsGrad;
+				if ((allTheCourses[i].dept === dept) && (allTheCourses[i].num === num)) {					
+					return allTheCourses[i].waivePrereqAsGrad;
 				}
 			}
 			return false;

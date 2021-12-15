@@ -143,6 +143,11 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       <div className="page-header">
         <h1>Waivered Courses</h1>
       </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
       <div className='instructions'>
 				<p>Waivers may be granted by the Department of Computer Science if you have previous experience with
            the subject matter from work or a class taken at another university. Required courses, based on the MS
@@ -168,11 +173,6 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
           );
         })}
       </WaiverContainer>
-      <div className="footer-buttons">
-        <button onClick={handleCancel}>Cancel</button>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
     </div>
   );
 }

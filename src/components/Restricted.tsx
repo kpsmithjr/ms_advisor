@@ -119,6 +119,11 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 			<div className="page-header">
         <h1>Restricted Courses</h1>
       </div>
+			<div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
 			<div className='instructions'>
 				<p>Restricted courses are those that cover undergraduate level computer science and mathematics skills required in order to proceed with graduate study.</p>
 				<p>Please select any courses you have <big><b>NOT</b></big> taken.</p>				
@@ -165,11 +170,6 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       	})
 			}
 			</RestrictedContainer>
-			<div className='footer-buttons'>
-				<button onClick={handleCancel}>Cancel</button>
-				&nbsp;&nbsp;&nbsp;
-				<button onClick={handleSubmit}>Next</button>
-			</div>
 	</div>
 	);
 };

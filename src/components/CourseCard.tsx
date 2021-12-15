@@ -5,6 +5,8 @@ import Course from "../types/courseType";
 import cs_courses from "../data/cs_courses.json"
 import math_courses from "../data/math_courses.json";
 
+const allTheCourses = cs_courses.concat(math_courses);
+
 interface StyledDivProps {
 	isDragging: boolean;
 	isAvailable: boolean;
@@ -26,17 +28,9 @@ interface ICourseCard {
 }
 
 const getCourseIdx = (dept: string, num: number) => {
-	if (dept === "CS") {
-		for (let i = 0; i < cs_courses.length; ++i) {
-			if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {
-				return i;
-			}
-		}
-	} else if(dept === "MATH") {
-		for (let i = 0; i < math_courses.length; ++i) {
-			if ((math_courses[i].dept === dept) && (math_courses[i].num === num)) {
-				return i;
-			}
+	for (let i = 0; i < allTheCourses.length; ++i) {
+		if ((allTheCourses[i].dept === dept) && (allTheCourses[i].num === num)) {
+			return i;
 		}
 	}
 	return -1;
@@ -51,14 +45,7 @@ const showDescription = (event: any) => {
 	//console.log(event.target);
 	//console.dir(event.target);
 	if (courseIdx >= 0) {
-		var newStr;
-		if (dept === "CS") {
-			newStr = event.target.textContent += "\n\n" + cs_courses[courseIdx].description;
-		} else if (dept === "MATH") {
-			newStr = event.target.textContent += "\n\n" + math_courses[courseIdx].description;
-		} else {
-			newStr = event.target.textContent += "\n\n";
-		}
+		var newStr = event.target.textContent += "\n\n" + allTheCourses[courseIdx].description;
 		event.target.textContent = newStr;
 		event.target.innerHTML = newStr.replace(/\r/g, '').replace(/\n/g, '<br>');
     }
@@ -69,7 +56,7 @@ const hideDescription = (event: any) => {
 	const num = parseInt(event.target.id.split(",")[1]);
 	var courseIdx = getCourseIdx(dept, num);
 	if (courseIdx >= 0) {
-		event.target.textContent = cs_courses[courseIdx].dept + " " + cs_courses[courseIdx].num + " - " + cs_courses[courseIdx].name;
+		event.target.textContent = allTheCourses[courseIdx].dept + " " + allTheCourses[courseIdx].num + " - " + allTheCourses[courseIdx].name;
     }
 }
 

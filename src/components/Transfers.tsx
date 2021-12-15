@@ -35,6 +35,11 @@ const Transfers = ({transfersHrs, setTransferHanlder}: ITransfers) => {
 			<div className="page-header">
         <h1>Transfer Courses</h1>
       </div>
+			<div className="footer-buttons">
+				<button onClick={handleCancel}>Previous</button>
+				&nbsp;&nbsp;&nbsp;
+				<button onClick={handleSubmit}>Next</button>
+			</div>
 			<div className='instructions'>
         Enter the number of credit hours to transfer into the program.
 				<br></br>
@@ -51,11 +56,6 @@ const Transfers = ({transfersHrs, setTransferHanlder}: ITransfers) => {
 					/>
 				</label>
 			</form>
-			<div className="footer-buttons">
-				<button onClick={handleCancel}>Cancel</button>
-				&nbsp;&nbsp;&nbsp;
-				<button onClick={handleSubmit}>Next</button>
-			</div>
 		</div>
 	)
 }

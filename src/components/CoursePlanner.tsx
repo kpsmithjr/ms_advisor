@@ -12,6 +12,7 @@ import ICoursePlanner from "../interfaces/iCoursePlanner";
 
 import cs_courses from "../data/cs_courses.json";
 import math_courses from "../data/math_courses.json";
+
 import cs_rotation from "../data/cs_rotation.json";
 import math_rotation from "../data/math_rotation.json";
 import track_reqs from "../data/track_req.json";
@@ -22,7 +23,10 @@ const Container = styled.div`
 	grid-template-columns: 1fr 3fr;
 `;
 
-const defaultSelSem:SelectedSemester = {term:"", year:0};
+const defaultSelSem: SelectedSemester = { term: "", year: 0 };
+
+const allTheCourses = cs_courses.concat(math_courses);
+const allTheRotations = cs_rotation.concat(math_rotation);
 
 const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
 
@@ -43,20 +47,11 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
   }
 
 	const getCourseName = (dept: string, num: number) => {
-		var courses;
-		if (dept === "CS") {
-			courses = cs_courses;
-		} else if (dept === "MATH") {
-			courses = math_courses
-		} else {
-			return "";
-		}
-
-		for (let i = 0; i < courses.length; ++i) {
-			if (courses[i].num === num) {
-				return courses[i].name;
+		for (let i = 0; i < allTheCourses.length; ++i) {
+			if ((allTheCourses[i].dept === dept) && (allTheCourses[i].num === num)) {
+				return allTheCourses[i].name;
 			}
-		}		
+		}	
 		return "";
 	};
 
@@ -121,53 +116,12 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 				arr.push(tmp);
       }
     }
-
-		for (let i = 0; i < optReq.required.length; ++i) {
-			for (let j = 0; j < optReq.required[i].courses.length; ++j) {
-				if (optReq.required[i].courses[j].dept === "MATH") {
-					const dept:string = optReq.required[i].courses[j].dept;
-					const num:number = optReq.required[i].courses[j].num;					
-					const tmp = {
-						id:  dept + " " + num.toString(),
-						dept: dept,
-						num: num,
-						name: getCourseName(dept, num),
-						credHrs: 3
-					};
-	
-					if (!isCoursePlanned(tmp.dept, tmp.num)) {
-						arr.push(tmp);
-					}
-				}
-			}
-		}
-
-		for (let i = 0; i < optReq.electives.length; ++i) {
-			for (let j = 0; j < optReq.electives[i].courses.length; ++j) {
-				if (optReq.electives[i].courses[j].dept === "MATH") {
-					const dept:string = optReq.electives[i].courses[j].dept;
-					const num:number = optReq.electives[i].courses[j].num;	
-					const tmp = {
-						id: dept + " " + num.toString(),
-						dept: dept,
-						num: num,
-						name: getCourseName(dept, num),
-						credHrs: 3
-					};
-	
-					if (!isCoursePlanned(tmp.dept, tmp.num)) {
-						arr.push(tmp);
-					}
-				}
-			}
-		}
-
 		for (let i = 0; i < cs_rotation.length; ++i) {
 			const tmp = {
-				id: cs_rotation[i].dept + " " + cs_rotation[i].num.toString(),
-				dept: cs_rotation[i].dept,
-				num: cs_rotation[i].num,
-				name: getCourseName(cs_rotation[i].dept, cs_rotation[i].num),
+				id: allTheRotations[i].dept + " " + allTheRotations[i].num,
+				dept: allTheRotations[i].dept,
+				num: allTheRotations[i].num,
+				name: getCourseName(allTheRotations[i].dept, allTheRotations[i].num),
 				credHrs: 3
 			};
 
@@ -175,9 +129,34 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 				!isCourseWaived(tmp.dept, tmp.num) &&
 				!isCourstCompleted(tmp.dept, tmp.num) &&
 				!isCoursePlanned(tmp.dept, tmp.num) &&
-				meetsMyOptions(cs_rotation[i].evening, cs_rotation[i].online)) {
+				meetsMyOptions(allTheRotations[i].evening, allTheRotations[i].online)) {
 
 				arr.push(tmp);
+			}
+		}
+
+		for (let i = 0; i < optReq.electives.length; ++i) {
+			for (let j = 0; j < optReq.electives[i].courses.length; ++j) {
+				if (optReq.electives[i].courses[j].dept === "MATH") {
+					const tmp_dept = optReq.electives[i].courses[j].dept;
+					const tmp_num = optReq.electives[i].courses[j].num;
+					const tmp = {
+						id: tmp_dept + " " + tmp_num.toString(),
+						dept: tmp_dept,
+						num: tmp_num,
+						name: getCourseName(tmp_dept, tmp_num),
+						credHrs: 3
+					};
+		
+					if (tmp.num >= 4000 &&
+						!isCourseWaived(tmp.dept, tmp.num) &&
+						!isCourstCompleted(tmp.dept, tmp.num) &&
+						!isCoursePlanned(tmp.dept, tmp.num) &&
+						meetsMyOptions(allTheRotations[i].evening, allTheRotations[i].online)) {
+		
+						arr.push(tmp);
+					}
+				}
 			}
 		}
 		
@@ -206,20 +185,12 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 		// Loop through all courses
 		for (let i = 0; i < course.length; ++i) {
 			let rot_entry:any = null;
-			let rotation:any = null;
-			if (course[i].dept === "CS") {
-				rotation = cs_rotation;
-			} else if (course[i].dept === "MATH") {
-				rotation = math_rotation;
-			} else {
-				break;
-			}
 
-			// Find the course in the rotation
-			for (let j = 0; j < rotation.length; ++j) {
+			// Find the course in the cs rotation
+			for (let j = 0; j < allTheRotations.length; ++j) {
 				// Check if the j-th entry in the cs rotation matches the i-th course
-				if (rotation[j].num === course[i].num) {
-					rot_entry = rotation[j];
+				if ((allTheRotations[j].dept === course[i].dept) && (allTheRotations[j].num === course[i].num)) {
+					rot_entry = allTheRotations[j];
 					break;
 				}
 			}

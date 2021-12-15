@@ -134,6 +134,11 @@ const Options = ({options, handler}: IOptions)=> {
       <div className="page-header">
         <h1>Academic Plan Options</h1>
       </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
       <div className='instructions'>
               <p>
               Select which Computer Science MS track you wish to pursue from the drop-down menu.
@@ -216,13 +221,7 @@ const Options = ({options, handler}: IOptions)=> {
                       <label htmlFor="cb3">Online-only Courses</label>
                   </li>
               </ul>
-          </div>
-
-      <div className="footer-buttons">
-        <button onClick={handleCancel}>Cancel</button>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={handleSubmit}>Next</button>
-      </div>
+          </div>      
     </div>
   );
 }

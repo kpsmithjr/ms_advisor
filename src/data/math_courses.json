@@ -302,7 +302,7 @@
 	{
 		"dept": "MATH",
 		"num": 4660,
-		"name": "Linear Algebra",
+		"name": "Introduction to Coding Theory",
     "prerequisite": [
       {
         "courses": [
@@ -375,84 +375,20 @@
 	{
 		"dept": "MATH",
 		"num": 5070,
-		"name": "Introduction to Non-Euclidean Geometry",
-    "prerequisite": [
-      {
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 2000
-          }
-        ],
-        "numReq": 1
-      },
-			{
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 2450
-          }
-        ],
-        "numReq": 1
-      },
-			{
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 3250
-          },
-					{
-            "dept": "CS",
-            "num": 3130
-          }
-        ],
-        "numReq": 1
-      }
-    ],
+		"name": "Nonlinear Optimization",
+    "prerequisite": [],
     "waivePrereqAsGrad": false,
     "relatedCourse": [],
-    "description": "Prerequisites: MATH 2000, MATH 2450, and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on a summary of the history of the non-Euclidean geometries and a study of hyperbolic plane geometry."
+    "description": "Prerequisites: Graduate standing. This course will introduce the theory, methods, and applications of nonlinear optimization. It will cover convex functions, convex analysis, linear and quadratic programs, semidefinite programming and other optimization problems. Topics chosen from duality theory, algorithms of descent method, Newton's method and interior-point methods, and applications to signal processing, statistics and other fields will be covered. Topics are identical to MATH 4070 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be earned for both MATH 4070 and MATH 5070."
 	},
 	{
 		"dept": "MATH",
 		"num": 5080,
-		"name": "Introduction to Non-Euclidean Geometry",
-    "prerequisite": [
-      {
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 2000
-          }
-        ],
-        "numReq": 1
-      },
-			{
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 2450
-          }
-        ],
-        "numReq": 1
-      },
-			{
-        "courses": [
-          {
-            "dept": "MATH",
-            "num": 3250
-          },
-					{
-            "dept": "CS",
-            "num": 3130
-          }
-        ],
-        "numReq": 1
-      }
-    ],
+		"name": "Scientific Computation",
+    "prerequisite": [],
     "waivePrereqAsGrad": false,
     "relatedCourse": [],
-    "description": "Prerequisites: MATH 2000, MATH 2450, and either MATH 3250 or CMP SCI 3130; or consent of instructor. This course focuses on a summary of the history of the non-Euclidean geometries and a study of hyperbolic plane geometry."
+    "description": "Prerequisites: Graduate standing. This course will introduce fundamental algorithms in numerical linear algebra, matrix factorizations including SVD and QR, direct and iterative methods for solving linear systems, least squares problems and eigenvalue problems. Other topics covered will be chosen from numerical integration and differentiation, iterative methods for ODE's and PDE's, Discrete Fourier transform and FFT, spline smoothing and kernel smoothing. Topics are identical to MATH 4080 but material is covered at a greater depth and additional projects/assignments are required. Credit cannot be earned for both MATH 4080 and MATH 5080."
 	},
 	{
 		"dept": "MATH",
