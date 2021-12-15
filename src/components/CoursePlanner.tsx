@@ -11,8 +11,11 @@ import SelectedSemester from "../types/selectedSemester";
 import ICoursePlanner from "../interfaces/iCoursePlanner";
 
 import cs_courses from "../data/cs_courses.json";
+import math_courses from "../data/math_courses.json";
 import cs_rotation from "../data/cs_rotation.json";
-import CourseType from "../types/courseType";
+import math_rotation from "../data/math_rotation.json";
+import track_reqs from "../data/track_req.json";
+
 
 const Container = styled.div`
 	display: grid;
@@ -23,12 +26,37 @@ const defaultSelSem:SelectedSemester = {term:"", year:0};
 
 const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, planHandler}: ICoursePlanner) => {
 
+	let optReq: any;
+  let track_found = false;
+  for (let i = 0; i < track_reqs.length; ++i) {
+    if (options.msTrack === track_reqs[i].name) {
+      optReq = track_reqs[i];
+			console.log(optReq);
+      track_found = true;
+      break;
+    }
+  }
+
+  if (!track_found) {
+    console.log(options.msTrack);
+    console.error("Unknown Track");
+  }
+
 	const getCourseName = (dept: string, num: number) => {
-		for (let i = 0; i < cs_courses.length; ++i) {
-			if ((cs_courses[i].dept === dept) && (cs_courses[i].num === num)) {
-				return cs_courses[i].name;
-			}
+		var courses;
+		if (dept === "CS") {
+			courses = cs_courses;
+		} else if (dept === "MATH") {
+			courses = math_courses
+		} else {
+			return "";
 		}
+
+		for (let i = 0; i < courses.length; ++i) {
+			if (courses[i].num === num) {
+				return courses[i].name;
+			}
+		}		
 		return "";
 	};
 
@@ -71,7 +99,7 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 	};
 
 	const meetsMyOptions = (offeredEvening: boolean, offeredOnline: boolean) => {
-		if ((options.eveningOnly && !offeredEvening) || options.onlineOnly && !offeredOnline) {
+		if ((options.eveningOnly && !offeredEvening) || (options.onlineOnly && !offeredOnline)) {
 			return false;
 		} else {
 			return true;
@@ -82,20 +110,61 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 		let arr = [] as Course[];
 		for (let i = 0; i < restrictedCourses.length; ++i) {
 			const tmp = {
-				id: restrictedCourses[i].dept + " " + restrictedCourses[i].num,
+				id: restrictedCourses[i].dept + " " + restrictedCourses[i].num.toString(),
 				dept: restrictedCourses[i].dept,
 				num: restrictedCourses[i].num,
 				name: getCourseName(restrictedCourses[i].dept, restrictedCourses[i].num),
-				credHrs: 0
+				credHrs: 3
 			};
 
 			if (!isCoursePlanned(tmp.dept, tmp.num)) {
 				arr.push(tmp);
       }
     }
+
+		for (let i = 0; i < optReq.required.length; ++i) {
+			for (let j = 0; j < optReq.required[i].courses.length; ++j) {
+				if (optReq.required[i].courses[j].dept === "MATH") {
+					const dept:string = optReq.required[i].courses[j].dept;
+					const num:number = optReq.required[i].courses[j].num;					
+					const tmp = {
+						id:  dept + " " + num.toString(),
+						dept: dept,
+						num: num,
+						name: getCourseName(dept, num),
+						credHrs: 3
+					};
+	
+					if (!isCoursePlanned(tmp.dept, tmp.num)) {
+						arr.push(tmp);
+					}
+				}
+			}
+		}
+
+		for (let i = 0; i < optReq.electives.length; ++i) {
+			for (let j = 0; j < optReq.electives[i].courses.length; ++j) {
+				if (optReq.electives[i].courses[j].dept === "MATH") {
+					const dept:string = optReq.electives[i].courses[j].dept;
+					const num:number = optReq.electives[i].courses[j].num;	
+					const tmp = {
+						id: dept + " " + num.toString(),
+						dept: dept,
+						num: num,
+						name: getCourseName(dept, num),
+						credHrs: 3
+					};
+	
+					if (!isCoursePlanned(tmp.dept, tmp.num)) {
+						arr.push(tmp);
+					}
+				}
+			}
+		}
+
 		for (let i = 0; i < cs_rotation.length; ++i) {
 			const tmp = {
-				id: cs_rotation[i].dept + " " + cs_rotation[i].num,
+				id: cs_rotation[i].dept + " " + cs_rotation[i].num.toString(),
 				dept: cs_rotation[i].dept,
 				num: cs_rotation[i].num,
 				name: getCourseName(cs_rotation[i].dept, cs_rotation[i].num),
@@ -125,7 +194,6 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 	}
 
 	const updateSelectedPlan = (newSelSem: SelectedSemester):void => {
-    console.log(newSelSem);
 		setSelectedSemester(newSelSem);
   };
 
@@ -137,26 +205,34 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 		let output = [] as Course[];
 		// Loop through all courses
 		for (let i = 0; i < course.length; ++i) {
-			let cs_rot_entry:any = null;
+			let rot_entry:any = null;
+			let rotation:any = null;
+			if (course[i].dept === "CS") {
+				rotation = cs_rotation;
+			} else if (course[i].dept === "MATH") {
+				rotation = math_rotation;
+			} else {
+				break;
+			}
 
-			// Find the course in the cs rotation
-			for (let j = 0; j < cs_rotation.length; ++j) {
+			// Find the course in the rotation
+			for (let j = 0; j < rotation.length; ++j) {
 				// Check if the j-th entry in the cs rotation matches the i-th course
-				if ((cs_rotation[j].dept === course[i].dept) && (cs_rotation[j].num === course[i].num)) {
-					cs_rot_entry = cs_rotation[j];
+				if (rotation[j].num === course[i].num) {
+					rot_entry = rotation[j];
 					break;
 				}
 			}
 		
-			if (cs_rot_entry === null) {
-				console.error("Could not find course in CS rotation");
+			if (rot_entry === null) {
+				console.error("Could not find course in CS/MATH rotation");
 			} else {
 				// Check if the j-th course is offered in the selected year
-				if (((selSem.year % 2 === 0) && cs_rot_entry.evenYr) || ((selSem.year % 2 === 1) && cs_rot_entry.oddYr)) {
+				if (((selSem.year % 2 === 0) && rot_entry.evenYr) || ((selSem.year % 2 === 1) && rot_entry.oddYr)) {
 					// Check if the i-th course is offered in the selected term
-					if (((selSem.term === "SP") && cs_rot_entry.springSem) ||
-							((selSem.term === "SS") && cs_rot_entry.summerSem) ||
-							((selSem.term === "FS") && cs_rot_entry.fallSem)) {	
+					if (((selSem.term === "SP") && rot_entry.springSem) ||
+							((selSem.term === "SS") && rot_entry.summerSem) ||
+							((selSem.term === "FS") && rot_entry.fallSem)) {	
 						output.push(course[i]);
 					}
 				}
@@ -166,7 +242,7 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 		return output;
 	};
 
-	const [coursesToDisplay, setCoursesToDisplay] = React.useState<CourseType[]>(availCourses);
+	const [coursesToDisplay, setCoursesToDisplay] = React.useState<Course[]>(availCourses);
 	
 	const getSemIdx = (plan: SemItem[], semId: string) => {
 		for (let i:number = 0; i < plan.length; ++i) {
@@ -236,8 +312,6 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 				setCoursesToDisplay(newAvail);
 
 			} else { // Moving between semesters
-				console.log("Moving between semetsers");
-
 				const srcIdx = getSemIdx(plan, source.droppableId);
 				if (srcIdx === -1) {
 					return;
@@ -259,8 +333,7 @@ const CoursePlanner = ( {options, plan, waivers, restrictedCourses, completed, p
 	}
 
 	React.useEffect(() => {
-		const tmp = filterYearTerm(availCourses, selectedSemester);
-		console.log(tmp);
+		const tmp = filterYearTerm(getAvailCourses(), selectedSemester);
 		setCoursesToDisplay(tmp);
 	}, [selectedSemester, availCourses]);
 

@@ -8,7 +8,6 @@ import IRequirements from "../interfaces/iRequirements";
 
 import ReqLine from "../types/reqLine"
 import Course from "../types/courseType"
-import MsOptionsType from "../types/msOptions";
 
 import coreReqs from "../data/core_reqs.json";
 import track_reqs from "../data/track_req.json";
@@ -19,6 +18,12 @@ interface IReqContainerProps {
 
 const RequirementContainer = styled.div<IReqContainerProps>`
   color: ${props => (props.met ? 'green' : 'red')};
+  margin-left: 8px;
+`;
+
+const Title = styled.h3`
+	padding: 8px;
+	text-align: center;
 `;
 
 const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs, completed} : IRequirements) => {
@@ -99,35 +104,34 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
   };
 
     const checkFullTime = (plan: SemItem[]) => {
-        if (!msOptions.fullTime) return true;
+      if (!msOptions.fullTime) return true;
 
-        //don't throw error if there are leading or trailing empty semesters
-        //--maybe theyre starting in a later semester or added excess empty semesters
-        var start: number = plan.findIndex(element => element.courses.length > 0);
-        start = start > 0 ? start : 0;
-        var reversedEnd: number = plan.slice().reverse().findIndex(element => element.courses.length > 0);
-        reversedEnd = reversedEnd > 0 ? reversedEnd : 0;
-        var end: number = plan.length - reversedEnd;
+      //don't throw error if there are leading or trailing empty semesters
+      //--maybe theyre starting in a later semester or added excess empty semesters
+      var start: number = plan.findIndex(element => element.courses.length > 0);
+      start = start > 0 ? start : 0;
+      var reversedEnd: number = plan.slice().reverse().findIndex(element => element.courses.length > 0);
+      reversedEnd = reversedEnd > 0 ? reversedEnd : 0;
+      var end: number = plan.length - reversedEnd;
 
-        console.log(start);
-        console.log(end);
-        console.log(plan.length);
+      console.log(start);
+      console.log(end);
+      console.log(plan.length);
 
-        for (let i: number = start; i < end; ++i) {
-            if (!(plan[i].term === "SS")) {  // does the 9 cred hour minimum apply to summer semester too?
-                var creditHourSum: number = 0;
+      for (let i: number = start; i < end; ++i) {
+        if (!(plan[i].term === "SS")) {  // does the 9 cred hour minimum apply to summer semester too?
+          var creditHourSum: number = 0;
 
-                for (let j: number = 0; j < plan[i].courses.length; ++j) {
-                    let ch: number = plan[i].courses[j].credHrs!;
-                    creditHourSum += ch;
-                }
-                if (creditHourSum < 9) {
-                    return false;
-                }
-            }
-
+          for (let j: number = 0; j < plan[i].courses.length; ++j) {
+            let ch: number = plan[i].courses[j].credHrs!;
+            creditHourSum += ch;
+          }
+          if (creditHourSum < 9) {
+            return false;
+          }
         }
-        return true;
+      }
+      return true;
     };
   
   const isCourseWaived = (dept: string, num: number, waivers: Course[]) => {
@@ -253,9 +257,7 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
   const [credHrs5000, setCredHrs5000] = React.useState<number>(calcCreditHours5000(plan));
   const [coreReq, setCoreReqs] = React.useState(coreReqs);
   const [numElectivesMet, setNumElectivesMet] = React.useState<number>(calcNumElectivesMet(optReq.electives, plan));
-
   const coreTxt = genReqArr(coreReq.required, waivers);  
-
   const optReqTxt = genReqArr(optReq.required, waivers);
   const optElectTxt = optReq.electives ? genReqArr(optReq.electives, waivers) : [] as string[][];
   
@@ -265,9 +267,9 @@ const Requirements = ({msOptions, plan, waivers, restrictedCourses, transferHrs,
     setNumElectivesMet(calcNumElectivesMet(optReq.electives, plan));
   }, [plan, optReq.electives]);
 
-  return (        
+  return (
     <div>
-      <h2>Degree Checklist</h2>
+      <Title>Degree Checklist</Title>
 
       {msOptions.fullTime &&
         <React.Fragment>

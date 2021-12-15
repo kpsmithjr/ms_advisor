@@ -8,8 +8,6 @@ import ISemester from "../interfaces/iSemester";
 import cs_rotation from "../data/cs_rotation.json";
 import cs_courses from "../data/cs_courses.json";
 import ugradCourses from "../data/restricted.json";
-import { resolveUrl } from "ajv/dist/compile/resolve";
-
 
 interface ICourseList {
 	isDropDisabled: boolean;
@@ -22,10 +20,6 @@ const Container = styled.div`
 	border-radius: 2px;
 	width: 360px;
 	min-height: 100px;
-`;
-
-const Title = styled.h3`
-	padding: 8px;
 `;
 
 const CourseList = styled.div<ICourseList>`
@@ -57,6 +51,8 @@ const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanl
 			return true;
 		}
 		
+		var course_rot;
+		console.log(courseId.split(",")[0])
 		for (let i = 0; i < cs_rotation.length; ++i) {
 			if (courseId === (cs_rotation[i].dept + " " + cs_rotation[i].num.toString())) {
 				

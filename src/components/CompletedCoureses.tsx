@@ -6,8 +6,10 @@ import CourseType from "../types/courseType";
 
 import ICompletedCourses from "../interfaces/iCompletedCourses";
 
-import Courses from "../data/cs_courses.json";
+import cs_courses from "../data/cs_courses.json";
+import math_courses from "../data/math_courses.json";
 import cs_rotation from "../data/cs_rotation.json";
+import track_reqs from "../data/track_req.json";
 
 const CompletedContainer = styled.div`
 `;
@@ -33,9 +35,17 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
   };
 
   const getCourseName = (dept: string, num:number): string => {
-		for (let i = 0; i < Courses.length; ++i) {
-			if ((Courses[i].dept === dept) && (Courses[i].num === num)) {
-				return Courses[i].name;
+    let courses;
+    if (dept === "CS") {
+      courses = cs_courses;
+    } else if (dept === "MATH") {
+      courses = math_courses;
+    } else {
+      return "";
+    }
+		for (let i = 0; i < courses.length; ++i) {
+			if ((courses[i].dept === dept) && (courses[i].num === num)) {
+				return courses[i].name;
 			}
 		}
 		return "";
@@ -51,10 +61,25 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
   };
 
   const generateCompletedData = (): CompletedType[] => {
+    let optReq: any;
+    let track_found = false;
+    for (let i = 0; i < track_reqs.length; ++i) {
+      if (msTrack === track_reqs[i].name) {
+        optReq = track_reqs[i];
+        console.log(optReq);
+        track_found = true;
+        break;
+      }
+    }
+  
+    if (!track_found) {
+      console.log(msTrack);
+      console.error("Unknown Track");
+    }
+
     let completedData = [] as CompletedType[];
 
-    for (let i=0; i < cs_rotation.length; ++i) {
-      
+    for (let i=0; i < cs_rotation.length; ++i) {      
       if (cs_rotation[i].num >= 4000) {
         const newCompleted:CompletedType = {
           id: cs_rotation[i].dept + " " + cs_rotation[i].num.toString(),
@@ -62,11 +87,46 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
           num: cs_rotation[i].num,
           name: getCourseName(cs_rotation[i].dept, cs_rotation[i].num),
           selected: completedSelected(cs_rotation[i].dept, cs_rotation[i].num)
-        };
-  
+        };  
         completedData.push(newCompleted)
-      }      
+      }   
     }
+
+    if (optReq !== null) {
+      for (let i = 0; i < optReq.required.length; ++i) {
+        for (let j = 0; j < optReq.required[i].courses.length; ++j) {
+          if (optReq.required[i].courses[j].dept === "MATH") {
+            const dept:string = optReq.required[i].courses[j].dept;
+            const num:number = optReq.required[i].courses[j].num;					
+            const newCompleted:CompletedType = {
+              id:  dept + " " + num.toString(),
+              dept: dept,
+              num: num,
+              name: getCourseName(dept, num),
+              selected: completedSelected(dept, num)
+            };
+            completedData.push(newCompleted)
+          }
+        }
+      }
+      for (let i = 0; i < optReq.electives.length; ++i) {
+        for (let j = 0; j < optReq.electives[i].courses.length; ++j) {
+          if (optReq.electives[i].courses[j].dept === "MATH") {
+            const dept:string = optReq.electives[i].courses[j].dept;
+            const num:number = optReq.electives[i].courses[j].num;					
+            const newCompleted:CompletedType = {
+              id:  dept + " " + num.toString(),
+              dept: dept,
+              num: num,
+              name: getCourseName(dept, num),
+              selected: completedSelected(dept, num)
+            };
+            completedData.push(newCompleted)
+          }
+        }
+      }
+    }
+    
 
     return completedData;
   };

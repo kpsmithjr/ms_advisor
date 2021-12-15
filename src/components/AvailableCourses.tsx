@@ -6,9 +6,6 @@ import Course from "../types/courseType";
 
 import IAvailableCourses from "../interfaces/iAvailableCourses";
 
-import cs_rotation from "../data/cs_rotation.json";
-import SelectedSemester from "../types/selectedSemester";
-
 const OuterContainer = styled.div`
 	text-align: center;
 `;
