@@ -178,7 +178,7 @@ const CompletedCourses = ({completed, msTrack, handler}: ICompletedCourses) => {
         <button onClick={handleSubmit}>Next</button>
       </div>
       <div className='instructions'>
-				<p>Select any course you have completed while in the MS program in Computer Science at UMSL.</p>
+				<p>If you are an existing student, select any courses you have already completed while in the MS program in Computer Science at UMSL.</p>
         <br>
         </br>
 			</div>

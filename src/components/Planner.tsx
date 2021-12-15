@@ -107,9 +107,10 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
             <li>This section provides a list of the CS courses based on the 3-year course rotation.
             Any courses you have selcted as 'waived' or 'completed' will not be shown. Additionally, only courses &gt; 4000 will
             be shown, unless you have selected a course as restricted.</li>
+            <li>If you have selected "Evening-only" or "Online-only" options earlier, only courses meeting those criteria will be shown.</li>
             <li>Courses may be added to a semester using drag-and-drop. When dragging a course,
-            a semester will be shaded grey if the course cannont be added.</li>
-            <li>You may display a discription of a course, include prerequisites, by double-clicking on a course. </li>
+            a semester will be shaded grey if the course cannot be added.</li>
+            <li>You may display a description of a course, including prerequisites and scheduling info, by double-clicking on a course. </li>
             <br></br>
           </InstructionContainer>
           <InstructionHeaderContainer>
@@ -119,8 +120,8 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
             <li>This section shows your academic plan by semester. Click the 'Add Semester' button to add more semesters.</li>
             <li>The Available Courses can be filtered by clicking a semester title. To change the filter, click another semester
             or deselect the semester.</li>
-            <li>Course can be moved between semesters or can be removed, by dragging the course back to the 'Avaiable Courses' section.</li>
-            <li>Courses are shaded red if the prerequiste(s) is not planned before the course is planned.</li>
+            <li>Courses can be moved between semesters, or they can be removed by dragging the course back to the 'Available Courses' section.</li>
+            <li>Courses are shaded red if the prerequiste(s) are not planned before the course is planned.</li>
             <br></br>
           </InstructionContainer>
           <InstructionHeaderContainer>
@@ -134,6 +135,7 @@ const Plan = ({ msOptions, waivers, restrictedCourses, oldPlan, planHandler, tra
             <li>Courses that are waived will have a '(W)' next to them.</li>
             <li>The number of completed and transfered credit hours (if any) will appear above the requirements.</li>
           </InstructionContainer>
+          <div className="spacer"> </div>
         </React.Fragment>
       }
       <PlanContainer>

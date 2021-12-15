@@ -120,7 +120,7 @@ const Home = ({ saveablePlanHandler }: any) => {
       </div>
       <div className='instructions'>
         <p>
-          Welcome to the MS Adivsing Tool for the Department of Computer Science at the University of Missouri - St. Louis.
+          Welcome to the MS Advising Tool for the Department of Computer Science at the University of Missouri - St. Louis.
         </p>
         <br/>
         <p>
@@ -133,6 +133,7 @@ const Home = ({ saveablePlanHandler }: any) => {
           To begin planning click "Create New Plan" or load an existing plan by clicking "Browse".
         </p>
       </div>
+      <div className="spacer"> </div>
       <div className='footer-buttons'>
         <button onClick={createNewPlan}>Create New Plan</button>
         &nbsp;&nbsp;&nbsp;
