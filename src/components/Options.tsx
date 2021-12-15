@@ -33,22 +33,21 @@ const Options = ({options, handler}: IOptions)=> {
     setFormData(newData);
   };
 
-    const updateFulltime = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.fullTime = e.target.checked;
-        setFormData(newData);
-    }
-    const updateEvening = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.eveningOnly = e.target.checked;
-        setFormData(newData);
-    }
-    const updateOnline = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.onlineOnly = e.target.checked;
-        setFormData(newData);
-    }
-  
+  const updateFulltime = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.fullTime = e.target.checked;
+    setFormData(newData);
+  };
+  const updateEvening = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.eveningOnly = e.target.checked;
+    setFormData(newData);
+  };
+  const updateOnline = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.onlineOnly = e.target.checked;
+    setFormData(newData);
+  };
   const handleCertChange = (e: any) => {
     const newCerts = formData.certs.map(cert => {
       if (cert.name !== e.target.name ) return cert;      
