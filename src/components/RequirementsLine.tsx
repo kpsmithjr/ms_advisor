@@ -10,7 +10,8 @@ color: ${props => (props.clr === 0 ? 'red' : (props.clr === 1 ? 'green' : 'grey'
 `;
 
 const LineContainer = styled.div`
-display: inline-flex;
+	display: inline-flex;
+	margin-left: 8px;
 `;
 
 interface IReqLine {

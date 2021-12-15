@@ -17,7 +17,7 @@ type RestrictedCourseType = {
 };
 
 const RestrictedContainer = styled.div`
-`
+`;
 
 const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 
@@ -74,6 +74,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       return { ...course, selected: e.target.checked};
     });
     setCsFormData(newFormData);
+		updateGlobal(newFormData, mathFormData);
   }
 
 	const handleClickMath = (e: any) => {
@@ -82,35 +83,39 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       return { ...course, selected: e.target.checked};
     });
     setMathFormData(newFormData);
+		updateGlobal(csFormData, newFormData);
   }
 
 	const handleCancel = () => {
     navigate(-1);
   };
 
-	const handleSubmit = () => {
+	const updateGlobal = (csData:any, mathData:any) => {
 		let newResticted = [] as CourseType[];
-		for (let i = 0; i < csFormData.length; ++i) {
-			if (csFormData[i].selected) {
+		for (let i = 0; i < csData.length; ++i) {
+			if (csData[i].selected) {
 				const tmp = {
-					id: csFormData[i].id,
-					dept: csFormData[i].dept,
-					num: csFormData[i].num
+					id: csData[i].id,
+					dept: csData[i].dept,
+					num: csData[i].num
 				}
 				newResticted.push(tmp);
 			}
 		}
-		for (let i = 0; i < mathFormData.length; ++i) {
-			if (mathFormData[i].selected) {
+		for (let i = 0; i < mathData.length; ++i) {
+			if (mathData[i].selected) {
 				const tmp = {
-					id: mathFormData[i].id,
-					dept: mathFormData[i].dept,
-					num: mathFormData[i].num
+					id: mathData[i].id,
+					dept: mathData[i].dept,
+					num: mathData[i].num
 				}
 				newResticted.push(tmp);
 			}
 		}
-		handler(newResticted);
+		handler(newResticted);	
+	};
+
+	const handleSubmit = () => {		
 		navigate('/transfers');
 	}
 
@@ -119,8 +124,18 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
 			<div className="page-header">
         <h1>Restricted Courses</h1>
       </div>
+			<div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
 			<div className='instructions'>
-				<p>Instruction Place Holder</p>
+				<p>Restricted courses are those that cover undergraduate level computer science and mathematics skills required in order to proceed with graduate study.</p>
+				<p>Please select any courses you have <big><b>NOT</b></big> taken.</p>				
+				<br></br>
+				<p>Note: These restricted courses should be fulfilled in the first few semesters (optimally in the first semester).</p>
+				<p>Note: Credit hours in these courses will not count toward the 30 graduate hour requirement. </p>
+				<br></br>
 			</div>
 			
 			<h3>Computer Science Courses</h3>
@@ -140,6 +155,7 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
           );
       	})
 			}
+			<br></br>
 			</RestrictedContainer>
 			<h3>Mathematics Courses</h3>
 			<RestrictedContainer>
@@ -159,11 +175,6 @@ const Restricted = ({restrictedCourses, handler}: IRestricted) => {
       	})
 			}
 			</RestrictedContainer>
-			<div className='footer-buttons'>
-				<button onClick={handleCancel}>Cancel</button>
-				&nbsp;&nbsp;&nbsp;
-				<button onClick={handleSubmit}>Next</button>
-			</div>
 	</div>
 	);
 };

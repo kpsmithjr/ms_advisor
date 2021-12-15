@@ -115,26 +115,27 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       return { ...course, selected: e.target.checked};
     });
     setFormData(newFormData);
+
+    let newWaivers = [] as CourseType[];
+    for (let i = 0; i < newFormData.length; ++i) {
+      if (newFormData[i].selected) {
+        const waivedCourse:CourseType = {
+          id: newFormData[i].id,
+          dept:newFormData[i].dept,
+          num:newFormData[i].num,
+          name:newFormData[i].name,
+        }
+        newWaivers.push(waivedCourse);
+      }
+    }
+    handler(newWaivers);
   }
   
   function handleCancel() {
     navigate(-1);
   }
 
-  function handleSubmit() {
-    let newWaivers = [] as CourseType[];
-    for (let i = 0; i < formData.length; ++i) {
-      if (formData[i].selected) {
-        const waivedCourse:CourseType = {
-          id: formData[i].id,
-          dept:formData[i].dept,
-          num:formData[i].num,
-          name:formData[i].name,
-        }
-        newWaivers.push(waivedCourse);
-      }
-    }
-    handler(newWaivers);
+  function handleSubmit() {    
     navigate('/completed');
   }
   
@@ -143,8 +144,19 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
       <div className="page-header">
         <h1>Waivered Courses</h1>
       </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
       <div className='instructions'>
-				<p>Instruction Place Holder</p>
+				<p>Waivers may be granted by the Department of Computer Science if you have previous experience with
+           the subject matter from work or a class taken at another university. Required courses, based on the MS
+           options selected earlier, are shown</p>
+        <br></br>
+        <p>Note: Credit hours in these courses will not count toward the 30 graduate hour requirement.</p>
+        <p>Note: A '(W)' will be displayed next to any requirment with a waiver.</p>
+        <br></br>
 			</div>
       <WaiverContainer>
         {formData.map((course, index) => {
@@ -162,11 +174,6 @@ const Waivers = ({waivers, msTrack, handler}: IWaivers) => {
           );
         })}
       </WaiverContainer>
-      <div className="footer-buttons">
-        <button onClick={handleCancel}>Cancel</button>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
     </div>
   );
 }

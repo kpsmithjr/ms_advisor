@@ -16,6 +16,12 @@ const SemestersContainer = styled.div`
 	max-height: 600px;
 	overflow-y: scroll;
 `;
+
+const Title = styled.h3`
+	padding: 8px;
+	text-align: center;
+`;
+
 const Semesters = ({semData, newSemesterHandler, courseId, restricted, selectedSemester, selSemHanlder}: ISemesters) => {
 	
 	const addSemester = () => {
@@ -69,6 +75,9 @@ const Semesters = ({semData, newSemesterHandler, courseId, restricted, selectedS
 
 	return (
 		<PlannerContainer>
+			<Title>
+				Semester Planner
+			</Title>
 			{<button onClick={addSemester}>Add Semester</button>}
 			<SemestersContainer>
 				{semRenderer}

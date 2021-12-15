@@ -31,10 +31,6 @@ const Container = styled.div`
 	min-height: 100px;
 `;
 
-const Title = styled.h3`
-	padding: 8px;
-`;
-
 const CourseList = styled.div<ICourseList>`
 	padding: 8px;
 	transition: background-color 0.2s ease;
@@ -87,6 +83,9 @@ const Semester = ({sem, courseId, plan, restricted, selectedSemester, selSemHanl
 
 	const preReqNotMet = ({dept, num}: {dept:string, num:number}):boolean => {
 		
+		if (num < 4000) {
+			return false;
+		}
 		// Check if term1 is before term2 
 		const isTermBefore = (term1:string, term2:string):boolean => {
 			if ((term2 === "FS") && ((term1 === "SP") || (term1 === "SS"))) {

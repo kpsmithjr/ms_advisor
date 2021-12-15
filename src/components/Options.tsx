@@ -31,24 +31,27 @@ const Options = ({options, handler}: IOptions)=> {
     var newData:MsOptionsType = JSON.parse(JSON.stringify(formData));
     newData.msTrack = e.target.value;
     setFormData(newData);
+    handler(newData);
   };
 
-    const updateFulltime = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.fullTime = e.target.checked;
-        setFormData(newData);
-    }
-    const updateEvening = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.eveningOnly = e.target.checked;
-        setFormData(newData);
-    }
-    const updateOnline = (e: any) => {
-        var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
-        newData.onlineOnly = e.target.checked;
-        setFormData(newData);
-    }
-  
+  const updateFulltime = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.fullTime = e.target.checked;
+    setFormData(newData);
+    handler(newData);
+  };
+  const updateEvening = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.eveningOnly = e.target.checked;
+    setFormData(newData);
+    handler(newData);
+  };
+  const updateOnline = (e: any) => {
+    var newData: MsOptionsType = JSON.parse(JSON.stringify(formData));
+    newData.onlineOnly = e.target.checked;
+    setFormData(newData);
+    handler(newData);
+  };
   const handleCertChange = (e: any) => {
     const newCerts = formData.certs.map(cert => {
       if (cert.name !== e.target.name ) return cert;      
@@ -134,6 +137,11 @@ const Options = ({options, handler}: IOptions)=> {
       <div className="page-header">
         <h1>Academic Plan Options</h1>
       </div>
+      <div className="footer-buttons">
+        <button onClick={handleCancel}>Previous</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={handleSubmit}>Next</button>
+      </div>
       <div className='instructions'>
               <p>
               Select which Computer Science MS track you wish to pursue from the drop-down menu.
@@ -216,13 +224,7 @@ const Options = ({options, handler}: IOptions)=> {
                       <label htmlFor="cb3">Online-only Courses</label>
                   </li>
               </ul>
-          </div>
-
-      <div className="footer-buttons">
-        <button onClick={handleCancel}>Cancel</button>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={handleSubmit}>Next</button>
-      </div>
+          </div>      
     </div>
   );
 }
